@@ -1,8 +1,8 @@
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import WhyChoose from "@/components/sections/WhyChoose"; // ✅ NEW
 import Services from "@/components/sections/Services";
-import Stats from "@/components/sections/Stats";
+import VideoServices from "@/components/sections/VideoServices";
+import WhyChoose from "@/components/sections/WhyChoose";
 import Clients from "@/components/sections/Clients";
 import ContactCTA from "@/components/sections/ContactCTA";
 
@@ -10,25 +10,25 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
 
-      {/* 🔥 HERO */}
+      {/* 01. Hook: Immediate visual impact and value proposition */}
       <Hero />
 
-      {/* 🔥 ABOUT */}
+      {/* 02. Context: Who you are and your mission */}
       <About />
 
-      {/* ⭐ WHY CHOOSE */}
+      {/* 03. Capabilities: Grouping Services and Video proof together for maximum authority */}
+      <section className="bg-slate-50/50">
+        <Services />
+        <VideoServices />
+      </section>
+
+      {/* 04. Reassurance: Why your specific technical approach is superior */}
       <WhyChoose />
 
-      {/* 🔥 SERVICES */}
-      <Services />
-
-      {/* ⭐ STATS */}
-      <Stats />
-
-      {/* 🔥 CLIENTS */}
+      {/* 05. Social Proof: Validating the "Why Choose" with big-name partners */}
       <Clients />
 
-      {/* 🔥 CONTACT CTA */}
+      {/* 06. Conversion: Final nudge to start a project */}
       <ContactCTA />
 
     </main>

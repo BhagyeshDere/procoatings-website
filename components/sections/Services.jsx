@@ -1,146 +1,171 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight, Zap, Shield, Droplets, HardHat, Car } from "lucide-react";
 
 const services = [
   {
     id: "01",
     title: "Waterproofing Solutions",
-    desc: "Advanced multi-layer protection for structural integrity, ensuring zero-permeability for industrial foundations.",
+    desc: "Advanced multi-layer protection including Liquid Membrane and Crystalline systems for zero-permeability.",
     img: "/images/waterproofing/main.png",
-    // Tighter staggering for better vertical flow
-    position: "lg:translate-y-0"
+    icon: <Droplets size={20} />,
+    color: "#EAA33F"
   },
   {
     id: "02",
-    title: "Epoxy Flooring",
-    desc: "High-grade, seamless chemical-resistant resin systems engineered for heavy-duty manufacturing environments.",
+    title: "Industrial Flooring",
+    desc: "High-grade Epoxy and PU flooring systems engineered for heavy loads and chemical resistance.",
     img: "/images/flooring/floor1.png",
-    position: "lg:translate-y-8"
+    icon: <HardHat size={20} />,
+    color: "#0F3250"
   },
   {
     id: "03",
-    title: "Industrial Coatings",
-    desc: "Specialized anti-corrosive treatments designed to withstand extreme thermal and chemical stress.",
-    img: "/images/hero/bg2.png",
-    position: "lg:translate-y-16"
+    title: "Floor Densification",
+    desc: "Chemical treatment that penetrates concrete pores to eliminate dusting.",
+    img: "/images/flooring/densification.png",
+    icon: <Shield size={20} />,
+    color: "#0F3250"
+  },
+  {
+    id: "04",
+    title: "Anti-Static (ESD) Flooring",
+    desc: "Specialized surfaces designed to prevent electrostatic discharge.",
+    img: "/images/flooring/esd.png",
+    icon: <Zap size={20} />,
+    color: "#0F3250"
+  },
+  {
+    id: "05",
+    title: "Car Deck Parking",
+    desc: "UV-resistant, skid-proof coatings for multi-level car parks.",
+    img: "/images/flooring/car-deck.png",
+    icon: <Car size={20} />,
+    color: "#0F3250"
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="relative pt-24 pb-24 md:pt-32 md:pb-32 bg-white overflow-hidden text-[#0F3250]">
+    <section id="services" className="relative py-24 bg-[#F8FAFC] overflow-hidden text-[#0F3250]">
       
-      {/* 🧩 Blueprint Grid Overlay */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
-           style={{ backgroundImage: `radial-gradient(#0F3250 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
-      
-      {/* Ambient Glows */}
-      <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-[#EAA33F]/5 blur-[120px] rounded-full animate-pulse" />
+      {/* 🧩 Technical Background Grid */}
+      <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
+           style={{ backgroundImage: `linear-gradient(#0F3250 1px, transparent 1px), linear-gradient(90deg, #0F3250 1px, transparent 1px)`, backgroundSize: '50px 50px' }} />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      {/* Increased padding from px-2 to px-6 for a better frame */}
+      <div className="max-w-[98%] mx-auto px-6 relative z-10">
         
-        {/* 🔷 HEADER SECTION */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-12 h-[2px] bg-[#EAA33F]"></span>
-              <span className="text-[#EAA33F] text-xs font-black uppercase tracking-[0.4em]">Core Capabilities</span>
+        {/* 🔷 HEADER */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-6">
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 bg-white px-3 py-1 rounded-full shadow-sm border border-slate-100">
+              <span className="w-2 h-2 rounded-full bg-[#EAA33F] animate-pulse"></span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Engineering Excellence</span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-tighter uppercase">
-              Engineered <br />
-              <span className="text-slate-300">Protection.</span>
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.8] text-[#0F3250]">
+              The Core <br />
+              <span className="text-transparent" style={{ WebkitTextStroke: '1px #0F3250' }}>Service</span> 
+              <span className="text-[#EAA33F]"> Hub.</span>
             </h2>
+          </div>
+          <p className="max-w-xs text-slate-500 font-medium border-l-2 border-[#EAA33F] pl-6 text-sm">
+            High-performance industrial barriers and surface engineering for critical infrastructure.
+          </p>
+        </div>
+
+        {/* 🔥 BENTO-SLIDER HYBRID LAYOUT - ALWAYS VISIBLE IMAGES */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-full">
+          
+          {/* Main Feature Card (Left) */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="lg:col-span-5 relative group h-[500px] lg:h-[620px] rounded-3xl overflow-hidden bg-slate-200 shadow-2xl"
+          >
+            <img 
+              src={services[0].img} 
+              alt={services[0].title} 
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
+            />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500" />
+            
+            <div className="absolute top-8 left-8 bg-white/20 backdrop-blur-md p-4 rounded-2xl border border-white/30 z-20">
+              {services[0].icon}
+            </div>
+
+            <div className="absolute bottom-10 left-10 right-10 z-20">
+              <span className="text-[#EAA33F] font-black text-xs uppercase tracking-[0.4em] mb-2 block">Premium Protection</span>
+              <h3 className="text-3xl md:text-4xl font-black text-white uppercase mb-4 leading-tight drop-shadow-md">{services[0].title}</h3>
+              <p className="text-white text-sm leading-relaxed mb-6 line-clamp-3 font-medium">{services[0].desc}</p>
+              <button className="flex items-center gap-2 text-white text-[10px] font-black uppercase tracking-widest group/btn">
+                Technical Data <ArrowUpRight size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+              </button>
+            </div>
           </motion.div>
 
-          <motion.p 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-slate-500 font-medium max-w-sm border-l-2 border-slate-100 pl-6"
-          >
-            Delivering high-performance industrial solutions designed to extend the life of critical infrastructure.
-          </motion.p>
-        </div>
+          {/* Secondary Grid (Right) */}
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
+            {services.slice(1).map((service, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative h-[300px] rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 bg-white"
+              >
+                <div className="absolute inset-0 z-0">
+                  <img 
+                    src={service.img} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover opacity-100 group-hover:scale-110 transition-all duration-700" 
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500" />
+                </div>
 
-        {/* 🔥 OPTIMIZED GRID: Increased card height, reduced gaps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.8 }}
-              viewport={{ once: true }}
-              className={`group relative h-[550px] md:h-[650px] overflow-hidden rounded-sm bg-slate-900 ${service.position}`}
-            >
-              {/* Image Layer */}
-              <div className="absolute inset-0 z-0">
-                <motion.img
-                  src={service.img}
-                  alt={service.title}
-                  className="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent z-10" />
-              </div>
-
-              {/* Technical ID Overlay */}
-              <div className="absolute top-8 left-8 z-20">
-                <span className="text-7xl font-black text-white/10 tracking-tighter group-hover:text-[#EAA33F]/20 transition-colors duration-500">
+                <span className="absolute -right-4 -top-4 text-8xl font-black text-white/10 transition-colors z-10">
                   {service.id}
                 </span>
-              </div>
 
-              {/* Content Box */}
-              <div className="absolute bottom-0 left-0 w-full p-10 z-20">
-                <div className="overflow-hidden">
-                   <motion.h3 className="text-3xl font-black text-white uppercase tracking-tight mb-4 transition-transform duration-500 group-hover:-translate-y-1">
-                    {service.title}
-                  </motion.h3>
+                <div className="relative z-20 h-full p-8 flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl flex items-center justify-center text-white group-hover:bg-[#EAA33F] group-hover:border-[#EAA33F] transition-colors">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl font-black uppercase text-white mt-6 leading-tight drop-shadow-md">
+                      {service.title.split(' ').map((word, idx) => (
+                        <span key={idx} className="block">{word}</span>
+                      ))}
+                    </h3>
+                  </div>
+                  
+                  <div className="translate-y-0 opacity-100 transition-all duration-500">
+                    <p className="text-white/90 text-xs font-semibold mb-4 drop-shadow-sm">{service.desc}</p>
+                    <div className="w-full h-[1px] bg-white/30 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-[#EAA33F] -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
+                    </div>
+                  </div>
                 </div>
-                
-                <p className="text-slate-300 text-base leading-relaxed mb-8 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                  {service.desc}
-                </p>
-
-                {/* Animated Line */}
-                <div className="relative h-[2px] w-full bg-white/10 overflow-hidden">
-                  <div className="absolute top-0 left-0 h-full w-full bg-[#EAA33F] -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
-                </div>
-              </div>
-
-              {/* Border Glow */}
-              <div className="absolute inset-0 border border-white/0 group-hover:border-white/10 transition-colors duration-500 pointer-events-none" />
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        {/* 🛠️ FOOTER: Reduced top margin for a tighter fit */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-20 md:mt-24 pt-10 border-t border-slate-100 flex flex-wrap items-center justify-between gap-6"
-        >
-          <div className="flex gap-12">
-              <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Standard</span>
-                <span className="text-sm font-bold">ISO 9001:2015</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Coverage</span>
-                <span className="text-sm font-bold">Pan India Service</span>
-              </div>
+        {/* 🛠️ TECHNICAL FOOTER */}
+        <div className="mt-20 pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex gap-8">
+            {["25+ Years Experience", "Pan-India Service", "ISO Certified"].map((tag, idx) => (
+              <span key={idx} className="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2">
+                <div className="w-1 h-1 bg-[#EAA33F] rounded-full" /> {tag}
+              </span>
+            ))}
           </div>
-          <button className="text-[11px] font-black uppercase tracking-[0.3em] text-[#0F3250] flex items-center gap-4 group">
-            Explore All Solutions 
-            <span className="w-10 h-[1px] bg-[#0F3250] group-hover:w-16 transition-all duration-500"></span>
+          <button className="px-8 py-4 bg-white border border-slate-200 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#0F3250] hover:text-white transition-all shadow-sm">
+            View All Capabilities
           </button>
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );

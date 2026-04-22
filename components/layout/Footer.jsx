@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  // Icons wrapped in Fragments to prevent parsing errors in arrays
   const socialLinks = [
     { 
       name: "LinkedIn", 
@@ -36,49 +35,38 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-[#051626] text-white pt-24 overflow-hidden">
-      {/* 🧩 Grid Overlay */}
+    <footer className="relative bg-[#051626] text-white pt-20 overflow-hidden border-t border-white/5">
+      {/* 🧩 Grid & Background Effects */}
       <div 
-        className="absolute inset-0 opacity-[0.05] pointer-events-none" 
-        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '50px 50px' }} 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '45px 45px' }} 
       />
-
-      {/* 🎨 Ambient Lighting */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#EAA33F]/10 blur-[100px] rounded-full" />
+      <div className="absolute -top-24 -left-24 w-[400px] h-[400px] bg-[#EAA33F]/5 blur-[100px] rounded-full pointer-events-none" />
       
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-8 pb-20">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 pb-16">
           
           {/* 🔷 BRAND BLOCK */}
-          <div className="lg:col-span-4 space-y-10">
-            <div className="space-y-4">
-              <h2 className="text-4xl font-black tracking-tighter uppercase leading-none">
+          <div className="lg:col-span-5 space-y-8 text-left">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase leading-none">
                 PRO<span className="text-[#EAA33F]">COATINGS</span>
               </h2>
-              <div className="h-1 w-12 bg-[#EAA33F]" />
-              <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-xs">
-                Setting the gold standard in industrial protection. We preserve structural integrity with precision-engineered coating systems.
+              <div className="h-1 w-14 bg-[#EAA33F]" />
+              <p className="text-slate-400 text-base md:text-lg font-medium leading-relaxed max-w-md">
+                Setting the gold standard in industrial protection. We preserve structural integrity with precision-engineered coating systems across India.
               </p>
             </div>
 
-            {/* Professional Socials */}
             <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a 
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#EAA33F] hover:text-[#0F3250] transition-all duration-300 group"
+                  className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#EAA33F] hover:text-[#051626] transition-all duration-300 group"
                   aria-label={social.name}
                 >
-                  <svg 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    className="w-5 h-5"
-                  >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
                     {social.icon}
                   </svg>
                 </a>
@@ -86,15 +74,15 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* 🔷 LINKS & CONTACT GRID */}
-          <div className="lg:col-span-8 grid md:grid-cols-3 gap-12 lg:pl-12">
+          {/* 🔷 NAVIGATION & INFO */}
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10">
             
-            <div className="space-y-8">
-              <h4 className="text-xs font-black uppercase tracking-[0.4em] text-[#EAA33F]">Sitemap</h4>
-              <ul className="space-y-4 text-sm font-bold uppercase tracking-widest text-slate-400">
-                {['Home', 'About', 'Services', 'Contact'].map(link => (
+            <div className="space-y-6">
+              <h4 className="text-[11px] font-black uppercase tracking-[0.25em] text-[#EAA33F]">Sitemap</h4>
+              <ul className="space-y-4">
+                {['Home', 'About', 'Services', 'Gallery', 'Contact'].map(link => (
                   <li key={link}>
-                    <a href={`#${link.toLowerCase()}`} className="hover:text-white transition-all hover:translate-x-1 inline-block">
+                    <a href={`#${link.toLowerCase()}`} className="text-sm font-bold text-slate-400 hover:text-white transition-colors">
                       {link}
                     </a>
                   </li>
@@ -102,33 +90,27 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-8">
-              <h4 className="text-xs font-black uppercase tracking-[0.4em] text-[#EAA33F]">Location</h4>
-              <div className="space-y-4">
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  Office No.1, Mangalmurti Complex,<br />
-                  Narhe-Dhayari Road, Pune<br />
-                  Maharashtra - 411041
-                </p>
-                <div className="pt-2">
-                  <p className="text-[10px] uppercase font-bold text-slate-500 mb-1">General Inquiries</p>
-                  <a href="mailto:procoatings2122@gmail.com" className="text-sm font-bold hover:text-[#EAA33F] transition-colors border-b border-white/10 pb-1">
-                    procoatings2122@gmail.com
-                  </a>
-                </div>
-              </div>
+            <div className="space-y-6">
+              <h4 className="text-[11px] font-black uppercase tracking-[0.25em] text-[#EAA33F]">Expertise</h4>
+              <ul className="space-y-4">
+                {['Waterproofing', 'Epoxy Flooring', 'PU Coating', 'Densification'].map(item => (
+                  <li key={item} className="text-sm font-bold text-slate-500 hover:text-[#EAA33F] cursor-pointer transition-colors leading-tight">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="space-y-8">
-              <h4 className="text-xs font-black uppercase tracking-[0.4em] text-[#EAA33F]">Support</h4>
+            <div className="space-y-8 col-span-2 sm:col-span-1">
+              <h4 className="text-[11px] font-black uppercase tracking-[0.25em] text-[#EAA33F]">Support</h4>
               <div className="space-y-6">
                 <div>
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Project Manager</span>
-                  <p className="text-lg font-black text-white hover:text-[#EAA33F] cursor-pointer transition-colors">+91 89999 25373</p>
+                  <span className="text-[9px] font-bold text-slate-600 uppercase tracking-widest block mb-1">Projects</span>
+                  <p className="text-base font-black text-white hover:text-[#EAA33F] transition-colors cursor-pointer">+91 89999 25373</p>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Technical Head</span>
-                  <p className="text-lg font-black text-white hover:text-[#EAA33F] cursor-pointer transition-colors">+91 77578 71617</p>
+                  <span className="text-[9px] font-bold text-slate-600 uppercase tracking-widest block mb-1">Technical</span>
+                  <p className="text-base font-black text-white hover:text-[#EAA33F] transition-colors cursor-pointer">+91 77578 71617</p>
                 </div>
               </div>
             </div>
@@ -136,30 +118,33 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* 🔷 BOTTOM SECTION */}
-        <div className="pt-8 pb-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#EAA33F]/10 flex items-center justify-center border border-[#EAA33F]/20">
-              <div className="w-2 h-2 bg-[#EAA33F] rounded-full animate-pulse" />
+        {/* 🔷 FOOTER BOTTOM */}
+        <div className="py-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+          <div className="flex flex-col md:flex-row items-center gap-5">
+            <div className="w-12 h-12 rounded-2xl bg-[#EAA33F]/10 flex items-center justify-center border border-[#EAA33F]/20">
+              <div className="w-2.5 h-2.5 bg-[#EAA33F] rounded-full animate-pulse" />
             </div>
-            <div>
-              <p className="text-[11px] font-bold text-slate-400">© {currentYear} PRO COATINGS.</p>
-              <p className="text-[9px] uppercase tracking-widest text-slate-600 font-bold">Industrial Grade Integrity</p>
+            <div className="space-y-1">
+              <p className="text-sm font-bold text-slate-300">
+                © {currentYear} PRO COATINGS. All Rights Reserved.
+              </p>
+              <p className="text-[10px] uppercase font-black tracking-[0.3em] text-slate-600">
+                Industrial Integrity Verified
+              </p>
             </div>
           </div>
 
           <div className="group relative">
-            <div className="absolute -inset-2 bg-gradient-to-r from-[#EAA33F]/20 to-transparent blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative px-5 py-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full flex items-center gap-4">
-              <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Developed By</span>
-              <span className="text-[10px] font-black text-[#EAA33F] uppercase tracking-tighter">
-                QIRO TECH INNOVATION PVT. LTD.
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#EAA33F]/20 to-transparent blur opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="relative px-6 py-3.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center gap-4">
+              <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Developed By</span>
+              <span className="text-[11px] font-black text-[#EAA33F] uppercase tracking-widest">
+                QIRO TECH INNOVATION
               </span>
             </div>
           </div>
         </div>
       </div>
-
     </footer>
   );
 }
