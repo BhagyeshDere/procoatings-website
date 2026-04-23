@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const clients = [
-  { name: "Benfield Fodder", logo: "/logos/benfield.png" },
-  { name: "Sarthanu Products", logo: "/logos/sarthanu.png" },
-  { name: "Dynalec Controls", logo: "/logos/dynalec.png" },
-  { name: "Pennant Engineering", logo: "/logos/pennant.png" },
-  { name: "ABSource Biologics", logo: "/logos/absource.png" },
-  { name: "Kaka Halwai Sweets", logo: "/logos/kaka-halwai.png" },
-  { name: "K Krushnaa Infra", logo: "/logos/krushnaa.png" },
-  { name: "Web Werk", logo: "/logos/web-werk.png" },
-  { name: "Capgemini", logo: "/logos/capgemini.png" },
+  { name: "Benfield Fodder", logo: "/images/clients/benfield.png" },
+  { name: "Sarthanu Products", logo: "/images/clients/sarthanu.png" },
+  { name: "Dynalec Controls", logo: "/images/clients/dynalec.png" },
+  { name: "Pennant Engineering", logo: "/images/clients/pennant.png" },
+  { name: "ABSource Biologics", logo: "/images/clients/absource.png" },
+  { name: "Kaka Halwai Sweets", logo: "/images/clients/kaka-halwai.png" },
+  { name: "K Krushnaa Infra", logo: "/images/clients/krushnaa.png" },
+  { name: "Web Werk", logo: "/images/clients/web-werk.png" },
+  { name: "Capgemini", logo: "/images/clients/capgemini.png" },
 ];
 
 export default function Clients() {
@@ -63,7 +63,7 @@ export default function Clients() {
           <div className="flex overflow-hidden group">
             <motion.div 
               className="flex flex-nowrap gap-4 md:gap-8"
-              animate={{ x: [0, -1920] }} // Adjust based on total width of cards
+              animate={{ x: [0, -1920] }} 
               transition={{
                 x: {
                   repeat: Infinity,
@@ -76,43 +76,34 @@ export default function Clients() {
               {[...clients, ...clients, ...clients].map((client, i) => (
                 <div
                   key={i}
-                  className="relative min-w-[200px] md:min-w-[280px] h-28 md:h-36 bg-white border border-slate-200/60 flex flex-col items-center justify-center p-6 transition-all duration-500 hover:border-[#F5A623]/40 group/card overflow-hidden shadow-sm hover:shadow-xl hover:shadow-orange-500/5"
+                  className="relative min-w-[180px] md:min-w-[280px] h-24 md:h-36 bg-white border border-slate-200/60 flex flex-col items-center justify-center p-6 transition-all duration-500 hover:border-[#F5A623]/40 group/card overflow-hidden shadow-sm hover:shadow-xl hover:shadow-orange-500/5"
                 >
-                  {/* Decorative Elements */}
+                  {/* Decorative Industrial Corners */}
                   <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-slate-300 group-hover/card:border-[#F5A623]" />
                   <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-slate-300 group-hover/card:border-[#F5A623]" />
 
-                  {/* Logo Container */}
+                  {/* Logo Container (Colorful) */}
                   <div className="relative w-full h-full flex items-center justify-center transition-transform duration-500 group-hover/card:scale-110">
-                    {/* Placeholder for actual Image component - logic handles missing logos */}
-                    {client.logo ? (
-                      <div className="relative w-full h-12 md:h-16 grayscale opacity-70 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-500 mix-blend-multiply">
+                    {client.logo && (
+                      <div className="relative w-full h-10 md:h-16 opacity-85 group-hover:opacity-100 transition-all duration-500">
                          <img 
                           src={client.logo} 
                           alt={client.name}
                           className="w-full h-full object-contain"
-                          onError={(e) => (e.currentTarget.style.display = 'none')} 
+                          onError={(e) => (e.currentTarget.style.visibility = 'hidden')} 
                         />
-                        {/* Fallback Text if image fails */}
-                        <p className="absolute inset-0 flex items-center justify-center text-center font-bold text-[#0D2B45] text-xs md:text-sm tracking-tight px-2">
-                           {client.name}
-                        </p>
                       </div>
-                    ) : (
-                      <p className="text-center font-bold text-[#0D2B45] text-xs md:text-sm tracking-tight">
-                        {client.name}
-                      </p>
                     )}
                   </div>
 
-                  {/* Bottom Highlight Line */}
+                  {/* Hover Accent Line */}
                   <div 
                     className="absolute bottom-0 left-0 h-[3px] w-0 group-hover/card:w-full transition-all duration-700 ease-in-out"
                     style={{ backgroundColor: BRAND_ORANGE }}
                   />
                   
-                  {/* Background Watermark */}
-                  <span className="absolute -bottom-1 -right-1 text-2xl font-black text-slate-100 opacity-0 group-hover/card:opacity-40 transition-opacity pointer-events-none uppercase italic select-none">
+                  {/* Decorative Background Text */}
+                  <span className="absolute -bottom-1 -right-1 text-2xl font-black text-slate-50 opacity-0 group-hover/card:opacity-40 transition-opacity pointer-events-none uppercase select-none">
                     LEADER
                   </span>
                 </div>

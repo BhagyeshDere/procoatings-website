@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link"; // ✅ Added for optimized navigation
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -12,12 +13,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ Updated hrefs to point to absolute routes (/about, /contact)
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/#services" }, // Anchor link on home page
+    { name: "Gallery", href: "/#gallery" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -30,36 +32,40 @@ export default function Navbar() {
               : "w-full max-w-[1440px] bg-white/40 backdrop-blur-sm rounded-xl px-10 h-20"
           }`}
         >
-          {/* 🔷 LOGO - Optimized Heights */}
+          {/* 🔷 LOGO */}
           <div className="flex-shrink-0">
-            <img
-              src="/logo.png"
-              className={`transition-all duration-500 ${
-                scrolled ? "h-11 md:h-12" : "h-14 md:h-16"
-              } w-auto object-contain`}
-              alt="Pro Coatings"
-            />
+            <Link href="/">
+              <img
+                src="/logo.png"
+                className={`transition-all duration-500 ${
+                  scrolled ? "h-11 md:h-12" : "h-14 md:h-16"
+                } w-auto object-contain cursor-pointer`}
+                alt="Pro Coatings"
+              />
+            </Link>
           </div>
 
           {/* 🖥️ CENTRAL LINKS */}
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 className="relative px-5 py-2 text-[15px] font-bold text-[#0F3250] group transition-colors duration-300"
               >
                 <span className="relative z-10">{link.name}</span>
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-[#EAA33F] rounded-full transition-all duration-300 group-hover:w-2/3 opacity-0 group-hover:opacity-100" />
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* 🔥 ACTION BUTTON */}
           <div className="hidden md:block">
-            <button className="bg-[#0F3250] text-white px-7 py-2.5 rounded-xl text-[13px] font-black tracking-widest hover:bg-[#EAA33F] hover:text-[#0F3250] transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/5">
-              GET QUOTE
-            </button>
+            <Link href="/contact">
+              <button className="bg-[#0F3250] text-white px-7 py-2.5 rounded-xl text-[13px] font-black tracking-widest hover:bg-[#EAA33F] hover:text-[#0F3250] transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/5 uppercase">
+                Get Quote
+              </button>
+            </Link>
           </div>
 
           {/* 📱 MOBILE TOGGLE */}
@@ -93,23 +99,25 @@ export default function Navbar() {
         >
           <div className="flex flex-col space-y-4 text-center">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 className="text-2xl font-black text-[#0F3250] py-2"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <button className="w-full bg-[#EAA33F] text-[#0F3250] py-5 rounded-2xl font-black text-lg mt-2">
-              GET QUOTE
-            </button>
+            <Link href="/contact" onClick={() => setMenuOpen(false)}>
+              <button className="w-full bg-[#EAA33F] text-[#0F3250] py-5 rounded-2xl font-black text-lg mt-2 uppercase">
+                Get Quote
+              </button>
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* 🧱 CONTENT SPACER - Reduced for smaller starting navbar */}
+      {/* 🧱 CONTENT SPACER */}
       <div className="h-24 md:h-24" />
     </>
   );

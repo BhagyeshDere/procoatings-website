@@ -1,9 +1,10 @@
 import Hero from "@/components/sections/Hero";
+import Clients from "@/components/sections/Clients";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import VideoServices from "@/components/sections/VideoServices";
 import WhyChoose from "@/components/sections/WhyChoose";
-import Clients from "@/components/sections/Clients";
+
 import ContactCTA from "@/components/sections/ContactCTA";
 
 export default function Home() {
@@ -12,6 +13,9 @@ export default function Home() {
 
       {/* 01. Hook: Immediate visual impact and value proposition */}
       <Hero />
+
+        {/* 05. Social Proof: Validating the "Why Choose" with big-name partners */}
+      <Clients />
 
       {/* 02. Context: Who you are and your mission */}
       <About />
@@ -25,8 +29,7 @@ export default function Home() {
       {/* 04. Reassurance: Why your specific technical approach is superior */}
       <WhyChoose />
 
-      {/* 05. Social Proof: Validating the "Why Choose" with big-name partners */}
-      <Clients />
+    
 
       {/* 06. Conversion: Final nudge to start a project */}
       <ContactCTA />
