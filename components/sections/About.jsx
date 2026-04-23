@@ -7,7 +7,7 @@ const serviceImages = [
   "/images/hero/bg1.png",
   "/images/hero/bg2.png",
   "/images/hero/bg3.png",
-  "/images/hero/bg1.png", 
+  "/images/flooring/esd.png", 
 ];
 
 export default function ProAboutSection() {
@@ -16,27 +16,30 @@ export default function ProAboutSection() {
   // 1. SCROLL PERFORMANCE HOOKS
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"],
+    offset: ["start center", "end start"],
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 70,
+    stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
 
-  // 2. REFINED TRANSFORMS
-  const x1 = useTransform(smoothProgress, [0.1, 0.6], [0, -240]);
-  const y1 = useTransform(smoothProgress, [0.1, 0.6], [0, -240]);
+  // 2. REFINED TRANSFORMS 
+  // Images 1, 2, and 3 move left (x) and up (y)
+  // Horizontal movement (x) increased for "little more left" effect on top layers
+  const x1 = useTransform(smoothProgress, [0, 0.35], [0, -260]); 
+  const y1 = useTransform(smoothProgress, [0, 0.35], [0, -220]);
 
-  const x2 = useTransform(smoothProgress, [0.1, 0.6], [0, -160]);
-  const y2 = useTransform(smoothProgress, [0.1, 0.6], [0, -160]);
+  const x2 = useTransform(smoothProgress, [0, 0.35], [0, -180]);
+  const y2 = useTransform(smoothProgress, [0, 0.35], [0, -145]);
 
-  const x3 = useTransform(smoothProgress, [0.1, 0.6], [0, -80]);
-  const y3 = useTransform(smoothProgress, [0.1, 0.6], [0, -80]);
+  const x3 = useTransform(smoothProgress, [0, 0.35], [0, -100]);
+  const y3 = useTransform(smoothProgress, [0, 0.35], [0, -70]);
 
-  const x4 = useTransform(smoothProgress, [0.1, 0.6], [0, 0]);
-  const y4 = useTransform(smoothProgress, [0.1, 0.6], [0, 0]);
+  // Image 4 stays exactly at the same position (0 movement)
+  const x4 = useTransform(smoothProgress, [0, 0.35], [0, 0]);
+  const y4 = useTransform(smoothProgress, [0, 0.35], [0, 0]);
 
   const transforms = [
     { x: x1, y: y1 },
@@ -48,16 +51,15 @@ export default function ProAboutSection() {
   return (
     <section 
       ref={containerRef} 
-      // Reduced py-24 lg:py-44 to py-12 lg:py-20 to remove extra top/bottom space
-      className="relative w-full py-12 lg:py-20 bg-[#F8F9FA] overflow-hidden text-[#0F3250]"
+      className="relative w-full pt-8 pb-16 lg:pt-10 lg:pb-24 bg-[#F8F9FA] overflow-hidden text-[#0F3250]"
     >
       {/* 🧩 Background Branding Watermark */}
-      <div className="absolute top-6 left-10 opacity-[0.02] pointer-events-none hidden lg:block">
+      <div className="absolute top-2 left-10 opacity-[0.02] pointer-events-none hidden lg:block">
         <h2 className="text-[12rem] font-black leading-none select-none uppercase tracking-tighter">Pro</h2>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-0">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
           
           {/* 🔷 LEFT CONTENT */}
           <div className="w-full lg:w-[45%]">
@@ -97,9 +99,8 @@ export default function ProAboutSection() {
           </div>
 
           {/* 🔷 RIGHT VISUAL */}
-          {/* Tightened h-[500px] to h-[400px] to reduce vertical container footprint */}
-          <div className="w-full lg:w-[50%] h-[350px] md:h-[480px] relative flex items-center justify-center lg:justify-end lg:pr-24">
-            <div className="relative w-[220px] h-[220px] md:w-[300px] md:h-[300px]">
+          <div className="w-full lg:w-[50%] h-[450px] md:h-[600px] relative flex items-center justify-center lg:justify-end lg:pr-24">
+            <div className="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px] translate-x-10 translate-y-16 mt-12 md:mt-24">
               {serviceImages.map((img, index) => (
                 <motion.div
                   key={index}

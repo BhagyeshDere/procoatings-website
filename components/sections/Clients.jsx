@@ -1,18 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const clients = [
-  { name: "Benfield Fodder", logo: "/images/clients/benfield.png" },
-  { name: "Sarthanu Products", logo: "/images/clients/sarthanu.png" },
-  { name: "Dynalec Controls", logo: "/images/clients/dynalec.png" },
-  { name: "Pennant Engineering", logo: "/images/clients/pennant.png" },
-  { name: "ABSource Biologics", logo: "/images/clients/absource.png" },
-  { name: "Kaka Halwai Sweets", logo: "/images/clients/kaka-halwai.png" },
-  { name: "K Krushnaa Infra", logo: "/images/clients/krushnaa.png" },
-  { name: "Web Werk", logo: "/images/clients/web-werk.png" },
-  { name: "Capgemini", logo: "/images/clients/capgemini.png" },
+  { name: "Benfield Fodder" },
+  { name: "Sarthanu Products" },
+  { name: "Dynalec Controls" },
+  { name: "Pennant Engineering" },
+  { name: "ABSource Biologics" },
+  { name: "Kaka Halwai Sweets" },
+  { name: "K Krushnaa Infra" },
+  { name: "Web Werk" },
+  { name: "Capgemini" },
 ];
 
 export default function Clients() {
@@ -20,7 +19,7 @@ export default function Clients() {
   const BRAND_NAVY = "#0D2B45";
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#F8FAFC] overflow-hidden">
+    <section className="relative py-10 md:py-16 bg-[#F8FAFC] overflow-hidden">
       
       {/* 🧩 Grid Background */}
       <div 
@@ -39,9 +38,9 @@ export default function Clients() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16 md:mb-24"
+          className="text-center mb-10 md:mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-[1px] w-12 bg-slate-300" />
             <p className="font-black text-[10px] md:text-xs uppercase tracking-[0.5em] text-[#F5A623]">
               Global Partners
@@ -76,24 +75,17 @@ export default function Clients() {
               {[...clients, ...clients, ...clients].map((client, i) => (
                 <div
                   key={i}
-                  className="relative min-w-[180px] md:min-w-[280px] h-24 md:h-36 bg-white border border-slate-200/60 flex flex-col items-center justify-center p-6 transition-all duration-500 hover:border-[#F5A623]/40 group/card overflow-hidden shadow-sm hover:shadow-xl hover:shadow-orange-500/5"
+                  className="relative min-w-[180px] md:min-w-[280px] h-20 md:h-28 bg-white border border-slate-200/60 flex flex-col items-center justify-center p-6 transition-all duration-500 hover:border-[#F5A623]/40 group/card overflow-hidden shadow-sm hover:shadow-xl hover:shadow-orange-500/5"
                 >
                   {/* Decorative Industrial Corners */}
                   <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-slate-300 group-hover/card:border-[#F5A623]" />
                   <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-slate-300 group-hover/card:border-[#F5A623]" />
 
-                  {/* Logo Container (Colorful) */}
-                  <div className="relative w-full h-full flex items-center justify-center transition-transform duration-500 group-hover/card:scale-110">
-                    {client.logo && (
-                      <div className="relative w-full h-10 md:h-16 opacity-85 group-hover:opacity-100 transition-all duration-500">
-                         <img 
-                          src={client.logo} 
-                          alt={client.name}
-                          className="w-full h-full object-contain"
-                          onError={(e) => (e.currentTarget.style.visibility = 'hidden')} 
-                        />
-                      </div>
-                    )}
+                  {/* Name as Logo Replacement */}
+                  <div className="relative w-full h-full flex items-center justify-center transition-transform duration-500 group-hover/card:scale-105">
+                     <span className="text-center font-black text-sm md:text-xl uppercase tracking-tighter leading-tight text-slate-800 group-hover/card:text-[#0D2B45] transition-colors duration-500">
+                        {client.name}
+                     </span>
                   </div>
 
                   {/* Hover Accent Line */}
@@ -113,7 +105,7 @@ export default function Clients() {
         </div>
 
         {/* 📊 STATUS BAR */}
-        <div className="mt-20 flex flex-col md:flex-row items-center justify-between gap-6 opacity-40">
+        <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6 opacity-40">
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-slate-500">Infrastructure Verified</span>

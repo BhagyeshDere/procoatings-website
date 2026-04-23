@@ -15,6 +15,10 @@ export default function ContactPage() {
   
   const NAV_LINK = "https://maps.app.goo.gl/YourActualLocationLink"; 
 
+  // BRAND COLOR CONSTANT
+  const BRAND_GOLD = "#EAA33F";
+  const BRAND_NAVY = "#0D2B45";
+
   return (
     <main className="min-h-screen bg-[#F8FAFC] overflow-x-hidden">
       
@@ -26,7 +30,6 @@ export default function ContactPage() {
             alt="Pro Coatings Industrial Facility" 
             className="w-full h-full object-cover opacity-60 grayscale-[0.1]" 
           />
-          {/* Lighter gradient overlay to reduce "blue heaviness" */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0D2B45]/60 via-[#0D2B45]/20 to-transparent" />
         </div>
 
@@ -36,9 +39,9 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#F5A623] mb-4 block">Get In Touch</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#EAA33F] mb-4 block">Get In Touch</span>
             <h1 className="text-4xl sm:text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-tight">
-              Contact <span className="text-[#F5A623]">Us</span>
+              Contact <span className="text-[#EAA33F]">Us</span>
             </h1>
             <p className="text-white mt-6 max-w-xl mx-auto text-sm md:text-base font-bold px-4 drop-shadow-md">
               Have a project in mind? Our team is ready to provide expert industrial coating and waterproofing solutions.
@@ -60,34 +63,34 @@ export default function ContactPage() {
                 viewport={{ once: true }}
                 className="bg-[#0D2B45] rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 text-white shadow-2xl border border-white/5"
               >
-                <h3 className="text-orange-400 font-black uppercase text-[10px] tracking-[0.4em] mb-8">Contact Details</h3>
+                <h3 className="text-[#EAA33F] font-black uppercase text-[10px] tracking-[0.4em] mb-8">Contact Details</h3>
                 <div className="space-y-6 sm:space-y-8">
                   {/* Phone */}
                   <div className="flex gap-4 sm:gap-5 group">
-                    <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-orange-400/20 transition-colors">
-                      <Phone className="text-orange-400" size={18} />
+                    <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#EAA33F]/20 transition-colors">
+                      <Phone className="text-[#EAA33F]" size={18} />
                     </div>
                     <div>
                       <p className="text-[10px] uppercase text-slate-400 font-bold mb-1">Call Support</p>
-                      <a href={`tel:${PHONE_1.replace(/\s/g, '')}`} className="text-sm sm:text-base font-bold block hover:text-orange-400 transition-colors">{PHONE_1}</a>
-                      <a href={`tel:${PHONE_2.replace(/\s/g, '')}`} className="text-sm sm:text-base font-bold block hover:text-orange-400 transition-colors">{PHONE_2}</a>
+                      <a href={`tel:${PHONE_1.replace(/\s/g, '')}`} className="text-sm sm:text-base font-bold block hover:text-[#EAA33F] transition-colors">{PHONE_1}</a>
+                      <a href={`tel:${PHONE_2.replace(/\s/g, '')}`} className="text-sm sm:text-base font-bold block hover:text-[#EAA33F] transition-colors">{PHONE_2}</a>
                     </div>
                   </div>
 
                   {/* Email */}
                   <div className="flex gap-4 sm:gap-5 group">
-                    <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-orange-400/20 transition-colors">
-                      <Mail className="text-orange-400" size={18} />
+                    <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#EAA33F]/20 transition-colors">
+                      <Mail className="text-[#EAA33F]" size={18} />
                     </div>
                     <div className="overflow-hidden">
                       <p className="text-[10px] uppercase text-slate-400 font-bold mb-1">Email Us</p>
-                      <a href={`mailto:${EMAIL}`} className="text-xs sm:text-sm font-bold truncate block hover:text-orange-400 transition-colors">{EMAIL}</a>
+                      <a href={`mailto:${EMAIL}`} className="text-xs sm:text-sm font-bold truncate block hover:text-[#EAA33F] transition-colors">{EMAIL}</a>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3">
-                  <Clock size={14} className="text-orange-400" />
+                  <Clock size={14} className="text-[#EAA33F]" />
                   <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-400">Available: Mon — Sat</p>
                 </div>
               </motion.div>
@@ -101,15 +104,15 @@ export default function ContactPage() {
                 className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-8 shadow-xl border border-slate-100 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="shrink-0 p-3 bg-orange-50 rounded-lg group-hover:bg-orange-400 transition-colors">
-                    <MapPin size={18} className="text-orange-500 group-hover:text-white" />
+                  <div className="shrink-0 p-3 bg-orange-50 rounded-lg group-hover:bg-[#EAA33F] transition-colors">
+                    <MapPin size={18} className="text-[#EAA33F] group-hover:text-white" />
                   </div>
                   <div>
                     <h4 className="text-[#0D2B45] font-black uppercase text-xs tracking-widest mb-2">Our Office</h4>
                     <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed">
                       {ADDRESS}
                     </p>
-                    <a href={NAV_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-[10px] font-bold text-orange-500 uppercase tracking-widest hover:gap-3 transition-all">
+                    <a href={NAV_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-[10px] font-bold text-[#EAA33F] uppercase tracking-widest hover:gap-3 transition-all">
                       Open in Google Maps <ExternalLink size={12} />
                     </a>
                   </div>
@@ -135,17 +138,17 @@ export default function ContactPage() {
               <form className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-1">
                   <label className="text-[9px] sm:text-[10px] font-black uppercase text-slate-400 ml-2">Your Name</label>
-                  <input type="text" required className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-orange-400 transition-all font-semibold text-[#0D2B45]" placeholder="Full name" />
+                  <input type="text" required className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-[#EAA33F] transition-all font-semibold text-[#0D2B45]" placeholder="Full name" />
                 </div>
                 <div className="space-y-1">
                   <label className="text-[9px] sm:text-[10px] font-black uppercase text-slate-400 ml-2">Work Email</label>
-                  <input type="email" required className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-orange-400 transition-all font-semibold text-[#0D2B45]" placeholder="email@company.com" />
+                  <input type="email" required className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-[#EAA33F] transition-all font-semibold text-[#0D2B45]" placeholder="email@company.com" />
                 </div>
                 
                 <div className="space-y-1">
                   <label className="text-[9px] sm:text-[10px] font-black uppercase text-slate-400 ml-2">Service Required</label>
                   <div className="relative">
-                    <select defaultValue="" className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-orange-400 transition-all appearance-none font-semibold text-[#0D2B45] cursor-pointer">
+                    <select defaultValue="" className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-[#EAA33F] transition-all appearance-none font-semibold text-[#0D2B45] cursor-pointer">
                       <option value="" disabled>Choose a service</option>
                       <option value="industrial">Industrial Coating</option>
                       <option value="waterproofing">Waterproofing</option>
@@ -157,16 +160,16 @@ export default function ContactPage() {
                 
                 <div className="space-y-1">
                   <label className="text-[9px] sm:text-[10px] font-black uppercase text-slate-400 ml-2">Phone Number</label>
-                  <input type="tel" className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-orange-400 transition-all font-semibold text-[#0D2B45]" placeholder="+91" />
+                  <input type="tel" className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-[#EAA33F] transition-all font-semibold text-[#0D2B45]" placeholder="+91" />
                 </div>
                 
                 <div className="sm:col-span-2 space-y-1">
                   <label className="text-[9px] sm:text-[10px] font-black uppercase text-slate-400 ml-2">Message</label>
-                  <textarea rows="4" required className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-orange-400 transition-all resize-none font-semibold text-[#0D2B45]" placeholder="Tell us about your requirements..."></textarea>
+                  <textarea rows="4" required className="w-full bg-slate-50 border-none rounded-xl p-3 sm:p-4 text-sm outline-none focus:ring-2 focus:ring-[#EAA33F] transition-all resize-none font-semibold text-[#0D2B45]" placeholder="Tell us about your requirements..."></textarea>
                 </div>
                 
                 <div className="sm:col-span-2 pt-2">
-                  <button className="w-full bg-[#0D2B45] text-white py-4 sm:py-5 rounded-xl font-black text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-orange-500 transition-all active:scale-[0.98] shadow-lg">
+                  <button className="w-full bg-[#0D2B45] text-white py-4 sm:py-5 rounded-xl font-black text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-[#EAA33F] hover:text-[#0D2B45] transition-all active:scale-[0.98] shadow-lg">
                     Send Inquiry <Send size={16} />
                   </button>
                 </div>
@@ -180,7 +183,7 @@ export default function ContactPage() {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-20 text-center">
           <div className="flex flex-col items-center mb-8">
-            <Compass size={24} className="text-orange-400 mb-3 animate-pulse" />
+            <Compass size={24} className="text-[#EAA33F] mb-3 animate-pulse" />
             <h2 className="text-2xl sm:text-3xl font-black text-[#0D2B45] uppercase tracking-tighter">Find Our Office</h2>
             <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mt-1">Narhe • Pune Terminal</p>
           </div>
@@ -206,7 +209,7 @@ export default function ContactPage() {
               href={NAV_LINK} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-[#0D2B45] text-white px-5 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-[9px] sm:text-[10px] uppercase tracking-widest shadow-2xl flex items-center gap-3 transition-all hover:bg-orange-500 z-30"
+              className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-[#0D2B45] text-white px-5 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-[9px] sm:text-[10px] uppercase tracking-widest shadow-2xl flex items-center gap-3 transition-all hover:bg-[#EAA33F] hover:text-[#0D2B45] z-30"
             >
               Get Directions <ArrowRight size={14} />
             </a>

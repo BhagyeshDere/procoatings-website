@@ -139,7 +139,7 @@ export default function Footer() {
             <div className="relative px-6 py-3.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center gap-4">
               <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Developed By</span>
               <span className="text-[11px] font-black text-[#EAA33F] uppercase tracking-widest">
-                QIRO TECH INNOVATION
+                QIRO TECH INNOVATION PVT. LTD.
               </span>
             </div>
           </div>
