@@ -43,7 +43,7 @@ export default function WhyChoose() {
           whileInView={{ scale: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
           className="w-full h-full bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: "url('/images/hero/bg2.png')" }}
+          style={{ backgroundImage: "url('/images/flooring/esd.png')" }}
         />
         
         {/* 🌑 OPTIMIZED VISIBILITY LAYER */}
