@@ -24,9 +24,10 @@ export default function ContactPage() {
           <img 
             src="/images/hero/bg3.png" 
             alt="Pro Coatings Industrial Facility" 
-            className="w-full h-full object-cover opacity-50 grayscale-[0.2]" 
+            className="w-full h-full object-cover opacity-60 grayscale-[0.1]" 
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D2B45]/95 via-[#0D2B45]/40 to-transparent" />
+          {/* Lighter gradient overlay to reduce "blue heaviness" */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D2B45]/60 via-[#0D2B45]/20 to-transparent" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full text-center">
@@ -39,7 +40,7 @@ export default function ContactPage() {
             <h1 className="text-4xl sm:text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-tight">
               Contact <span className="text-[#F5A623]">Us</span>
             </h1>
-            <p className="text-white/70 mt-6 max-w-xl mx-auto text-sm md:text-base font-medium px-4">
+            <p className="text-white mt-6 max-w-xl mx-auto text-sm md:text-base font-bold px-4 drop-shadow-md">
               Have a project in mind? Our team is ready to provide expert industrial coating and waterproofing solutions.
             </p>
           </motion.div>

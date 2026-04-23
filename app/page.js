@@ -4,36 +4,41 @@ import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import VideoServices from "@/components/sections/VideoServices";
 import WhyChoose from "@/components/sections/WhyChoose";
-
 import ContactCTA from "@/components/sections/ContactCTA";
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden">
+    <main className="relative w-full">
+      
+      {/* 01. STICKY HERO WRAPPER */}
+      {/* h-[100vh] ensures it stays stuck for the full viewport height */}
+      <div className="sticky top-0 h-[100vh] w-full z-0">
+        <Hero />
+      </div>
 
-      {/* 01. Hook: Immediate visual impact and value proposition */}
-      <Hero />
+      {/* OVERLAPPING CONTENT WRAPPER */}
+      {/* z-10 and relative position allow this div to slide OVER the hero */}
+      <div className="relative z-10 bg-white shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
+        
+        {/* 05. Social Proof */}
+        <Clients />
 
-        {/* 05. Social Proof: Validating the "Why Choose" with big-name partners */}
-      <Clients />
+        {/* 02. Context */}
+        <About />
 
-      {/* 02. Context: Who you are and your mission */}
-      <About />
+        {/* 03. Capabilities */}
+        <section className="bg-slate-50/50">
+          <Services />
+          <VideoServices />
+        </section>
 
-      {/* 03. Capabilities: Grouping Services and Video proof together for maximum authority */}
-      <section className="bg-slate-50/50">
-        <Services />
-        <VideoServices />
-      </section>
+        {/* 04. Reassurance */}
+        <WhyChoose />
 
-      {/* 04. Reassurance: Why your specific technical approach is superior */}
-      <WhyChoose />
-
-    
-
-      {/* 06. Conversion: Final nudge to start a project */}
-      <ContactCTA />
-
+        {/* 06. Conversion */}
+        <ContactCTA />
+        
+      </div>
     </main>
   );
 }
