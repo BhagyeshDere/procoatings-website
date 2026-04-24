@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link"; // ✅ Added for optimized navigation
+import Link from "next/link";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -13,11 +13,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Updated hrefs to point to absolute routes (/about, /contact)
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Services", href: "/#services" }, // Anchor link on home page
+    { name: "Services", href: "/#services" },
     { name: "Gallery", href: "/#gallery" },
     { name: "Contact", href: "/contact" },
   ];
@@ -32,14 +31,14 @@ export default function Navbar() {
               : "w-full max-w-[1440px] bg-white/40 backdrop-blur-sm rounded-xl px-10 h-20"
           }`}
         >
-          {/* 🔷 LOGO */}
-          <div className="flex-shrink-0">
+          {/* 🔷 LOGO (Maximized size within height) */}
+          <div className="flex-shrink-0 h-full flex items-center">
             <Link href="/">
               <img
                 src="/logo.png"
                 className={`transition-all duration-500 ${
-                  scrolled ? "h-11 md:h-12" : "h-14 md:h-16"
-                } w-auto object-contain cursor-pointer`}
+                  scrolled ? "h-[50px] md:h-[55px]" : "h-[75px] md:h-[85px]"
+                } w-auto object-contain cursor-pointer scale-110 transform-gpu`} 
                 alt="Pro Coatings"
               />
             </Link>
@@ -71,48 +70,83 @@ export default function Navbar() {
           {/* 📱 MOBILE TOGGLE */}
           <div className="md:hidden">
             <button
-              onClick={() => setMenuOpen(!menuOpen)}
+              onClick={() => setMenuOpen(true)}
               className="text-[#0F3250] p-2.5 bg-white/80 rounded-xl backdrop-blur-md shadow-sm border border-white/50"
             >
               <div className="w-6 h-5 relative flex flex-col justify-between">
-                <span className={`w-full h-0.5 bg-[#0F3250] rounded-full transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-                <span className={`w-full h-0.5 bg-[#EAA33F] rounded-full transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-                <span className={`w-full h-0.5 bg-[#0F3250] rounded-full transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2.5" : ""}`} />
+                <span className="w-full h-0.5 bg-[#0F3250] rounded-full" />
+                <span className="w-2/3 h-0.5 bg-[#EAA33F] rounded-full" />
+                <span className="w-full h-0.5 bg-[#0F3250] rounded-full" />
               </div>
             </button>
           </div>
         </nav>
       </div>
 
-      {/* 📱 MOBILE OVERLAY MENU */}
+      {/* 📱 UNIQUE LEFT-SIDE DRAWER MENU */}
       <div
-        className={`fixed inset-0 z-[90] bg-[#0F3250]/40 backdrop-blur-md md:hidden transition-opacity duration-300 ${
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-[110] md:hidden transition-visibility duration-500 ${
+          menuOpen ? "visible" : "invisible"
         }`}
-        onClick={() => setMenuOpen(false)}
       >
+        {/* Backdrop */}
         <div
-          className={`absolute top-24 right-4 left-4 bg-white rounded-[2rem] p-8 transition-all duration-500 shadow-2xl ${
-            menuOpen ? "translate-y-0 scale-100" : "-translate-y-10 scale-95"
+          className={`absolute inset-0 bg-[#0F3250]/40 backdrop-blur-sm transition-opacity duration-500 ${
+            menuOpen ? "opacity-100" : "opacity-0"
           }`}
-          onClick={(e) => e.stopPropagation()}
+          onClick={() => setMenuOpen(false)}
+        />
+
+        {/* Sidebar Content */}
+        <div
+          className={`absolute top-0 left-0 h-full w-[85%] max-w-[340px] bg-white transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1) flex flex-col shadow-2xl ${
+            menuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         >
-          <div className="flex flex-col space-y-4 text-center">
-            {navLinks.map((link) => (
+          {/* Drawer Header */}
+          <div className="p-6 flex items-center justify-between border-b border-slate-50">
+            <img src="/logo.png" className="h-14 w-auto object-contain" alt="Logo" />
+            <button 
+              onClick={() => setMenuOpen(false)}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-[#0F3250]"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Navigation Links (Advanced Staggered Effect) */}
+          <nav className="flex-grow flex flex-col justify-center px-8 space-y-2">
+            {navLinks.map((link, i) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-2xl font-black text-[#0F3250] py-2"
+                className={`group flex items-center gap-4 py-4 transition-all duration-500 ${
+                    menuOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+                }`}
+                style={{ transitionDelay: `${i * 100}ms` }}
               >
-                {link.name}
+                <span className="text-xs font-black text-[#EAA33F] opacity-40 group-hover:opacity-100 transition-opacity">
+                  0{i + 1}
+                </span>
+                <span className="text-3xl font-black text-[#0F3250] tracking-tighter uppercase group-hover:translate-x-2 transition-transform">
+                  {link.name}
+                </span>
               </Link>
             ))}
+          </nav>
+
+          {/* Drawer Footer */}
+          <div className="p-8 space-y-6">
             <Link href="/contact" onClick={() => setMenuOpen(false)}>
-              <button className="w-full bg-[#EAA33F] text-[#0F3250] py-5 rounded-2xl font-black text-lg mt-2 uppercase">
+              <button className="w-full bg-[#EAA33F] text-[#0F3250] py-5 rounded-2xl font-black text-lg shadow-xl shadow-orange-200 uppercase tracking-widest active:scale-95 transition-transform">
                 Get Quote
               </button>
             </Link>
+            <div className="flex justify-between items-center opacity-40">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0F3250]">Precision Coatings</span>
+                <div className="h-[1px] w-12 bg-[#0F3250]" />
+            </div>
           </div>
         </div>
       </div>

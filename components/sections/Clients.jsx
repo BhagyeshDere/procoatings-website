@@ -3,15 +3,14 @@
 import { motion } from "framer-motion";
 
 const clients = [
-  { name: "Benfield Fodder" },
-  { name: "Sarthanu Products" },
-  { name: "Dynalec Controls" },
-  { name: "Pennant Engineering" },
-  { name: "ABSource Biologics" },
-  { name: "Kaka Halwai Sweets" },
-  { name: "K Krushnaa Infra" },
-  { name: "Web Werk" },
-  { name: "Capgemini" },
+  { name: "Capgemini", img: "/images/clients/capgemini.png" },
+  { name: "Dynalec Controls", img: "/images/clients/dynalec.jpg" },
+  { name: "Pennant Engineering", img: "/images/clients/pennant.png" },
+  { name: "ABSource Biologics", img: "/images/clients/absource.png" },
+  { name: "Kaka Halwai Sweets", img: "/images/clients/kakahalwai.jpg" },
+  { name: "K Krushnaa Infra", img: "/images/clients/kkrushna.jpg" },
+  { name: "Uniteq", img: "/images/clients/uniteq.jpg" },
+  { name: "Web Werk", img: "/images/clients/webwerk.png" },
 ];
 
 export default function Clients() {
@@ -75,17 +74,19 @@ export default function Clients() {
               {[...clients, ...clients, ...clients].map((client, i) => (
                 <div
                   key={i}
-                  className="relative min-w-[180px] md:min-w-[280px] h-20 md:h-28 bg-white border border-slate-200/60 flex flex-col items-center justify-center p-6 transition-all duration-500 hover:border-[#F5A623]/40 group/card overflow-hidden shadow-sm hover:shadow-xl hover:shadow-orange-500/5"
+                  className="relative min-w-[180px] md:min-w-[280px] h-24 md:h-32 bg-white border border-slate-200/60 flex flex-col items-center justify-center p-4 transition-all duration-500 hover:border-[#F5A623]/40 group/card overflow-hidden"
                 >
                   {/* Decorative Industrial Corners */}
                   <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-slate-300 group-hover/card:border-[#F5A623]" />
                   <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-slate-300 group-hover/card:border-[#F5A623]" />
 
-                  {/* Name as Logo Replacement */}
-                  <div className="relative w-full h-full flex items-center justify-center transition-transform duration-500 group-hover/card:scale-105">
-                     <span className="text-center font-black text-sm md:text-xl uppercase tracking-tighter leading-tight text-slate-800 group-hover/card:text-[#0D2B45] transition-colors duration-500">
-                        {client.name}
-                     </span>
+                  {/* 🖼️ ORIGINAL COLOR LOGOS - NO SHADOWS OR GRAYSCALE */}
+                  <div className="relative w-full h-full flex items-center justify-center transition-all duration-500 group-hover/card:scale-105">
+                      <img 
+                        src={client.img} 
+                        alt={client.name}
+                        className="max-w-[85%] max-h-[80%] object-contain transition-all duration-500"
+                      />
                   </div>
 
                   {/* Hover Accent Line */}
