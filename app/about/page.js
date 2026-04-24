@@ -1,6 +1,7 @@
 import AboutHero from "@/components/about/AboutHero";
 import AboutIdentity from "@/components/about/AboutIdentity";
 import AboutVisionMission from "@/components/about/AboutVisionMission";
+import AboutSection from "@/components/about/AboutSection";
 import AboutIndustries from "@/components/about/AboutIndustries";
 import AboutProcess from "@/components/about/AboutProcess";
 import AboutTeam from "@/components/about/AboutTeam";
@@ -12,6 +13,7 @@ export default function AboutPage() {
       <AboutHero />
       <AboutIdentity />
       <AboutVisionMission />
+      <AboutSection />
       <AboutIndustries />
       <AboutProcess />
       <AboutTeam />

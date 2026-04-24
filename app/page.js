@@ -2,8 +2,10 @@ import Hero from "@/components/sections/Hero";
 import Clients from "@/components/sections/Clients";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
-import WhyPro from "@/components/sections/WhyPro";
+import WhyChoose from "@/components/sections/WhyChoose";
 import VideoServices from "@/components/sections/VideoServices";
+
+import WhyPro from "@/components/sections/WhyPro";
 
 import ContactCTA from "@/components/sections/ContactCTA";
 
@@ -30,13 +32,14 @@ export default function Home() {
         {/* 03. Capabilities */}
         <section className="bg-slate-50/50">
           <Services />
-
+     <WhyChoose />
+          <VideoServices />
+        </section>
+   
           
         {/* 04. Reassurance */}
         <WhyPro />
         
-          <VideoServices />
-        </section>
 
 
         {/* 06. Conversion */}
