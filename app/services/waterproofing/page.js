@@ -17,7 +17,7 @@ const systems = [
 {
 title:"Terrace & Roof Waterproofing",
 tag:"Roof Protection",
-image:"/images/waterproofing/terrace.jpg",
+image:"/images/services/terraceroof.png",
 icon:Building2,
 desc:"Advanced membrane and coating systems designed to protect terraces and roofs from leakage and weather damage.",
 features:[
@@ -30,7 +30,7 @@ features:[
 {
 title:"Podium Waterproofing",
 tag:"Deck Systems",
-image:"/images/waterproofing/podium.jpg",
+image:"/images/services/podium.png",
 icon:Layers3,
 desc:"Heavy-duty waterproofing solutions for podium decks, landscaped roofs and traffic exposed surfaces.",
 features:[
@@ -43,7 +43,7 @@ features:[
 {
 title:"Metal Roof Waterproofing",
 tag:"Industrial Roofing",
-image:"/images/waterproofing/metal-roof.jpg",
+image:"/images/services/metalroof.png",
 icon:ShieldCheck,
 desc:"Specialized waterproofing systems for metal roofs to prevent corrosion, leakage and weather degradation.",
 features:[
@@ -56,7 +56,7 @@ features:[
 {
 title:"Bathroom Waterproofing",
 tag:"Interior Protection",
-image:"/images/waterproofing/bathroom.jpg",
+image:"/images/services/bathroom.png",
 icon:Home,
 desc:"Internal wet-area waterproofing systems preventing seepage and structural moisture damage.",
 features:[
@@ -69,7 +69,7 @@ features:[
 {
 title:"Basement Waterproofing",
 tag:"Below Grade",
-image:"/images/waterproofing/basement.jpg",
+image:"/images/services/basement.png",
 icon:Warehouse,
 desc:"Below-grade waterproofing solutions for basements, foundations and underground structures.",
 features:[
@@ -82,7 +82,7 @@ features:[
 {
 title:"Retaining / External Wall Waterproofing",
 tag:"Facade Protection",
-image:"/images/waterproofing/wall.jpg",
+image:"/images/services/wall.png",
 icon:Droplets,
 desc:"Exterior wall and retaining structure waterproofing systems against moisture ingress and weathering.",
 features:[

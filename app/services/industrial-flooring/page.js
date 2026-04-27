@@ -16,7 +16,7 @@ const systems = [
 {
 title:"Epoxy Flooring",
 tag:"Heavy Duty",
-image:"/images/flooring/epoxy-floor.jpg",
+image:"/images/services/epoxy.png",
 desc:"Seamless high-performance epoxy systems designed for industrial durability and chemical resistance.",
 features:[
 "Chemical Resistant",
@@ -28,7 +28,7 @@ features:[
 {
 title:"PU Flooring",
 tag:"Flexible System",
-image:"/images/flooring/pu-floor.jpg",
+image:"/images/services/pu.png",
 desc:"Polyurethane flooring systems built for thermal shock resistance and hygienic environments.",
 features:[
 "Thermal Resistant",
@@ -40,7 +40,7 @@ features:[
 {
 title:"EPU Coating",
 tag:"Hybrid Technology",
-image:"/images/flooring/epu-floor.jpg",
+image:"/images/services/epu.png",
 desc:"Advanced epoxy polyurethane hybrid flooring delivering impact and wear resistance.",
 features:[
 "Hybrid Coating",
@@ -52,7 +52,7 @@ features:[
 {
 title:"Dielectric Epoxy Flooring",
 tag:"Electrical Safety",
-image:"/images/flooring/dielectric.jpg",
+image:"/images/services/dielectric.png",
 desc:"Specialized insulating flooring systems for electrical and high-risk operational zones.",
 features:[
 "Insulating Protection",
@@ -64,7 +64,7 @@ features:[
 {
 title:"ESD PU Flooring",
 tag:"Static Control",
-image:"/images/flooring/esd-floor.jpg",
+image:"/images/services/esd.png",
 desc:"Electrostatic discharge control flooring engineered for electronics and cleanroom applications.",
 features:[
 "ESD Protection",
