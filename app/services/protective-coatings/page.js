@@ -17,7 +17,7 @@ const coatings = [
 {
 title:"Heat Insulation Coatings",
 tag:"Thermal Protection",
-image:"/images/coatings/heat.jpg",
+image:"/images/services/heat.png",
 icon:Thermometer,
 desc:"Advanced thermal barrier coatings engineered to reduce heat transfer and improve energy efficiency.",
 features:[
@@ -30,7 +30,7 @@ features:[
 {
 title:"Electrical Insulation Coatings",
 tag:"Electrical Safety",
-image:"/images/coatings/electrical.jpg",
+image:"/images/services/electrical.png",
 icon:Zap,
 desc:"Specialized insulating coatings for electrical safety and equipment protection.",
 features:[
@@ -43,7 +43,7 @@ features:[
 {
 title:"Anti-Corrosive Coatings",
 tag:"Corrosion Defense",
-image:"/images/coatings/corrosion.jpg",
+image:"/images/services/corrosion.png",
 icon:ShieldCheck,
 desc:"Heavy duty anti-corrosion systems designed for harsh industrial and marine environments.",
 features:[
@@ -56,7 +56,7 @@ features:[
 {
 title:"Anti-Carbonation Coatings",
 tag:"Concrete Protection",
-image:"/images/coatings/carbonation.jpg",
+image:"/images/services/carbonation.png",
 icon:Layers3,
 desc:"Protective coatings designed to prevent carbonation and concrete deterioration.",
 features:[
@@ -69,7 +69,7 @@ features:[
 {
 title:"Fire Resistant Coatings",
 tag:"Passive Fire Safety",
-image:"/images/coatings/fire.jpg",
+image:"/images/services/fire.png",
 icon:Flame,
 desc:"High-performance fire protection coatings for structural and industrial safety systems.",
 features:[
@@ -82,7 +82,7 @@ features:[
 {
 title:"Customized Coatings",
 tag:"Tailored Systems",
-image:"/images/coatings/custom.jpg",
+image:"/images/services/customized.png",
 icon:Factory,
 desc:"Custom engineered protective coating solutions built for specialized project needs.",
 features:[
