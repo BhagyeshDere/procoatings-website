@@ -4,121 +4,125 @@ import React from "react";
 import { motion } from "framer-motion";
 import { 
   Car, FlaskConical, Utensils, Building2, 
-  Globe, Hospital, Warehouse, Microchip 
+  Globe, Hospital, Warehouse, Microchip,
+  ShieldCheck, Cpu, Zap
 } from "lucide-react";
 
 const industries = [
-  { name: "Automotive", icon: <Car strokeWidth={1.5} />, size: "lg", color: "from-[#002B49] to-[#003d66]" },
-  { name: "Pharma & Biotech", icon: <FlaskConical strokeWidth={1.5} />, size: "sm", color: "from-[#002B49] to-[#0a3556]" },
-  { name: "Chemical Plants", icon: <FlaskConical strokeWidth={1.5} />, size: "sm", color: "from-[#002B49] to-[#0a3556]" },
-  { name: "Food & Dairy", icon: <Utensils strokeWidth={1.5} />, size: "md", color: "from-[#002B49] to-[#003d66]" },
-  { name: "Hospitality", icon: <Building2 strokeWidth={1.5} />, size: "md", color: "from-[#002B49] to-[#003d66]" },
-  { name: "Aviation", icon: <Globe strokeWidth={1.5} />, size: "lg", color: "from-[#002B49] to-[#003d66]" },
-  { name: "Healthcare", icon: <Hospital strokeWidth={1.5} />, size: "sm", color: "from-[#002B49] to-[#0a3556]" },
-  { name: "Warehousing", icon: <Warehouse strokeWidth={1.5} />, size: "md", color: "from-[#002B49] to-[#003d66]" },
+  { name: "Automotive", icon: <Car />, code: "IND-AUTO-4.0" },
+  { name: "Pharma", icon: <FlaskConical />, code: "IND-PHRM-7.2" },
+  { name: "Food & Dairy", icon: <Utensils />, code: "IND-FOOD-1.5" },
+  { name: "Hospitality", icon: <Building2 />, code: "IND-HOSP-3.9" },
+  { name: "Aviation", icon: <Globe />, code: "IND-AVIA-8.1" },
+  { name: "Healthcare", icon: <Hospital />, code: "IND-MED-2.4" },
+  { name: "Warehousing", icon: <Warehouse />, code: "IND-LOGI-5.0" },
+  { name: "Electronics", icon: <Microchip />, code: "IND-ELEC-9.3" },
 ];
 
-export default function AboutIndustries() {
+export default function AdvancedIndustrySlider() {
   const LOGO_GOLD = "#D98F07";
   const LOGO_NAVY = "#002B49";
 
+  const duplicatedIndustries = [...industries, ...industries];
+
   return (
-    <section className="relative py-24 lg:py-32 bg-[#F4F7FA] overflow-hidden">
+    <section className="relative py-24 bg-[#F4F7FA] overflow-hidden">
       
-      {/* 🧩 Blueprint Grid Detail */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+      <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
         <div className="h-full w-full" style={{ 
-          backgroundImage: `linear-gradient(to right, ${LOGO_NAVY} 1px, transparent 1px), linear-gradient(to bottom, ${LOGO_NAVY} 1px, transparent 1px)`, 
-          backgroundSize: '80px 80px' 
+          backgroundImage: `radial-gradient(${LOGO_NAVY} 1px, transparent 1px)`, 
+          backgroundSize: '40px 40px' 
         }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
               className="flex items-center gap-3 mb-4"
             >
-              <div className="w-12 h-[3px] bg-[#D98F07]" />
+              <div className="w-12 h-[2px] bg-[#D98F07]" />
               <span className="text-[#D98F07] text-xs font-black uppercase tracking-[0.4em]">
-                Sector Matrix
+                Sector Stream
               </span>
             </motion.div>
             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-[#002B49] leading-[0.9]">
-              INDUSTRIES <br /> WE <span className="text-[#D98F07] italic">SECURE</span>
+              INDUSTRIAL <br /> <span className="text-[#D98F07] italic">ECOSYSTEM</span>
             </h2>
           </div>
-          <p className="text-[#002B49]/70 font-bold max-w-xs text-sm md:text-base leading-relaxed border-l-4 border-[#D98F07] pl-6">
-            Engineered surfaces providing high-performance resistance and compliance for mission-critical industrial sectors.
+          <p className="text-[#002B49]/60 font-mono text-[10px] uppercase tracking-widest max-w-[200px] hidden md:block">
+            Status: Synchronized <br /> 
+            Protocol: High-Resistance <br />
+            Node: Active_Matrix
           </p>
         </div>
+      </div>
 
-        {/* Dynamic Colorful Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[180px] md:auto-rows-[220px]">
-          {industries.map((industry, index) => (
-            <motion.div 
+      <div className="relative flex overflow-hidden py-10 bg-white/40 border-y border-[#002B49]/5 backdrop-blur-sm">
+        <motion.div 
+          className="flex gap-6 whitespace-nowrap px-6"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ 
+            ease: "linear", 
+            duration: 25, 
+            repeat: Infinity 
+          }}
+          whileHover={{ animationPlayState: "paused" }}
+        >
+          {duplicatedIndustries.map((industry, index) => (
+            <div 
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className={`
-                group relative overflow-hidden p-6 flex flex-col justify-between 
-                bg-gradient-to-br ${industry.color}
-                transition-all duration-500 ease-in-out hover:-translate-y-2
-                border border-white/10 hover:border-[#D98F07]/50 shadow-xl
-                ${industry.size === 'lg' ? 'sm:col-span-2 md:col-span-2 md:row-span-1' : ''}
-              `}
+              className="relative min-w-[280px] md:min-w-[340px] group cursor-pointer"
             >
-              {/* Animated Background Highlight */}
-              <div className="absolute inset-0 bg-[#D98F07] opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
-              
-              {/* Corner HUD Detail */}
-              <div className="absolute top-0 right-0 p-3 opacity-30 group-hover:opacity-100 group-hover:text-[#D98F07] transition-all">
-                <div className="w-4 h-4 border-t border-r border-current" />
-              </div>
+              <div className="flex items-center gap-5 p-5 bg-[#002B49] rounded-2xl border border-white/10 group-hover:border-[#D98F07]/50 transition-all duration-500 shadow-2xl overflow-hidden">
+                
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#D98F07]/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-              {/* Icon Container */}
-              <div className="relative w-14 h-14 flex items-center justify-center">
-                <div className="absolute inset-0 bg-white/5 rounded-xl group-hover:bg-[#D98F07] group-hover:rotate-[15deg] transition-all duration-500 shadow-inner" />
-                <div className="relative z-10 text-white group-hover:text-[#002B49] transition-colors duration-500">
-                  {/* FIXED: Removed TypeScript casting for JavaScript compatibility */}
-                  {React.cloneElement(industry.icon, { size: 28 })}
+                <div className="relative w-16 h-16 shrink-0 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 group-hover:bg-[#D98F07] transition-all duration-500">
+                  <div className="text-white group-hover:text-[#002B49] transition-colors duration-500 scale-110">
+                    {/* FIXED: Removed TypeScript casting for JS compatibility */}
+                    {React.cloneElement(industry.icon, { size: 28, strokeWidth: 1.5 })}
+                  </div>
+                  <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-[#D98F07] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-              </div>
 
-              {/* Label & Metadata */}
-              <div className="relative z-10">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#D98F07] animate-pulse" />
-                  <div className="text-[10px] font-black text-[#D98F07] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                    Active Node
+                <div className="flex flex-col">
+                  <span className="text-[#D98F07] font-mono text-[9px] uppercase tracking-[0.2em] mb-1">
+                    {industry.code}
+                  </span>
+                  <span className="text-white text-lg md:text-xl font-black uppercase tracking-tight group-hover:tracking-widest transition-all">
+                    {industry.name}
+                  </span>
+                  <div className="flex items-center gap-1 mt-2 opacity-40 group-hover:opacity-100 transition-opacity">
+                    <div className="w-2 h-2 rounded-full bg-[#D98F07] animate-pulse" />
+                    <span className="text-[8px] text-white/70 uppercase font-bold">Encrypted Surface</span>
                   </div>
                 </div>
-                <span className="font-black uppercase text-sm md:text-base tracking-tighter text-white group-hover:tracking-widest transition-all duration-500">
-                  {industry.name}
-                </span>
+
+                <div className="absolute bottom-0 left-0 h-1 bg-[#D98F07] w-0 group-hover:w-full transition-all duration-700" />
               </div>
-
-              {/* Technical Scanline Effect */}
-              <div className="absolute inset-0 w-full h-[1px] bg-white/20 top-0 group-hover:top-full transition-all duration-1000 ease-linear pointer-events-none" />
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Technical Footer Detail */}
-        <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6">
-          <div className="hidden md:block h-[1px] flex-grow bg-gradient-to-r from-transparent via-[#002B49]/20 to-transparent" />
-          <div className="flex items-center gap-3 px-6 py-2 rounded-full border border-[#002B49]/10 bg-white shadow-sm">
-            <Microchip size={18} className="text-[#D98F07]" />
-            <span className="text-[10px] font-black text-[#002B49] uppercase tracking-[0.2em]">System Architecture v4.0</span>
-          </div>
-          <div className="hidden md:block h-[1px] flex-grow bg-gradient-to-r from-transparent via-[#002B49]/20 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#F4F7FA] to-transparent z-20 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#F4F7FA] to-transparent z-20 pointer-events-none" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 mt-16 flex flex-wrap justify-center md:justify-between gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="flex items-center gap-3">
+          <ShieldCheck size={20} className="text-[#D98F07]" />
+          <span className="text-[10px] font-black text-[#002B49] uppercase tracking-[0.2em]">High Impact Resistance</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <Cpu size={20} className="text-[#D98F07]" />
+          <span className="text-[10px] font-black text-[#002B49] uppercase tracking-[0.2em]">Advanced Polymer Core</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <Zap size={20} className="text-[#D98F07]" />
+          <span className="text-[10px] font-black text-[#002B49] uppercase tracking-[0.2em]">Rapid Deployment Protocol</span>
         </div>
       </div>
     </section>

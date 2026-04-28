@@ -4,8 +4,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const serviceImages = [
-  "/images/hero/bg1.png",
-  "/images/hero/bg2.png",
+  "/images/about/epoxy.png",
+  "/images/about/floor.png",
   "/images/hero/bg3.png",
   "/images/flooring/esd.png", 
 ];

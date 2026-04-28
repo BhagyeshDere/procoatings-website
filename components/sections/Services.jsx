@@ -6,9 +6,9 @@ import { ArrowUpRight, Zap, Shield, Droplets, HardHat, Car } from "lucide-react"
 const services = [
   {
     id: "01",
-    title: "Waterproofing Solutions",
+    title: "Building Waterproofing ",
     desc: "Advanced multi-layer protection including Liquid Membrane and Crystalline systems for zero-permeability.",
-    img: "/images/waterproofing/main.png",
+    img: "/images/services/building.jpeg",
     icon: <Droplets size={20} />,
     color: "#EAA33F"
   },
@@ -54,7 +54,6 @@ export default function Services() {
       <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
            style={{ backgroundImage: `linear-gradient(#0F3250 1px, transparent 1px), linear-gradient(90deg, #0F3250 1px, transparent 1px)`, backgroundSize: '50px 50px' }} />
 
-      {/* Increased padding from px-2 to px-6 for a better frame */}
       <div className="max-w-[98%] mx-auto px-6 relative z-10">
         
         {/* 🔷 HEADER */}
@@ -70,36 +69,40 @@ export default function Services() {
               <span className="text-[#EAA33F]"> Hub.</span>
             </h2>
           </div>
-          <p className="max-w-xs text-slate-500 font-medium border-l-2 border-[#EAA33F] pl-6 text-sm">
+          <p className="max-w-xs text-slate-500 font-bold border-l-2 border-[#EAA33F] pl-6 text-sm leading-relaxed">
             High-performance industrial barriers and surface engineering for critical infrastructure.
           </p>
         </div>
 
-        {/* 🔥 BENTO-SLIDER HYBRID LAYOUT - ALWAYS VISIBLE IMAGES */}
+        {/* 🔥 BENTO-SLIDER HYBRID LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-full">
           
           {/* Main Feature Card (Left) */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="lg:col-span-5 relative group h-[500px] lg:h-[620px] rounded-3xl overflow-hidden bg-slate-200 shadow-2xl"
+            className="lg:col-span-5 relative group h-[500px] lg:h-[620px] rounded-3xl overflow-hidden bg-slate-900 shadow-2xl"
           >
             <img 
               src={services[0].img} 
               alt={services[0].title} 
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-80" 
             />
-            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500" />
             
-            <div className="absolute top-8 left-8 bg-white/20 backdrop-blur-md p-4 rounded-2xl border border-white/30 z-20">
-              {services[0].icon}
+            {/* Deepened Gradient for Text Clarity */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500" />
+            
+            <div className="absolute top-8 left-8 bg-[#EAA33F] p-4 rounded-2xl shadow-xl z-20">
+              <div className="text-white">{services[0].icon}</div>
             </div>
 
             <div className="absolute bottom-10 left-10 right-10 z-20">
-              <span className="text-[#EAA33F] font-black text-xs uppercase tracking-[0.4em] mb-2 block">Premium Protection</span>
-              <h3 className="text-3xl md:text-4xl font-black text-white uppercase mb-4 leading-tight drop-shadow-md">{services[0].title}</h3>
-              <p className="text-white text-sm leading-relaxed mb-6 line-clamp-3 font-medium">{services[0].desc}</p>
-              <button className="flex items-center gap-2 text-white text-[10px] font-black uppercase tracking-widest group/btn">
+              <span className="text-[#EAA33F] font-black text-xs uppercase tracking-[0.4em] mb-3 block drop-shadow-sm">Premium Protection</span>
+              <h3 className="text-4xl md:text-5xl font-black text-white uppercase mb-4 leading-[0.9] drop-shadow-lg">{services[0].title}</h3>
+              <p className="text-white/90 text-base leading-relaxed mb-6 line-clamp-3 font-bold max-w-md drop-shadow-md">
+                {services[0].desc}
+              </p>
+              <button className="flex items-center gap-2 text-white text-[10px] font-black uppercase tracking-widest group/btn bg-white/10 backdrop-blur-md px-4 py-2 border border-white/20 rounded-lg hover:bg-[#EAA33F] transition-all">
                 Technical Data <ArrowUpRight size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
               </button>
             </div>
@@ -113,27 +116,28 @@ export default function Services() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative h-[300px] rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 bg-white"
+                className="group relative h-[300px] rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 bg-slate-900"
               >
                 <div className="absolute inset-0 z-0">
                   <img 
                     src={service.img} 
                     alt={service.title} 
-                    className="w-full h-full object-cover opacity-100 group-hover:scale-110 transition-all duration-700" 
+                    className="w-full h-full object-cover opacity-70 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700" 
                   />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500" />
+                  {/* Heavy Bottom Scrim for Small Cards */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                 </div>
 
-                <span className="absolute -right-4 -top-4 text-8xl font-black text-white/10 transition-colors z-10">
+                <span className="absolute -right-4 -top-4 text-8xl font-black text-white/10 z-10 select-none">
                   {service.id}
                 </span>
 
                 <div className="relative z-20 h-full p-8 flex flex-col justify-between">
                   <div>
-                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl flex items-center justify-center text-white group-hover:bg-[#EAA33F] group-hover:border-[#EAA33F] transition-colors">
+                    <div className="w-12 h-12 bg-[#EAA33F] rounded-xl flex items-center justify-center text-white shadow-lg transition-transform group-hover:rotate-12">
                       {service.icon}
                     </div>
-                    <h3 className="text-xl font-black uppercase text-white mt-6 leading-tight drop-shadow-md">
+                    <h3 className="text-2xl font-black uppercase text-white mt-6 leading-none drop-shadow-lg">
                       {service.title.split(' ').map((word, idx) => (
                         <span key={idx} className="block">{word}</span>
                       ))}
@@ -141,8 +145,10 @@ export default function Services() {
                   </div>
                   
                   <div className="translate-y-0 opacity-100 transition-all duration-500">
-                    <p className="text-white/90 text-xs font-semibold mb-4 drop-shadow-sm">{service.desc}</p>
-                    <div className="w-full h-[1px] bg-white/30 relative overflow-hidden">
+                    <p className="text-white text-xs font-bold mb-4 drop-shadow-md leading-relaxed">
+                      {service.desc}
+                    </p>
+                    <div className="w-full h-[2px] bg-white/20 relative overflow-hidden rounded-full">
                       <div className="absolute inset-0 bg-[#EAA33F] -translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
                     </div>
                   </div>
@@ -156,12 +162,12 @@ export default function Services() {
         <div className="mt-20 pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex gap-8">
             {["25+ Years Experience", "Pan-India Service", "ISO Certified"].map((tag, idx) => (
-              <span key={idx} className="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2">
-                <div className="w-1 h-1 bg-[#EAA33F] rounded-full" /> {tag}
+              <span key={idx} className="text-[10px] font-black uppercase tracking-widest text-slate-500 flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-[#EAA33F] rounded-full" /> {tag}
               </span>
             ))}
           </div>
-          <button className="px-8 py-4 bg-white border border-slate-200 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#0F3250] hover:text-white transition-all shadow-sm">
+          <button className="px-8 py-4 bg-[#0F3250] text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#EAA33F] transition-all shadow-lg transform hover:-translate-y-1">
             View All Capabilities
           </button>
         </div>

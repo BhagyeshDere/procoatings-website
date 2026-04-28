@@ -51,7 +51,7 @@ export default function AboutIdentity() {
             <div className="space-y-6">
               <div className="h-[280px] md:h-[350px] rounded-[2.5rem] overflow-hidden shadow-xl bg-slate-200">
                 <img 
-                  src="/images/about/main1.png" 
+                  src="/images/about/epoxy.png" 
                   className="w-full h-full object-cover" 
                   alt="Industrial Coating" 
                 />
@@ -76,7 +76,7 @@ export default function AboutIdentity() {
               </div>
               <div className="h-[280px] md:h-[350px] rounded-[2.5rem] overflow-hidden shadow-xl bg-slate-200">
                 <img 
-                  src="/images/hero/bg1.png" 
+                  src="/images/about/floor.png" 
                   className="w-full h-full object-cover" 
                   alt="Waterproofing Application" 
                 />
