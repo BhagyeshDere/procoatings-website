@@ -87,14 +87,7 @@ export default function ProAboutSection() {
                 </p>
               </div>
 
-              <button className="group flex items-center gap-5 text-[#0F3250] font-black uppercase tracking-[0.25em] text-[10px]">
-                <span className="border-b-2 border-[#EAA33F] pb-1">Discover Our Process</span>
-                <div className="w-10 h-10 rounded-full bg-[#0F3250] flex items-center justify-center text-white group-hover:bg-[#EAA33F] group-hover:text-[#0F3250] transition-all duration-500 shadow-lg">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </button>
+              
             </motion.div>
           </div>
 

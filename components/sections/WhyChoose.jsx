@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Users, ShieldCheck, Cpu, Zap, ChevronRight, Activity, Crosshair } from "lucide-react";
+import { Users, ShieldCheck, Cpu, Zap, Activity, Crosshair } from "lucide-react";
 
 const features = [
   {
@@ -128,7 +128,7 @@ export default function WhyChoose() {
                   style={{ clipPath: "polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%)" }}
                 >
                   <div 
-                    className="relative flex flex-col md:flex-row items-center gap-8 bg-white p-8 md:pl-12 group-hover:bg-[#002B49] transition-all duration-500"
+                    className="relative flex flex-col md:flex-row items-center gap-8 bg-white p-8 md:pl-12 md:pr-16 group-hover:bg-[#002B49] transition-all duration-500"
                     style={{ clipPath: "polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%)" }}
                   >
                     
@@ -157,10 +157,7 @@ export default function WhyChoose() {
                       </p>
                     </div>
 
-                    {/* Trigger Indicator */}
-                    <div className="shrink-0 opacity-0 group-hover:opacity-100 translate-x-10 group-hover:translate-x-[-20px] transition-all duration-500 hidden md:block">
-                        <ChevronRight className="w-8 h-8 text-[#D98F07]" />
-                    </div>
+                    {/* Arrow Icon removed from this section */}
                   </div>
                 </div>
 

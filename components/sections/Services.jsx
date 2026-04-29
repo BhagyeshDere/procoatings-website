@@ -102,9 +102,7 @@ export default function Services() {
               <p className="text-white/90 text-base leading-relaxed mb-6 line-clamp-3 font-bold max-w-md drop-shadow-md">
                 {services[0].desc}
               </p>
-              <button className="flex items-center gap-2 text-white text-[10px] font-black uppercase tracking-widest group/btn bg-white/10 backdrop-blur-md px-4 py-2 border border-white/20 rounded-lg hover:bg-[#EAA33F] transition-all">
-                Technical Data <ArrowUpRight size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-              </button>
+              
             </div>
           </motion.div>
 
@@ -158,20 +156,7 @@ export default function Services() {
           </div>
         </div>
 
-        {/* 🛠️ TECHNICAL FOOTER */}
-        <div className="mt-20 pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex gap-8">
-            {["25+ Years Experience", "Pan-India Service", "ISO Certified"].map((tag, idx) => (
-              <span key={idx} className="text-[10px] font-black uppercase tracking-widest text-slate-500 flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-[#EAA33F] rounded-full" /> {tag}
-              </span>
-            ))}
-          </div>
-          <button className="px-8 py-4 bg-[#0F3250] text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#EAA33F] transition-all shadow-lg transform hover:-translate-y-1">
-            View All Capabilities
-          </button>
-        </div>
-
+        
       </div>
     </section>
   );

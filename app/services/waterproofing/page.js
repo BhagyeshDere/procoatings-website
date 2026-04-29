@@ -149,7 +149,7 @@ export default function WaterproofingPage() {
                   </p>
                   
                   <Link href="/contact" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:gap-4 transition-all">
-                    Learn More <ArrowRight size={14} className="text-[#EAA33F]" />
+                    View Details <ArrowRight size={14} className="text-[#EAA33F]" />
                   </Link>
                 </div>
               </div>

@@ -2,6 +2,7 @@
 
 import { Layers, ShieldCheck, Sparkles, Droplets } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link"; // Added for routing
 
 const benefits = [
   {
@@ -53,10 +54,12 @@ export default function WhyPro() {
             We don’t use shortcut coating systems. Our solutions are engineered for long-term industrial protection.
           </p>
           
-          {/* Button updated with Brand Gold and Navy text */}
-          <button className="mt-6 bg-[#F5A623] text-[#0D2B45] px-8 py-3.5 rounded-full font-black text-sm hover:scale-105 transition shadow-lg uppercase tracking-wider">
-            Get a Free Quote
-          </button>
+          {/* Button updated to Link for navigation */}
+          <Link href="/contact" className="inline-block mt-6">
+            <button className="bg-[#F5A623] text-[#0D2B45] px-8 py-3.5 rounded-full font-black text-sm hover:scale-105 transition shadow-lg uppercase tracking-wider">
+              Get a Free Quote
+            </button>
+          </Link>
         </motion.div>
 
         {/* CONTENT GRID: Image and Cards side-by-side */}

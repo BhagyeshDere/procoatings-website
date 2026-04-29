@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Hammer, Send, ArrowRight } from "lucide-react";
+import { Send, ArrowRight } from "lucide-react";
+import Link from "next/link"; // Assuming you are using Next.js for routing
 
 export default function Hero() {
   return (
@@ -70,19 +71,23 @@ export default function Hero() {
           transition={{ delay: 0.6 }}
           className="mt-10 flex flex-col md:flex-row items-center justify-center gap-5"
         >
-          {/* Primary Action: Request Quote */}
-          <button 
-            className="group w-full md:w-auto px-10 py-4 bg-[#EAA33F] text-[#0F3250] font-black text-xs tracking-[0.2em] uppercase transition-all hover:scale-105 rounded-full flex items-center justify-center gap-3 shadow-xl"
-          >
-            Request Quote <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </button>
+          {/* Primary Action: Request Quote (Links to Contact Page) */}
+          <Link href="/contact" className="w-full md:w-auto">
+            <button 
+              className="group w-full px-10 py-4 bg-[#EAA33F] text-[#0F3250] font-black text-xs tracking-[0.2em] uppercase transition-all hover:scale-105 rounded-full flex items-center justify-center gap-3 shadow-xl"
+            >
+              Request Quote <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </button>
+          </Link>
 
-          {/* Secondary Action: Our Services */}
-          <button 
-            className="group w-full md:w-auto px-10 py-4 border border-white/40 bg-black/20 backdrop-blur-md text-white font-black text-xs tracking-[0.2em] uppercase transition-all hover:bg-white hover:text-[#0F3250] rounded-full flex items-center justify-center gap-3"
-          >
-            Our Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          {/* Secondary Action: About Us (Links to About Page) */}
+          <Link href="/about" className="w-full md:w-auto">
+            <button 
+              className="group w-full px-10 py-4 border border-white/40 bg-black/20 backdrop-blur-md text-white font-black text-xs tracking-[0.2em] uppercase transition-all hover:bg-white hover:text-[#0F3250] rounded-full flex items-center justify-center gap-3"
+            >
+              About Us <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
         </motion.div>
 
       </div>

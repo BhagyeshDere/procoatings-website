@@ -135,7 +135,7 @@ export default function IndustrialFlooringPage() {
                   
                   <div className="mt-6 pt-6 border-t border-slate-50 flex items-center justify-between">
                     <Link href="/contact" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:text-[#EAA33F] transition-colors">
-                      Specifications <ChevronRight size={14} />
+                      View Details <ChevronRight size={14} />
                     </Link>
                     <Layers3 size={18} className="text-slate-200" />
                   </div>

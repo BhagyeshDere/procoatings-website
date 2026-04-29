@@ -132,7 +132,7 @@ export default function ResidentialCommercialPage() {
                   
                   <div className="mt-6 pt-6 border-t border-slate-50">
                     <Link href="/contact" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:gap-4 transition-all">
-                      Specifications <ChevronRight size={14} className="text-[#EAA33F]" />
+                      View Details <ChevronRight size={14} className="text-[#EAA33F]" />
                     </Link>
                   </div>
                 </div>

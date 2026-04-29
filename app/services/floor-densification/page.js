@@ -120,7 +120,7 @@ export default function FloorDensificationPage() {
                   
                   <div className="mt-auto pt-5 border-t border-slate-50 flex justify-between items-center">
                     <Link href="/contact" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] group-hover:text-[#EAA33F] transition-all">
-                      View Specs <ChevronRight size={14} className="text-[#EAA33F]" />
+                      View Details <ChevronRight size={14} className="text-[#EAA33F]" />
                     </Link>
                   </div>
                 </div>

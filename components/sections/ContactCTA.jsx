@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, MessageSquare } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactCTA() {
   const BRAND_GOLD = "#EAA33F";
@@ -10,7 +11,7 @@ export default function ContactCTA() {
   return (
     <section className="relative py-16 md:py-24 bg-white overflow-hidden flex items-center justify-center">
       
-      {/* 🧩 Subtle Grid */}
+      {/* 🧩 Subtle Grid Background */}
       <div 
         className="absolute inset-0 opacity-[0.02] pointer-events-none" 
         style={{ 
@@ -32,36 +33,26 @@ export default function ContactCTA() {
           </h2>
           
           <p className="mt-6 text-base md:text-lg text-slate-500 font-medium max-w-xl mx-auto leading-relaxed">
-            Industrial-grade protection for your infrastructure. Connect with our engineering team for a technical consultation.
+            Ready to protect your infrastructure? Start a technical consultation with our engineering team today.
           </p>
         </motion.div>
 
-        {/* 🛠️ Improved Action Buttons */}
+        {/* 🛠️ Single Contact Page Button */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-10 flex justify-center"
         >
-          {/* Primary Action */}
-          <a
-            href="tel:08999925373"
-            className="w-full sm:w-auto flex items-center justify-center gap-3 px-10 py-4 bg-[#0D2B45] text-white rounded-full font-bold text-xs uppercase tracking-widest transition-all hover:bg-[#EAA33F] hover:shadow-xl hover:shadow-orange-500/20 active:scale-95 shadow-lg shadow-slate-200"
+          <Link
+            href="/contact"
+            className="group w-full sm:w-auto flex items-center justify-center gap-4 px-12 py-5 bg-[#0D2B45] text-white rounded-full font-bold text-sm uppercase tracking-[0.2em] transition-all hover:bg-[#EAA33F] hover:shadow-2xl hover:shadow-orange-500/30 active:scale-95 shadow-xl shadow-slate-200"
           >
-            <Phone size={14} />
-            Call Experts
-          </a>
-
-          {/* Improved Secondary Action: Higher visibility with background fill and hover border */}
-          <a
-            href="mailto:procoatings2122@gmail.com"
-            className="w-full sm:w-auto flex items-center justify-center gap-3 px-10 py-4 bg-slate-100/80 border border-transparent text-[#0D2B45] rounded-full font-bold text-xs uppercase tracking-widest transition-all hover:bg-white hover:border-[#0D2B45] hover:shadow-md active:scale-95"
-          >
-            <Mail size={14} />
-            Email Us
-            <ArrowRight size={14} className="opacity-40 group-hover:translate-x-1 transition-transform" />
-          </a>
+            <MessageSquare size={18} className="transition-transform group-hover:-rotate-12" />
+            Get In Touch
+            <ArrowRight size={18} className="transition-transform group-hover:translate-x-2" />
+          </Link>
         </motion.div>
 
         {/* 🛡️ Footer Accent */}

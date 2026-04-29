@@ -61,7 +61,7 @@ export default function VideoServices() {
           </motion.h2>
         </div>
 
-        {/* 🔥 SYMMETRIC SERVICE VIDEO CARDS */}
+        {/* 🔥 SYMMETRIC SERVICE VIDEO CARDS - TEXT REMOVED */}
         <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
           {serviceHighlights.map((item, i) => (
             <motion.div
@@ -72,7 +72,6 @@ export default function VideoServices() {
               viewport={{ once: true }}
               className="group relative h-[500px] md:h-[650px] overflow-hidden bg-slate-900 rounded-sm shadow-2xl"
             >
-              {/* 🎥 Full-Bleed Video - Filters/Overlays removed to keep original colors */}
               <video
                 autoPlay
                 muted
@@ -83,39 +82,8 @@ export default function VideoServices() {
                 <source src={item.video} type="video/mp4" />
               </video>
 
-              {/* 🔳 INFO BOX - Text removed from video area as requested */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 z-30">
-                <div className="relative transform group-hover:-translate-y-2 transition-transform duration-500 ease-out">
-                  
-                  {/* ID Tag */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-[10px] font-bold text-[#EAA33F] bg-black/40 backdrop-blur-md px-3 py-1 rounded-sm uppercase tracking-widest border border-white/10">
-                      {item.id}
-                    </span>
-                    <div className="h-[1px] w-8 bg-white/40" />
-                  </div>
-                  
-                  {/* Title Container */}
-                  <div className="h-[80px] md:h-[100px] flex items-end">
-                    <h3 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tight leading-[1] drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-                      {item.title}
-                    </h3>
-                  </div>
-                  
-                  {/* Description */}
-                  <div className="mt-4 h-0 group-hover:h-10 overflow-hidden transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100">
-                    <p className="text-white text-xs md:text-sm font-medium uppercase tracking-[0.15em] drop-shadow-md">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  {/* Bottom Border Indicator */}
-                  <div className="mt-6 h-[2px] w-12 bg-[#EAA33F] group-hover:w-full transition-all duration-700 ease-in-out" />
-                </div>
-              </div>
-
-              {/* Minimal Gradient for Text Legibility only (Bottom-heavy) */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none z-20" />
+              {/* Decorative Accent Border (Optional, appears on hover) */}
+              <div className="absolute inset-0 border-[0px] group-hover:border-[12px] border-[#EAA33F]/20 transition-all duration-700 pointer-events-none z-20" />
             </motion.div>
           ))}
         </div>
