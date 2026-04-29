@@ -66,13 +66,9 @@ export default function FloorDensificationPage() {
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link href="/contact">
-              <button className="bg-[#EAA33F] px-8 py-4 rounded-xl font-black text-[#0F3250] hover:scale-105 transition shadow-lg text-sm uppercase tracking-wider">
-                Get Consultation
-              </button>
+             
             </Link>
-            <button className="border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-[#0F3250] transition text-sm uppercase tracking-wider">
-              View Specs
-            </button>
+           
           </div>
         </div>
       </section>

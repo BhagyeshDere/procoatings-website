@@ -70,13 +70,9 @@ export default function ResidentialCommercialPage() {
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link href="/contact">
-              <button className="bg-[#EAA33F] text-[#0F3250] px-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-orange-500/10">
-                Get Consultation
-              </button>
+             
             </Link>
-            <button className="px-8 py-4 rounded-xl font-black text-white border border-white/20 hover:bg-white hover:text-[#0F3250] transition-all text-xs uppercase tracking-widest">
-              Surface Matrix
-            </button>
+            
           </div>
         </div>
       </section>

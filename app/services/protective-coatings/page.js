@@ -22,6 +22,8 @@ const coatings = [
     image: "/images/services/heat.png",
     icon: Thermometer,
     desc: "Advanced thermal barrier coatings engineered to reduce heat transfer.",
+    // Added slug to match your dynamic route structure
+    slug: "heat-insulation"
   },
   {
     title: "Electrical Insulation",
@@ -29,6 +31,7 @@ const coatings = [
     image: "/images/services/electrical.png",
     icon: Zap,
     desc: "Specialized insulating coatings for electrical safety and equipment protection.",
+    slug: "electrical-insulation"
   },
   {
     title: "Anti-Corrosive",
@@ -36,6 +39,7 @@ const coatings = [
     image: "/images/services/corrosion.png",
     icon: ShieldCheck,
     desc: "Heavy duty systems designed for harsh industrial and marine environments.",
+    slug: "anti-corrosive"
   },
   {
     title: "Anti-Carbonation",
@@ -43,6 +47,7 @@ const coatings = [
     image: "/images/services/carbonation.png",
     icon: Layers3,
     desc: "Protective coatings designed to prevent concrete deterioration.",
+    slug: "anti-carbonation"
   },
   {
     title: "Fire Resistant",
@@ -50,6 +55,7 @@ const coatings = [
     image: "/images/services/fire.png",
     icon: Flame,
     desc: "High-performance protection for structural and industrial safety.",
+    slug: "fire-resistant"
   },
   {
     title: "Customized Systems",
@@ -57,6 +63,7 @@ const coatings = [
     image: "/images/services/customized.png",
     icon: Factory,
     desc: "Custom engineered protective solutions built for specialized needs.",
+    slug: "customized-systems"
   }
 ];
 
@@ -90,13 +97,9 @@ export default function ProtectiveCoatingsPage() {
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link href="/contact">
-              <button className="bg-[#EAA33F] text-[#0F3250] px-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-orange-500/10">
-                Get Consultation
-              </button>
+              
             </Link>
-            <button className="px-8 py-4 rounded-xl font-black text-white border border-white/20 hover:bg-white hover:text-[#0F3250] transition-all text-xs uppercase tracking-widest">
-              Defense Matrix
-            </button>
+           
           </div>
         </div>
       </section>
@@ -151,7 +154,11 @@ export default function ProtectiveCoatingsPage() {
                   </p>
                   
                   <div className="mt-6 pt-6 border-t border-slate-50 flex items-center justify-between">
-                    <Link href="/contact" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:gap-4 transition-all">
+                    {/* UPDATED: Link points to your dynamic service page */}
+                    <Link 
+                      href={`/services/${item.slug}`} 
+                      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:gap-4 transition-all"
+                    >
                       View Details <ChevronRight size={14} className="text-[#EAA33F]" />
                     </Link>
                   </div>
@@ -202,7 +209,6 @@ export default function ProtectiveCoatingsPage() {
       <section className="pb-24 pt-10">
         <div className="max-w-5xl mx-auto px-6">
           <div className="rounded-[40px] bg-gradient-to-br from-[#0F3250] to-[#1a4a70] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
-            {/* Background Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#EAA33F]/5 rounded-full blur-3xl" />
             
             <h2 className="text-4xl md:text-5xl font-black uppercase leading-tight mb-8">

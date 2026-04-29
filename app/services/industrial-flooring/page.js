@@ -14,33 +14,39 @@ import {
   ChevronRight
 } from "lucide-react";
 
+// Added slugs to link to your dynamic service detail page
 const systems = [
   {
     title: "Epoxy Flooring",
+    slug: "epoxy-flooring", // Matches your data/services.js slug
     tag: "Heavy Duty",
     image: "/images/services/epoxy.png",
     desc: "Seamless high-performance epoxy systems for durability and chemical resistance.",
   },
   {
     title: "PU Flooring",
+    slug: "pu-flooring",
     tag: "Thermal Shock",
     image: "/images/services/pu.png",
     desc: "Polyurethane systems built for thermal resistance and hygienic environments.",
   },
   {
     title: "EPU Coating",
+    slug: "epu-coating",
     tag: "Hybrid Tech",
     image: "/images/services/epu.png",
     desc: "Advanced hybrid flooring delivering superior impact and wear protection.",
   },
   {
     title: "Dielectric Epoxy",
+    slug: "dielectric-epoxy",
     tag: "Safety",
     image: "/images/services/dielectric.png",
     desc: "Specialized insulating systems for high-risk electrical operational zones.",
   },
   {
     title: "ESD PU Flooring",
+    slug: "esd-pu-flooring",
     tag: "Static Control",
     image: "/images/services/esd.png",
     desc: "ESD control flooring engineered for electronics and cleanroom apps.",
@@ -76,13 +82,9 @@ export default function IndustrialFlooringPage() {
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link href="/contact">
-              <button className="bg-[#EAA33F] text-[#0F3250] px-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-orange-500/10">
-                Get Consultation
-              </button>
+              
             </Link>
-            <button className="px-8 py-4 rounded-xl font-black text-white border border-white/20 hover:bg-white hover:text-[#0F3250] transition-all text-xs uppercase tracking-widest">
-              View Matrix
-            </button>
+            
           </div>
         </div>
       </section>
@@ -134,7 +136,11 @@ export default function IndustrialFlooringPage() {
                   </p>
                   
                   <div className="mt-6 pt-6 border-t border-slate-50 flex items-center justify-between">
-                    <Link href="/contact" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:text-[#EAA33F] transition-colors">
+                    {/* UPDATED LINK: Points to your dynamic service page */}
+                    <Link 
+                      href={`/services/${item.slug}`} 
+                      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:text-[#EAA33F] transition-colors"
+                    >
                       View Details <ChevronRight size={14} />
                     </Link>
                     <Layers3 size={18} className="text-slate-200" />
@@ -150,11 +156,15 @@ export default function IndustrialFlooringPage() {
       <section className="py-20 bg-[#0F3250]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {["Epoxy", "PU Systems", "Hybrid EPU", "Dielectric", "ESD Control"].map((item, i) => (
-              <div key={i} className="group p-6 rounded-2xl border border-white/5 bg-white/5 hover:bg-[#EAA33F] transition-all text-center">
+            {systems.map((item, i) => (
+              <Link 
+                href={`/services/${item.slug}`}
+                key={i} 
+                className="group p-6 rounded-2xl border border-white/5 bg-white/5 hover:bg-[#EAA33F] transition-all text-center"
+              >
                 <span className="block text-[9px] font-black text-[#EAA33F] group-hover:text-[#0F3250] mb-2 uppercase opacity-60">System 0{i+1}</span>
-                <span className="text-white group-hover:text-[#0F3250] font-bold uppercase text-xs tracking-widest">{item}</span>
-              </div>
+                <span className="text-white group-hover:text-[#0F3250] font-bold uppercase text-xs tracking-widest">{item.title}</span>
+              </Link>
             ))}
           </div>
         </div>
@@ -163,7 +173,7 @@ export default function IndustrialFlooringPage() {
       {/* ⚪ THE 4-STEP PROCESS (HORIZONTAL) */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
               "Surface Preparation",
               "System Priming",
