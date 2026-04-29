@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,16 +10,16 @@ export default function Footer() {
   const sitemapLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
     { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
   ];
 
   const expertiseLinks = [
     { name: "Waterproofing", href: "/services/waterproofing" },
-    { name: "Epoxy Flooring", href: "/services/epoxy-flooring" },
-    { name: "PU Coating", href: "/services/pu-coating" },
-    { name: "Densification", href: "/services/densification" },
+    { name: "Industrial Floor Coatings", href: "/services/industrial-floor-coatings" },
+    { name: "Protective Coatings", href: "/services/protective-coatings" },
+    { name: "Residential & Commercial", href: "/services/residential-commercial" },
+    { name: "Floor Densification", href: "/services/floor-densification" },
   ];
 
   const socialLinks = [
@@ -119,9 +120,9 @@ export default function Footer() {
               <ul className="space-y-4">
                 {sitemapLinks.map(link => (
                   <li key={link.name}>
-                    <a href={link.href} className="text-sm font-bold text-slate-400 hover:text-white transition-colors">
+                    <Link href={link.href} className="text-sm font-bold text-slate-400 hover:text-white transition-colors">
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -132,9 +133,9 @@ export default function Footer() {
               <ul className="space-y-4">
                 {expertiseLinks.map(item => (
                   <li key={item.name}>
-                    <a href={item.href} className="text-sm font-bold text-slate-500 hover:text-[#EAA33F] transition-colors leading-tight block">
+                    <Link href={item.href} className="text-sm font-bold text-slate-400 hover:text-[#EAA33F] transition-colors leading-tight block">
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -178,7 +179,7 @@ export default function Footer() {
             <div className="relative px-6 py-3.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center gap-4">
               <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Developed By</span>
               <a 
-                href="https://qirotech.com" 
+                href="https://qirotec.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[11px] font-black text-[#EAA33F] uppercase tracking-widest hover:brightness-110"

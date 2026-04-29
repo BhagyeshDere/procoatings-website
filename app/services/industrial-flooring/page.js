@@ -5,7 +5,12 @@ import Link from "next/link";
 import {
   Layers3,
   ChevronRight,
-  Activity // Added for the light theme badge
+  Activity,
+  ShieldAlert,
+  ThermometerSnowflake,
+  Zap,
+  Cpu,
+  Trophy
 } from "lucide-react";
 
 const systems = [
@@ -13,6 +18,7 @@ const systems = [
     title: "Epoxy Flooring",
     slug: "high-performance-epoxy-flooring",
     tag: "Heavy Duty",
+    icon: ShieldAlert,
     image: "/images/services/epoxy.png",
     desc: "Seamless high-performance epoxy systems for durability and chemical resistance."
   },
@@ -20,6 +26,7 @@ const systems = [
     title: "PU Flooring",
     slug: "heavy-duty-pu-floor",
     tag: "Thermal Shock",
+    icon: ThermometerSnowflake,
     image: "/images/services/pu.png",
     desc: "Polyurethane systems built for thermal resistance and hygienic environments."
   },
@@ -27,6 +34,7 @@ const systems = [
     title: "Dielectric Coating",
     slug: "dielectric-safety-coating",
     tag: "Safety",
+    icon: Zap,
     image: "/images/services/dielectric.png",
     desc: "Specialized insulating systems for high-risk electrical operational zones."
   },
@@ -34,6 +42,7 @@ const systems = [
     title: "ESD Flooring",
     slug: "anti-static-esd-flooring",
     tag: "Static Control",
+    icon: Cpu,
     image: "/images/services/esd.png",
     desc: "ESD control flooring engineered for electronics and cleanroom apps."
   },
@@ -41,6 +50,7 @@ const systems = [
     title: "Elite Finish",
     slug: "formula-one-grade-finish",
     tag: "Premium",
+    icon: Trophy,
     image: "/images/services/formula.png",
     desc: "Elite-tier aesthetic and functional finishing for high-end automotive facilities."
   }
@@ -50,9 +60,8 @@ export default function IndustrialFlooringPage() {
   return (
     <main className="bg-white text-[#0F3250] overflow-hidden">
 
-      {/* 🟢 UPDATED LIGHT THEME HERO SECTION */}
+      {/* 🟢 LIGHT THEME HERO SECTION */}
       <section className="relative pt-32 pb-20 bg-white overflow-hidden border-b border-slate-100">
-        {/* Subtle Light Grid Pattern */}
         <div
           className="absolute inset-0 opacity-[0.4]"
           style={{
@@ -60,12 +69,9 @@ export default function IndustrialFlooringPage() {
             backgroundSize: "30px 30px"
           }}
         />
-        
-        {/* Decorative Light Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-[#EAA33F]/5 to-transparent pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 text-center flex flex-col items-center">
-          
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F3250]/10 bg-slate-50 text-[#0F3250] text-[10px] font-black uppercase tracking-[0.4em] mb-6 shadow-sm">
             <Activity size={12} className="text-[#EAA33F] animate-pulse" />
             Precision Surface Engineering
@@ -86,16 +92,14 @@ export default function IndustrialFlooringPage() {
         </div>
       </section>
 
-      {/* 🟠 SYSTEMS GRID - UNTOUCHED */}
+      {/* 🟠 SYSTEMS GRID - UPDATED CARDS */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-xl">
               <h2 className="text-4xl font-black uppercase">
                 Coating
-                <span className="text-[#EAA33F]">
-                  {" "}Systems
-                </span>
+                <span className="text-[#EAA33F]"> Systems</span>
               </h2>
             </div>
             <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[3px]">
@@ -103,44 +107,55 @@ export default function IndustrialFlooringPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
             {systems.map((item, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-[32px] overflow-hidden border border-slate-100 hover:border-[#EAA33F]/50 transition-all duration-500 hover:shadow-2xl flex flex-col"
+                className="group bg-white rounded-[40px] overflow-hidden border border-slate-200 hover:border-[#EAA33F]/50 transition-all duration-500 hover:shadow-2xl flex flex-col"
               >
-                <div className="relative h-44 overflow-hidden">
+                {/* Image Section with Icon Replacement */}
+                <div className="relative h-56 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                    className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-110 transition duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F3250]/90 to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <div className="px-3 py-1 bg-[#EAA33F] text-[#0F3250] text-[10px] font-black uppercase tracking-widest rounded-lg">
-                      {item.tag}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F3250]/90 via-[#0F3250]/20 to-transparent" />
+                  
+                  {/* UPDATED: ICON BADGE INSTEAD OF TEXT TAG */}
+                  <div className="absolute top-6 left-6">
+                    <div className="w-12 h-12 bg-white/95 backdrop-blur-md rounded-2xl flex items-center justify-center text-[#0F3250] shadow-xl group-hover:bg-[#EAA33F] group-hover:text-white transition-all duration-300">
+                      <item.icon size={22} />
                     </div>
                   </div>
-                  <div className="absolute bottom-4 left-6 right-6">
-                    <h3 className="text-xl font-black text-white uppercase">
+
+                  <div className="absolute bottom-6 left-8 right-8">
+                    <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#EAA33F] block mb-1">
+                      {item.tag}
+                    </span>
+                    <h3 className="text-2xl font-black text-white uppercase tracking-tight">
                       {item.title}
                     </h3>
                   </div>
                 </div>
 
+                {/* Content Section */}
                 <div className="p-8 flex flex-col justify-between flex-grow">
-                  <p className="text-slate-500 text-sm leading-relaxed line-clamp-2">
+                  <p className="text-slate-500 text-sm leading-relaxed mb-8 line-clamp-3">
                     {item.desc}
                   </p>
-                  <div className="mt-6 pt-6 border-t border-slate-50 flex items-center justify-between">
+                  
+                  <div className="flex items-center justify-between">
                     <Link
                       href={`/services/industrial-flooring/${item.slug}`}
-                      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:text-[#EAA33F] transition-colors"
+                      className="group/link inline-flex items-center gap-3 text-[11px] font-black uppercase tracking-widest text-[#0F3250] transition-all"
                     >
+                      <span className="bg-slate-100 group-hover/link:bg-[#0F3250] group-hover/link:text-white p-2 rounded-lg transition-colors">
+                        <ChevronRight size={16} />
+                      </span>
                       View Details
-                      <ChevronRight size={14} />
                     </Link>
-                    <Layers3 size={18} className="text-slate-200" />
+                    <Layers3 size={20} className="text-slate-100" />
                   </div>
                 </div>
               </div>
@@ -149,7 +164,7 @@ export default function IndustrialFlooringPage() {
         </div>
       </section>
 
-      {/* 🔵 QUICK NAV - UNTOUCHED */}
+      {/* 🔵 QUICK NAV */}
       <section className="py-20 bg-[#0F3250]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -171,7 +186,7 @@ export default function IndustrialFlooringPage() {
         </div>
       </section>
 
-      {/* ⚪ PROCESS - UNTOUCHED */}
+      {/* ⚪ PROCESS */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -197,7 +212,7 @@ export default function IndustrialFlooringPage() {
         </div>
       </section>
 
-      {/* 🔥 FINAL CTA - UNTOUCHED */}
+      {/* 🔥 FINAL CTA */}
       <section className="pb-24 pt-10">
         <div className="max-w-5xl mx-auto px-6">
           <div className="rounded-[40px] bg-gradient-to-br from-[#0F3250] to-[#1a4a70] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
