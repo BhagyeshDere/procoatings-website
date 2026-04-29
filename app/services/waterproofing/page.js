@@ -22,6 +22,8 @@ const systems = [
     image: "/images/services/terraceroof.png",
     icon: Building2,
     desc: "Advanced membrane systems protecting rooftops from weather degradation.",
+    // Updated slug to match data/services.js
+    slug: "terrace-roof-solution"
   },
   {
     title: "Podium Systems",
@@ -29,6 +31,7 @@ const systems = [
     image: "/images/services/podium.png",
     icon: Layers3,
     desc: "Heavy-duty solutions for landscaped decks and traffic exposed surfaces.",
+    slug: "podium-waterproofing"
   },
   {
     title: "Metal Roofing",
@@ -36,6 +39,7 @@ const systems = [
     image: "/images/services/metalroof.png",
     icon: ShieldCheck,
     desc: "Corrosion and leak prevention systems for specialized industrial roofs.",
+    slug: "metal-roof-restoration" 
   },
   {
     title: "Bathrooms",
@@ -43,6 +47,7 @@ const systems = [
     image: "/images/services/bathroom.png",
     icon: Home,
     desc: "Internal wet-area protection preventing structural moisture damage.",
+    slug: "bathroom-sealing-grouting"
   },
   {
     title: "Basements",
@@ -50,6 +55,7 @@ const systems = [
     image: "/images/services/basement.png",
     icon: Warehouse,
     desc: "High-pressure underground solutions for foundations and structures.",
+    slug: "basement-waterproofing"
   },
   {
     title: "External Walls",
@@ -57,6 +63,7 @@ const systems = [
     image: "/images/services/wall.png",
     icon: Droplets,
     desc: "Exterior barrier systems against vertical moisture ingress.",
+    slug: "wall-protective-coating"
   }
 ];
 
@@ -148,7 +155,11 @@ export default function WaterproofingPage() {
                     {item.desc}
                   </p>
                   
-                  <Link href="/contact" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:gap-4 transition-all">
+                  {/* Updated navigation path */}
+                  <Link 
+                    href={`/services/waterproofing/${item.slug}`} 
+                    className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:gap-4 transition-all"
+                  >
                     View Details <ArrowRight size={14} className="text-[#EAA33F]" />
                   </Link>
                 </div>

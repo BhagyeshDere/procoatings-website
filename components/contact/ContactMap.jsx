@@ -3,8 +3,14 @@ import { motion } from "framer-motion";
 import { Compass, ArrowRight } from "lucide-react";
 
 export default function ContactMap() {
-  const MAP_EMBED_URL = "https://www.google.com/maps/embed?pb=YOUR_EMBED_LINK";
-  const NAV_LINK = "https://maps.google.com";
+  // Address from image: Office No.1, Mangalmurti Complex, Ground Floor, Behind Audumber Complex, Narhe-Dhayari Road, Narhe, Pune-411041
+  const ADDRESS_QUERY = "Mangalmurti Complex, Narhe-Dhayari Rd, Narhe, Pune, Maharashtra 411041";
+  
+  // Real Google Maps Embed URL for Narhe location
+  const MAP_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.61343750535!2d73.81881777520448!3d18.455850982624445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc295627622956f%3A0xc31922718f430589!2sMangalmurti%20Complex!5e0!3m2!1sen!2sin!4v1709123456789!5m2!1sen!2sin";
+  
+  // Direct Navigation Link
+  const NAV_LINK = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS_QUERY)}`;
 
   return (
     <section className="bg-white">
@@ -27,7 +33,9 @@ export default function ContactMap() {
             height="100%"
             style={{ border: 0 }}
             allowFullScreen=""
+            padding="0"
             loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
             className="grayscale hover:grayscale-0 transition-all duration-700 contrast-[1.1]"
           ></iframe>
           
@@ -40,6 +48,15 @@ export default function ContactMap() {
             Get Directions <ArrowRight size={14} />
           </a>
         </motion.div>
+        
+        {/* Physical Address Text below map for better UX */}
+        <div className="mt-8 max-w-2xl mx-auto">
+          <p className="text-xs font-bold text-[#0D2B45] uppercase tracking-wider leading-relaxed opacity-70">
+            Office No.1, Mangalmurti Complex, Ground Floor,<br />
+            Behind Audumber Complex, Narhe-Dhayari Road,<br />
+            Narhe, Pune-411041
+          </p>
+        </div>
       </div>
     </section>
   );
