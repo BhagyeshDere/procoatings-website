@@ -4,10 +4,11 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const serviceImages = [
-  "/images/about/epoxy.png",
-  "/images/about/floor.png",
+  
   "/images/hero/bg3.png",
   "/images/flooring/esd.png", 
+  "/images/about/epoxy.png",
+  "/images/about/floor.png",
 ];
 
 export default function ProAboutSection() {

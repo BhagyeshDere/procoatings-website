@@ -117,40 +117,73 @@ export const servicesData = {
       }
     ]
   },
-  "residential-commercial": {
-    title: "Residential & Commercial",
-    description: "Specialized aesthetic and protective solutions for premium building interiors and exteriors.",
-    subServices: [
-      {
-        slug: "bathroom-sealing-grouting",
-        title: "Bathroom Sealing & Grouting",
-        image: "/images/services/bathroom.png",
-        description: "Water-tight sealing for wet areas to prevent seepage into adjoining rooms.",
-        features: ["Anti-Fungal Grout", "Epoxy Sealing", "Deep Penetration", "Stain Resistance"]
-      },
-      {
-        slug: "wall-protective-coating",
-        title: "Wall Protective Coating",
-        image: "/images/services/wall.png",
-        description: "Durable vertical barriers against moisture, dust, and environmental pollutants.",
-        features: ["Washable Surface", "Weather Resistance", "Breathability", "Color Retention"]
-      },
-      {
-        slug: "building-facade-protection",
-        title: "Building Facade Protection",
-        image: "/images/services/building.jpeg",
-        description: "External shielding for high-rise structures against UV and wind-driven rain.",
-        features: ["Crack Bridging", "Dust Repellent", "Salt Air Resistance", "Self-Cleaning Properties"]
-      },
-      {
-        slug: "customized-surface-finishing",
-        title: "Customized Surface Finishing",
-        image: "/images/services/customized.png",
-        description: "Bespoke architectural finishes tailored to specific design requirements.",
-        features: ["Unique Textures", "Color Matching", "Artistic Application", "Premium Durability"]
-      }
-    ]
-  },
+ "residential-commercial": {
+  title: "Residential & Commercial",
+  description:
+    "Architectural flooring systems that bridge the gap between decorative aesthetics and industrial-grade durability.",
+
+  subServices: [
+    {
+      slug: "car-deck-systems",
+      title: "Car Deck Systems",
+      image: "/images/services/cardesk.png",
+      description:
+        "Heavy duty car park protection designed for high-traffic abrasion and waterproofing.",
+      features: [
+        "Traffic Deck Grade",
+        "Abrasion Resistance",
+        "Waterproof Barrier",
+        "High Durability"
+      ],
+     
+    },
+
+    {
+      slug: "anti-skid-flooring",
+      title: "Anti-Skid Flooring",
+      image: "/images/services/antiskid.png",
+      description:
+        "Slip resistant performance flooring solutions engineered for safety-critical zones.",
+      features: [
+        "Slip Resistant Surface",
+        "Impact Durable",
+        "Heavy Traffic Ready",
+        "Safety Enhancement"
+      ],
+     
+    },
+
+    {
+      slug: "textured-pu-floor",
+      title: "Textured PU Floor",
+      image: "/images/services/textured.png",
+      description:
+        "Decorative polyurethane flooring with resilient finishes for premium commercial spaces.",
+      features: [
+        "Decorative Finish",
+        "Chemical Resistance",
+        "Premium Texture",
+        "Durable PU Surface"
+      ],
+     
+    },
+
+    {
+      slug: "bathroom-sealing-grouting",
+      title: "Bathroom Sealing & Grouting",
+      image: "/images/services/bathroom.png",
+      description:
+        "Water-tight sealing for wet areas to prevent seepage into adjoining rooms.",
+      features: [
+        "Anti-Fungal Grout",
+        "Epoxy Sealing",
+        "Deep Penetration",
+        "Stain Resistance"
+      ],
+     
+    }
+  ]
+},
   "floor-densification": {
     title: "Floor Densification",
     description: "Molecular hardening of concrete surfaces to increase durability and eliminate dusting.",

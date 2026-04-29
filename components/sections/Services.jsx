@@ -16,7 +16,7 @@ const services = [
     id: "02",
     title: "Industrial Flooring",
     desc: "High-grade Epoxy and PU flooring systems engineered for heavy loads and chemical resistance.",
-    img: "/images/flooring/floor1.png",
+    img: "/images/about/epoxy.png",
     icon: <HardHat size={20} />,
     color: "#0F3250"
   },
@@ -24,7 +24,7 @@ const services = [
     id: "03",
     title: "Floor Densification",
     desc: "Chemical treatment that penetrates concrete pores to eliminate dusting.",
-    img: "/images/flooring/densification.png",
+    img: "/images/about/floor.png",
     icon: <Shield size={20} />,
     color: "#0F3250"
   },
