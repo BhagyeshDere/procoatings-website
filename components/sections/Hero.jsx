@@ -6,7 +6,7 @@ import Link from "next/link"; // Assuming you are using Next.js for routing
 
 export default function Hero() {
   return (
-    <section className="relative h-[600px] md:h-[85vh] w-full flex items-center justify-center overflow-hidden bg-[#0F3250]">
+    <section className="relative h-[600px] md:h-[90vh] w-full flex items-center justify-center overflow-hidden bg-[#0F3250]">
       
       {/* 🎥 FULL BACKGROUND VIDEO */}
       <div className="absolute inset-0 z-0">

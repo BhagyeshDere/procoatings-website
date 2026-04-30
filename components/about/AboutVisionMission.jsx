@@ -5,10 +5,9 @@ import { Eye, Target, Zap } from "lucide-react";
 
 export default function AboutVisionMission() {
   return (
-    // Reduced padding from py-24/40 to py-12/20 to tighten upper and bottom gaps
     <section className="py-12 md:py-20 bg-white relative overflow-hidden">
       
-      {/* Dynamic Background Elements - Optimized positioning */}
+      {/* Dynamic Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40">
         <div className="absolute top-0 right-[-5%] w-[400px] h-[400px] bg-[#F5A623]/5 rounded-full blur-[100px]" />
         <div className="absolute bottom-0 left-[-5%] w-[400px] h-[400px] bg-[#0D2B45]/5 rounded-full blur-[100px]" />
@@ -17,19 +16,27 @@ export default function AboutVisionMission() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col gap-6">
           
-          {/* Header Area - Reduced mb-12 to mb-8 */}
-          <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
-            <div className="space-y-4">
+          {/* 🔷 CENTRALIZED HEADER AREA */}
+          <div className="flex flex-col items-center text-center mb-12 max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
               <span className="inline-block px-4 py-1.5 rounded-full bg-[#0D2B45] text-[#F5A623] text-[10px] font-black uppercase tracking-[0.3em]">
                 Strategic Intent
               </span>
               <h2 className="text-5xl md:text-7xl font-black text-[#0D2B45] uppercase tracking-tighter leading-[0.85]">
                 Core <br /> <span className="text-slate-300">Philosophies</span>
               </h2>
-            </div>
-            <p className="max-w-xs text-slate-500 font-bold text-sm leading-relaxed border-l-2 border-[#F5A623] pl-6">
-              Engineering the future of industrial protection through clarity of sight and precision of action.
-            </p>
+              
+              <div className="flex justify-center pt-4">
+                <p className="max-w-md text-slate-500 font-bold text-sm leading-relaxed border-t-2 md:border-t-0 md:border-l-2 border-[#F5A623] pt-4 md:pt-0 md:pl-6">
+                  Engineering the future of industrial protection through clarity of sight and precision of action.
+                </p>
+              </div>
+            </motion.div>
           </div>
 
           {/* Unique Bento-Style Layout */}
@@ -42,7 +49,6 @@ export default function AboutVisionMission() {
               viewport={{ once: true }}
               className="lg:col-span-7 group relative bg-[#0D2B45] rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-14 overflow-hidden text-white"
             >
-              {/* Abstract Icon Overlay */}
               <Eye className="absolute -right-10 -bottom-10 w-64 h-64 text-white/5 group-hover:text-[#F5A623]/10 transition-colors duration-700" />
               
               <div className="relative z-10 space-y-8">
@@ -88,8 +94,8 @@ export default function AboutVisionMission() {
                 </div>
               </div>
 
-              {/* Bottom Mini-Card / Trust Bar */}
-              <div className="bg-[#F5A623] rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 flex items-center justify-between group cursor-default">
+              {/* Bottom Mini-Card */}
+              <div className="bg-[#F5A623] rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 flex items-center justify-between group cursor-default shadow-lg shadow-[#F5A623]/20">
                 <div className="text-[#0D2B45]">
                   <p className="text-[10px] font-black uppercase tracking-widest mb-1 opacity-70">Focus Area</p>
                   <p className="text-xl font-black uppercase tracking-tighter">Indian Subcontinent</p>

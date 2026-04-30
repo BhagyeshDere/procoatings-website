@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, 
   ArrowRight,
@@ -19,15 +19,22 @@ export default function ServiceDetailPage() {
   const params = useParams();
   const router = useRouter();
   
-  /**
-   * GLOBAL SEARCH:
-   * This looks through every category in your servicesData to find the slug.
-   */
   const service = Object.values(servicesData)
     .flatMap(category => category.subServices)
     .find((s) => s.slug === params.slug);
 
-  // Robust Error State if the slug doesn't exist in your data/services.js
+  // State to track the active thumbnail index and the current main image
+  const [mainImage, setMainImage] = useState(service?.image || "");
+  const [selectedIdx, setSelectedIdx] = useState(0);
+
+  // Reset state if the service changes
+  useEffect(() => {
+    if (service) {
+      setMainImage(service.image);
+      setSelectedIdx(0);
+    }
+  }, [service]);
+
   if (!service) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 text-[#0D2B45] font-mono p-6 text-center">
@@ -46,14 +53,16 @@ export default function ServiceDetailPage() {
   }
 
   const specIcons = [<ShieldCheck />, <Settings />, <Ruler />, <Zap />];
+  
+  // Array using the same image path for all 3 slots
+  const galleryThumbs = [service.image, service.image, service.image];
 
   return (
     <main className="min-h-screen bg-[#F8F9FA] text-[#0D2B45]">
       
-      {/* SECTION WRAPPER: Standardized max-w for better hierarchy on large displays */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
         
-        {/* LEFT SIDE: Image + Technical Branding */}
+        {/* LEFT SIDE: Image + Interactive Gallery */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -69,27 +78,64 @@ export default function ServiceDetailPage() {
             <span className="text-[10px] font-bold uppercase tracking-widest">Back to Services</span>
           </button>
 
-          {/* PRODUCT IMAGE: Removed border container, increased lg height to 650px */}
-          <div className="relative w-full flex items-center justify-center lg:justify-start lg:h-[650px] overflow-hidden">
-            <img 
-              src={service.image} 
-              alt={service.title} 
-              className="w-full h-full object-contain drop-shadow-[0_25px_50px_rgba(13,43,69,0.12)]"
-            />
+          {/* MAIN IMAGE DISPLAY: Responsive container with fixed height ratios */}
+          <div className="relative w-full flex items-center justify-center h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden bg-white rounded-3xl border border-slate-100 shadow-inner">
+            <AnimatePresence mode="wait">
+              <motion.img 
+                key={selectedIdx} // Force animation even if source is the same
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.1 }}
+                transition={{ duration: 0.4, ease: "circOut" }}
+                src={mainImage} 
+                alt={service.title} 
+                className="w-full h-full object-contain p-6 md:p-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.06)]"
+              />
+            </AnimatePresence>
             
-            {/* Technical Reference Tag */}
-            <div className="absolute bottom-4 left-0 flex items-center gap-3 opacity-30">
+            <div className="absolute bottom-4 left-6 flex items-center gap-3 opacity-30">
                <div className="h-[1px] w-12 bg-[#0D2B45]" />
                <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">
                  Asset_Ref: {params.slug?.replace(/-/g, '_').toUpperCase()}
                </span>
             </div>
           </div>
+
+          {/* 3-IMAGE GALLERY SELECTOR */}
+          <div className="grid grid-cols-3 gap-3 md:gap-4 mt-6">
+            {galleryThumbs.map((img, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setMainImage(img);
+                  setSelectedIdx(idx);
+                }}
+                className={`relative h-20 md:h-28 rounded-2xl overflow-hidden border-2 transition-all duration-300 bg-white group shadow-sm ${
+                  selectedIdx === idx 
+                  ? "border-[#EAA33F] ring-4 ring-[#EAA33F]/10" 
+                  : "border-transparent hover:border-slate-200"
+                }`}
+              >
+                <img 
+                  src={img} 
+                  alt={`View ${idx + 1}`} 
+                  className={`w-full h-full object-cover p-2 transition-all duration-500 ${
+                    selectedIdx === idx ? "scale-110 opacity-100" : "opacity-50 group-hover:opacity-100"
+                  }`}
+                />
+                {selectedIdx === idx && (
+                  <motion.div 
+                    layoutId="activeIndicator"
+                    className="absolute inset-0 bg-[#EAA33F]/5 pointer-events-none"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
         </motion.div>
 
         {/* RIGHT SIDE: CONTENT MATRIX */}
         <div className="w-full lg:w-1/2 flex flex-col pt-6 lg:pt-0">
-          
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -99,7 +145,6 @@ export default function ServiceDetailPage() {
             <span className="text-[9px] font-black uppercase tracking-widest">Structural Integrity Verified</span>
           </motion.div>
 
-          {/* TITLE: Impactful but scaled for readability */}
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -118,7 +163,6 @@ export default function ServiceDetailPage() {
             </p>
           </motion.div>
 
-          {/* FEATURES GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {service.features.map((feature, idx) => (
               <motion.div 
@@ -138,7 +182,6 @@ export default function ServiceDetailPage() {
             ))}
           </div>
 
-          {/* CTA & BENEFIT TAG */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -153,7 +196,7 @@ export default function ServiceDetailPage() {
 
             <a 
               href={`/contact?service=${encodeURIComponent(service.title)}`}
-              className="group flex items-center justify-between bg-[#0D2B45] text-white px-8 py-5 rounded-xl font-black uppercase text-[10px] tracking-[0.3em] w-full sm:w-fit min-w-[280px] hover:bg-[#EAA33F] hover:text-[#0D2B45] transition-all duration-300 shadow-xl shadow-[#0D2B45]/10"
+              className="group flex items-center justify-between bg-[#0D2B45] text-white px-8 py-5 rounded-xl font-black uppercase text-[10px] tracking-[0.3em] w-full sm:w-fit min-w-[280px] hover:bg-[#EAA33F] hover:text-[#0D2B45] transition-all duration-300 shadow-xl"
             >
               Enquire Now 
               <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />

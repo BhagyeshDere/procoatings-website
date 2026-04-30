@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react"; // Added useState
 import { useParams, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"; // Added AnimatePresence
 import { 
   ArrowLeft, 
   ArrowRight,
@@ -19,15 +19,13 @@ export default function ServiceDetailPage() {
   const params = useParams();
   const router = useRouter();
   
-  /**
-   * GLOBAL SEARCH:
-   * This looks through every category in your servicesData to find the slug.
-   */
+  // State to manage which image is currently "active"
+  const [activeImage, setActiveImage] = useState(0);
+  
   const service = Object.values(servicesData)
     .flatMap(category => category.subServices)
     .find((s) => s.slug === params.slug);
 
-  // Robust Error State if the slug doesn't exist in your data/services.js
   if (!service) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 text-[#0D2B45] font-mono p-6 text-center">
@@ -46,14 +44,16 @@ export default function ServiceDetailPage() {
   }
 
   const specIcons = [<ShieldCheck />, <Settings />, <Ruler />, <Zap />];
+  
+  // Gallery array using the same image path as requested
+  const galleryImages = [service.image, service.image, service.image];
 
   return (
     <main className="min-h-screen bg-[#F8F9FA] text-[#0D2B45]">
       
-      {/* SECTION WRAPPER: Constrained to standard 7xl width for professional hierarchy */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
         
-        {/* LEFT SIDE: Image + Technical Branding */}
+        {/* LEFT SIDE: Image + Gallery Matrix */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -69,21 +69,48 @@ export default function ServiceDetailPage() {
             <span className="text-[10px] font-bold uppercase tracking-widest">Back to Services</span>
           </button>
 
-          {/* PRODUCT IMAGE: Borderless with increased vertical presence */}
-          <div className="relative w-full flex items-center justify-center lg:h-[650px] overflow-hidden">
-            <img 
-              src={service.image} 
-              alt={service.title} 
-              className="w-full h-full object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.08)]"
-            />
+          {/* MAIN PRODUCT DISPLAY */}
+          <div className="relative w-full flex items-center justify-center lg:h-[550px] aspect-square lg:aspect-auto overflow-hidden bg-white rounded-3xl border border-slate-100 shadow-sm">
+            <AnimatePresence mode="wait">
+              <motion.img 
+                key={activeImage}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                src={galleryImages[activeImage]} 
+                alt={service.title} 
+                className="w-full h-full object-contain p-8 drop-shadow-[0_20px_40px_rgba(0,0,0,0.06)]"
+              />
+            </AnimatePresence>
             
-            {/* Technical Reference Tag */}
-            <div className="absolute bottom-4 left-0 flex items-center gap-3 opacity-30">
+            <div className="absolute bottom-6 left-6 flex items-center gap-3 opacity-30">
                <div className="h-[1px] w-12 bg-[#0D2B45]" />
                <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">
                  Asset_Ref: {params.slug?.replace(/-/g, '_').toUpperCase()}
                </span>
             </div>
+          </div>
+
+          {/* THUMBNAIL GALLERY: 3 Images bottom of main image */}
+          <div className="grid grid-cols-3 gap-4 mt-6">
+            {galleryImages.map((img, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveImage(idx)}
+                className={`relative aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 bg-white shadow-sm ${
+                  activeImage === idx 
+                    ? "border-[#EAA33F] ring-4 ring-[#EAA33F]/10" 
+                    : "border-transparent hover:border-slate-200"
+                }`}
+              >
+                <img 
+                  src={img} 
+                  alt={`View ${idx + 1}`} 
+                  className={`w-full h-full object-contain p-2 transition-opacity ${activeImage === idx ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`} 
+                />
+              </button>
+            ))}
           </div>
         </motion.div>
 

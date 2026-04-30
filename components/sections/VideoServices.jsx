@@ -6,19 +6,19 @@ const serviceHighlights = [
   {
     title: "Structural Waterproofing",
     desc: "Precision multi-layer moisture barriers.",
-    video: "/video/v1.mp4",
+    video: "/video/p1.mp4",
     id: "SRV-01"
   },
   {
     title: "High-Performance Flooring",
     desc: "Heavy-duty seamless epoxy resin systems.",
-    video: "/video/v2.mp4",
+    video: "/video/p3.mp4",
     id: "SRV-02"
   },
   {
     title: "Anti-Corrosive Coatings",
     desc: "Extreme environment protective layering.",
-    video: "/video/hero.mp4",
+    video: "/video/p2.mp4",
     id: "SRV-03"
   }
 ];
@@ -38,30 +38,35 @@ export default function VideoServices() {
 
       <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
-        {/* 🔷 HEADER SECTION */}
-        <div className="max-w-4xl mb-16">
+        {/* 🔷 CENTRALIZED HEADER SECTION */}
+        <div className="max-w-4xl mx-auto mb-16 text-center flex flex-col items-center">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="flex items-center gap-4 mb-6"
           >
-            <div className="h-[2px] w-12 bg-[#EAA33F]" />
-            <span className="text-[#EAA33F] text-[11px] font-black uppercase tracking-[0.6em]">Service Divisions</span>
+            <div className="h-[2px] w-8 md:w-12 bg-[#EAA33F]" />
+            <span className="text-[#EAA33F] text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em]">
+              Service Divisions
+            </span>
+            <div className="h-[2px] w-8 md:w-12 bg-[#EAA33F]" />
           </motion.div>
 
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-black leading-[0.9] tracking-tighter uppercase"
+            className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter uppercase"
           >
             Industrial <br />
             <span className="text-slate-300">Specializations.</span>
           </motion.h2>
+          
+          <div className="mt-6 w-20 h-1 bg-[#0F3250]/10 rounded-full" />
         </div>
 
-        {/* 🔥 SYMMETRIC SERVICE VIDEO CARDS - TEXT REMOVED */}
+        {/* 🔥 SYMMETRIC SERVICE VIDEO CARDS */}
         <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
           {serviceHighlights.map((item, i) => (
             <motion.div
@@ -82,7 +87,7 @@ export default function VideoServices() {
                 <source src={item.video} type="video/mp4" />
               </video>
 
-              {/* Decorative Accent Border (Optional, appears on hover) */}
+              {/* Decorative Accent Border */}
               <div className="absolute inset-0 border-[0px] group-hover:border-[12px] border-[#EAA33F]/20 transition-all duration-700 pointer-events-none z-20" />
             </motion.div>
           ))}

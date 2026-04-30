@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react"; // Added useState
 import { useParams, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"; // Added AnimatePresence
 import { 
   ArrowLeft, 
   ArrowRight,
@@ -19,6 +19,9 @@ export default function ServiceDetailPage() {
   const params = useParams();
   const router = useRouter();
   
+  // State to handle which gallery item is currently selected
+  const [selectedIdx, setSelectedIdx] = useState(0);
+
   const service = Object.values(servicesData)
     .flatMap(category => category.subServices)
     .find((s) => s.slug === params.slug);
@@ -42,12 +45,15 @@ export default function ServiceDetailPage() {
 
   const specIcons = [<ShieldCheck />, <Settings />, <Ruler />, <Zap />];
 
+  // Gallery array using the same image path for all 3 slots as requested
+  const galleryImages = [service.image, service.image, service.image];
+
   return (
     <main className="min-h-screen bg-[#F8F9FA] text-[#0D2B45]">
       
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
         
-        {/* LEFT SIDE: Image + Technical Branding */}
+        {/* LEFT SIDE: Image + Interactive Gallery */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -63,13 +69,20 @@ export default function ServiceDetailPage() {
             <span className="text-[10px] font-bold uppercase tracking-widest">Back to Services</span>
           </button>
 
-          {/* PRODUCT IMAGE: Border removed, height increased to 650px on large screens */}
-          <div className="relative w-full flex items-center justify-center lg:h-[650px] overflow-hidden">
-            <img 
-              src={service.image} 
-              alt={service.title} 
-              className="w-full h-full object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.1)]"
-            />
+          {/* MAIN PRODUCT DISPLAY: Uses AnimatePresence for smooth switching */}
+          <div className="relative w-full flex items-center justify-center h-[350px] md:h-[500px] lg:h-[550px] overflow-hidden bg-white/50 rounded-3xl">
+            <AnimatePresence mode="wait">
+              <motion.img 
+                key={selectedIdx} // Force re-animation when index changes
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                src={galleryImages[selectedIdx]} 
+                alt={service.title} 
+                className="w-full h-full object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.1)]"
+              />
+            </AnimatePresence>
             
             {/* Technical Reference Tag */}
             <div className="absolute bottom-2 left-0 flex items-center gap-3 opacity-30">
@@ -79,10 +92,33 @@ export default function ServiceDetailPage() {
                </span>
             </div>
           </div>
+
+          {/* THUMBNAIL GALLERY: 3 images below the main display */}
+          <div className="grid grid-cols-3 gap-4 mt-6">
+            {galleryImages.map((img, idx) => (
+              <button
+                key={idx}
+                onClick={() => setSelectedIdx(idx)}
+                className={`relative aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 bg-white p-2 ${
+                  selectedIdx === idx 
+                    ? "border-[#EAA33F] shadow-md ring-2 ring-[#EAA33F]/20" 
+                    : "border-slate-100 hover:border-slate-300"
+                }`}
+              >
+                <img 
+                  src={img} 
+                  alt={`View ${idx + 1}`} 
+                  className={`w-full h-full object-contain transition-opacity duration-300 ${
+                    selectedIdx === idx ? "opacity-100" : "opacity-40 hover:opacity-100"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
         </motion.div>
 
         {/* RIGHT SIDE: CONTENT MATRIX */}
-        <div className="w-full lg:w-1/2 flex flex-col">
+        <div className="w-full lg:w-1/2 flex flex-col pt-8 lg:pt-0">
           
           <motion.div 
             initial={{ opacity: 0, x: 20 }}

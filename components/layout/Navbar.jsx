@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, FileText } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  // Exact filename from your public folder
+  const brochurePath = `/${encodeURIComponent("PROCOATINGSprofile.pdf")}`;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -35,14 +38,14 @@ export default function Navbar() {
     <>
       <div className="fixed top-0 left-0 w-full z-[100] flex justify-center transition-all duration-500 pt-3 px-4 pointer-events-none">
         <nav
-          className={`pointer-events-auto flex items-center justify-between transition-all duration-500 ease-in-out ${
+          className={`pointer-events-auto flex items-center transition-all duration-500 ease-in-out ${
             scrolled
               ? "w-full max-w-[1200px] bg-white/85 backdrop-blur-xl rounded-2xl shadow-[0_12px_40px_rgba(15,50,80,0.12)] border border-white/40 px-8 h-16"
               : "w-full max-w-[1440px] bg-white/40 backdrop-blur-sm rounded-xl px-10 h-20"
           }`}
         >
           {/* 🔷 LOGO */}
-          <div className="flex-shrink-0 h-full flex items-center">
+          <div className="flex-1 flex items-center justify-start">
             <Link href="/">
               <img
                 src="/logo.png"
@@ -55,11 +58,10 @@ export default function Navbar() {
           </div>
 
           {/* 🖥️ CENTRAL LINKS */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex flex-grow-[2] items-center justify-center pl-12 space-x-1">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group py-4">
                 {link.dropdown ? (
-                  // Services label without a route
                   <div className="cursor-default relative px-5 py-2 text-[15px] font-bold text-[#0F3250] flex items-center gap-1 transition-colors duration-300 group-hover:text-[#EAA33F]">
                     <span className="relative z-10">{link.name}</span>
                     <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
@@ -75,7 +77,6 @@ export default function Navbar() {
                   </Link>
                 )}
 
-                {/* Desktop Dropdown Menu */}
                 {link.dropdown && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
                     <div className="bg-white/95 backdrop-blur-xl border border-slate-100 rounded-2xl shadow-2xl p-3 w-64">
@@ -95,10 +96,20 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* 🔥 ACTION BUTTON */}
-          <div className="hidden md:block">
-            <Link href="/contact">
-              <button className="bg-[#0F3250] text-white px-7 py-2.5 rounded-xl text-[13px] font-black tracking-widest hover:bg-[#EAA33F] hover:text-[#0F3250] transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/5 uppercase">
+          {/* 🔥 ACTION BUTTONS - Centered text and nowrap fix applied here */}
+          <div className="hidden md:flex flex-1 items-center justify-end space-x-3">
+            <a 
+              href={brochurePath} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] font-bold text-[#0F3250] border border-[#0F3250]/10 bg-white/50 hover:bg-white hover:border-[#EAA33F] transition-all duration-300 shadow-sm whitespace-nowrap"
+            >
+              <FileText size={16} className="text-[#EAA33F] group-hover:scale-110 transition-transform flex-shrink-0" />
+              <span>BROCHURE</span>
+            </a>
+
+            <Link href="/contact" className="flex-shrink-0">
+              <button className="bg-[#0F3250] text-white px-6 py-2.5 rounded-xl text-[13px] font-black tracking-widest hover:bg-[#EAA33F] hover:text-[#0F3250] transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/5 uppercase whitespace-nowrap">
                 Get Quote
               </button>
             </Link>
@@ -126,67 +137,31 @@ export default function Navbar() {
           className={`absolute inset-0 bg-[#0F3250]/40 backdrop-blur-sm transition-opacity duration-500 ${menuOpen ? "opacity-100" : "opacity-0"}`}
           onClick={() => setMenuOpen(false)}
         />
-
         <div
           className={`absolute top-0 left-0 h-full w-[85%] max-w-[340px] bg-white transition-transform duration-500 flex flex-col shadow-2xl ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
           <div className="p-6 flex items-center justify-between border-b border-slate-50">
             <img src="/logo.png" className="h-14 w-auto object-contain" alt="Logo" />
-            <button 
-              onClick={() => setMenuOpen(false)}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-[#0F3250]"
-            >
-              ✕
-            </button>
+            <button onClick={() => setMenuOpen(false)} className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-[#0F3250]">✕</button>
           </div>
-
           <nav className="flex-grow flex flex-col overflow-y-auto px-8 py-8 space-y-2">
             {navLinks.map((link, i) => (
               <div key={link.name} className="flex flex-col">
                 <div className="flex items-center justify-between py-3">
                   {link.dropdown ? (
-                    // Toggle the sub-menu when clicking the name on mobile since there is no route
-                    <button
-                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                      className={`text-left text-2xl font-black text-[#0F3250] uppercase tracking-tighter transition-all duration-500 ${menuOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`}
-                      style={{ transitionDelay: `${i * 100}ms` }}
-                    >
-                      {link.name}
-                    </button>
+                    <button onClick={() => setMobileServicesOpen(!mobileServicesOpen)} className={`text-left text-2xl font-black text-[#0F3250] uppercase tracking-tighter transition-all duration-500 ${menuOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`} style={{ transitionDelay: `${i * 100}ms` }}>{link.name}</button>
                   ) : (
-                    <Link
-                      href={link.href}
-                      onClick={() => setMenuOpen(false)}
-                      className={`text-2xl font-black text-[#0F3250] uppercase tracking-tighter transition-all duration-500 ${menuOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`}
-                      style={{ transitionDelay: `${i * 100}ms` }}
-                    >
-                      {link.name}
-                    </Link>
+                    <Link href={link.href} onClick={() => setMenuOpen(false)} className={`text-2xl font-black text-[#0F3250] uppercase tracking-tighter transition-all duration-500 ${menuOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`} style={{ transitionDelay: `${i * 100}ms` }}>{link.name}</Link>
                   )}
-                  
                   {link.dropdown && (
-                    <button 
-                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                      className="p-2 bg-slate-50 rounded-lg text-[#0F3250]"
-                    >
-                      <ChevronDown className={`transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`} />
-                    </button>
+                    <button onClick={() => setMobileServicesOpen(!mobileServicesOpen)} className="p-2 bg-slate-50 rounded-lg text-[#0F3250]"><ChevronDown className={`transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`} /></button>
                   )}
                 </div>
-
-                {/* Mobile Sub-menu Accordion */}
                 {link.dropdown && (
                   <div className={`overflow-hidden transition-all duration-500 ${mobileServicesOpen ? "max-h-[400px] opacity-100 mb-4" : "max-h-0 opacity-0"}`}>
                     <div className="pl-4 space-y-1 border-l-2 border-[#EAA33F]/30 ml-1">
                       {link.dropdown.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.href}
-                          onClick={() => setMenuOpen(false)}
-                          className="block py-3 px-3 text-sm font-bold text-[#0F3250]/70 hover:text-[#EAA33F]"
-                        >
-                          {sub.name}
-                        </Link>
+                        <Link key={sub.name} href={sub.href} onClick={() => setMenuOpen(false)} className="block py-3 px-3 text-sm font-bold text-[#0F3250]/70 hover:text-[#EAA33F]">{sub.name}</Link>
                       ))}
                     </div>
                   </div>
@@ -194,10 +169,12 @@ export default function Navbar() {
               </div>
             ))}
           </nav>
-
-          <div className="p-8 space-y-6">
-            <Link href="/contact" onClick={() => setMenuOpen(false)}>
-              <button className="w-full bg-[#EAA33F] text-[#0F3250] py-5 rounded-2xl font-black text-lg shadow-xl shadow-orange-200 uppercase tracking-widest">
+          <div className="p-8 space-y-4 border-t border-slate-50 bg-slate-50/50">
+            <a href={brochurePath} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl font-bold text-[#0F3250] border-2 border-[#0F3250]/10 bg-white shadow-sm transition-active active:scale-95 whitespace-nowrap">
+              <FileText size={20} className="text-[#EAA33F] flex-shrink-0" /> DOWNLOAD BROCHURE
+            </a>
+            <Link href="/contact" onClick={() => setMenuOpen(false)} className="block">
+              <button className="w-full bg-[#0F3250] text-white py-5 rounded-2xl font-black text-lg shadow-xl shadow-[#0F3250]/20 uppercase tracking-widest active:scale-95 transition-all whitespace-nowrap">
                 Get Quote
               </button>
             </Link>

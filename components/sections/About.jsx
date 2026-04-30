@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const serviceImages = [
-  
   "/images/hero/bg3.png",
   "/images/flooring/esd.png", 
   "/images/about/epoxy.png",
@@ -27,8 +26,6 @@ export default function ProAboutSection() {
   });
 
   // 2. REFINED TRANSFORMS 
-  // Images 1, 2, and 3 move left (x) and up (y)
-  // Horizontal movement (x) increased for "little more left" effect on top layers
   const x1 = useTransform(smoothProgress, [0, 0.35], [0, -260]); 
   const y1 = useTransform(smoothProgress, [0, 0.35], [0, -220]);
 
@@ -38,7 +35,6 @@ export default function ProAboutSection() {
   const x3 = useTransform(smoothProgress, [0, 0.35], [0, -100]);
   const y3 = useTransform(smoothProgress, [0, 0.35], [0, -70]);
 
-  // Image 4 stays exactly at the same position (0 movement)
   const x4 = useTransform(smoothProgress, [0, 0.35], [0, 0]);
   const y4 = useTransform(smoothProgress, [0, 0.35], [0, 0]);
 
@@ -87,8 +83,6 @@ export default function ProAboutSection() {
                   Backed by highly qualified professionals, we combine advanced technology to ensure environment-friendly, long-lasting, and energy-efficient solutions.
                 </p>
               </div>
-
-              
             </motion.div>
           </div>
 
@@ -110,10 +104,6 @@ export default function ProAboutSection() {
                     alt={`Industrial Phase ${index + 1}`}
                     className="w-full h-full object-cover aspect-square"
                   />
-                  
-                  <div className="absolute top-3 right-3 bg-[#EAA33F] px-2 py-1 text-[9px] font-black text-[#0F3250] uppercase tracking-tighter">
-                    0{index + 1}
-                  </div>
                 </motion.div>
               ))}
             </div>

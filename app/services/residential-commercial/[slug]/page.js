@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, 
   ArrowRight,
@@ -19,6 +19,9 @@ export default function ServiceDetailPage() {
   const params = useParams();
   const router = useRouter();
   
+  // State to track which thumbnail is selected
+  const [selectedIdx, setSelectedIdx] = useState(0);
+
   const service = Object.values(servicesData)
     .flatMap(category => category.subServices)
     .find((s) => s.slug === params.slug);
@@ -42,13 +45,15 @@ export default function ServiceDetailPage() {
 
   const specIcons = [<ShieldCheck />, <Settings />, <Ruler />, <Zap />];
 
+  // Gallery array using the same image path for all 3 slots as requested
+  const galleryImages = [service.image, service.image, service.image];
+
   return (
     <main className="min-h-screen bg-[#F8F9FA] text-[#0D2B45]">
       
-      {/* SECTION WRAPPER: Standardized max-w and improved padding */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
-        {/* LEFT SIDE: Image + Technical Branding */}
+        {/* LEFT SIDE: Image + Interactive Gallery */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -64,21 +69,58 @@ export default function ServiceDetailPage() {
             <span className="text-[10px] font-bold uppercase tracking-widest">Back to Services</span>
           </button>
 
-          {/* PRODUCT IMAGE: Increased vertical presence & Removed Border */}
-          <div className="relative w-full flex items-center justify-center lg:h-[650px] overflow-hidden">
-            <img 
-              src={service.image} 
-              alt={service.title} 
-              className="w-full h-full object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.08)]"
-            />
+          {/* MAIN PRODUCT IMAGE */}
+          <div className="relative w-full flex items-center justify-center lg:h-[550px] overflow-hidden rounded-3xl bg-white/50">
+            <AnimatePresence mode="wait">
+              <motion.img 
+                key={selectedIdx}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
+                src={galleryImages[selectedIdx]} 
+                alt={service.title} 
+                className="w-full h-full object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.08)]"
+              />
+            </AnimatePresence>
             
-            {/* Technical Reference Tag */}
             <div className="absolute bottom-4 left-0 flex items-center gap-3 opacity-30">
                <div className="h-[1px] w-12 bg-[#0D2B45]" />
                <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">
                  Asset_Ref: {params.slug?.replace(/-/g, '_').toUpperCase()}
                </span>
             </div>
+          </div>
+
+          {/* THUMBNAIL SELECTOR: Responsive 3-column grid */}
+          <div className="grid grid-cols-3 gap-4 mt-8">
+            {galleryImages.map((img, idx) => (
+              <motion.button
+                key={idx}
+                whileHover={{ y: -4 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setSelectedIdx(idx)}
+                className={`relative aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 bg-white p-2 ${
+                  selectedIdx === idx 
+                  ? "border-[#EAA33F] shadow-lg shadow-[#EAA33F]/10" 
+                  : "border-slate-100 hover:border-slate-200"
+                }`}
+              >
+                <img 
+                  src={img} 
+                  alt={`View ${idx + 1}`} 
+                  className={`w-full h-full object-contain transition-opacity duration-300 ${
+                    selectedIdx === idx ? "opacity-100" : "opacity-40"
+                  }`}
+                />
+                {selectedIdx === idx && (
+                   <motion.div 
+                    layoutId="activeThumb"
+                    className="absolute inset-0 bg-[#EAA33F]/5 pointer-events-none"
+                   />
+                )}
+              </motion.button>
+            ))}
           </div>
         </motion.div>
 
@@ -94,7 +136,6 @@ export default function ServiceDetailPage() {
             <span className="text-[9px] font-black uppercase tracking-widest">Structural Integrity Verified</span>
           </motion.div>
 
-          {/* HEADLINE: Balanced scaling for standard screens */}
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

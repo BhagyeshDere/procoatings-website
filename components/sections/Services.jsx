@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Zap, Shield, Droplets, HardHat, Car } from "lucide-react";
+import { ArrowUpRight, Zap, Shield, Droplets, HardHat, Layers, Waves } from "lucide-react";
 
 const services = [
   {
@@ -30,18 +30,18 @@ const services = [
   },
   {
     id: "04",
-    title: "Anti-Static (ESD) Flooring",
-    desc: "Specialized surfaces designed to prevent electrostatic discharge.",
-    img: "/images/flooring/esd.png",
-    icon: <Zap size={20} />,
+    title: "Expansion Joints",
+    desc: "Specialized sealing systems designed to absorb heat-induced expansion and contraction.",
+    img: "/images/services/expention.jpeg",
+    icon: <Layers size={20} />,
     color: "#0F3250"
   },
   {
     id: "05",
-    title: "Car Deck Parking",
-    desc: "UV-resistant, skid-proof coatings for multi-level car parks.",
-    img: "/images/flooring/car-deck.png",
-    icon: <Car size={20} />,
+    title: "GI Sheet Waterproofing",
+    desc: "Industrial-grade anti-corrosive waterproofing for galvanized iron roofing and structures.",
+    img: "/images/services/gisheet.jpeg",
+    icon: <Waves size={20} />,
     color: "#0F3250"
   },
 ];
@@ -89,7 +89,6 @@ export default function Services() {
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-80" 
             />
             
-            {/* Deepened Gradient for Text Clarity */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500" />
             
             <div className="absolute top-8 left-8 bg-[#EAA33F] p-4 rounded-2xl shadow-xl z-20">
@@ -102,7 +101,6 @@ export default function Services() {
               <p className="text-white/90 text-base leading-relaxed mb-6 line-clamp-3 font-bold max-w-md drop-shadow-md">
                 {services[0].desc}
               </p>
-              
             </div>
           </motion.div>
 
@@ -122,7 +120,6 @@ export default function Services() {
                     alt={service.title} 
                     className="w-full h-full object-cover opacity-70 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700" 
                   />
-                  {/* Heavy Bottom Scrim for Small Cards */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                 </div>
 
@@ -155,8 +152,6 @@ export default function Services() {
             ))}
           </div>
         </div>
-
-        
       </div>
     </section>
   );
