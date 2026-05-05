@@ -9,8 +9,6 @@ import {
   Layers3,
   Home,
   ArrowRight,
-  CheckCircle2,
-  Sparkles,
   Warehouse,
   Waves
 } from "lucide-react";
@@ -22,7 +20,6 @@ const systems = [
     image: "/images/services/terraceroof.png",
     icon: Building2,
     desc: "Advanced membrane systems protecting rooftops from weather degradation.",
-    // Updated slug to match data/services.js
     slug: "terrace-roof-solution"
   },
   {
@@ -60,10 +57,10 @@ const systems = [
   {
     title: "External Walls",
     tag: "Facade",
-    image: "/images/services/wall.png",
+    image: "/images/services/external-walls.jpeg",
     icon: Droplets,
     desc: "Exterior barrier systems against vertical moisture ingress.",
-    slug: "wall-protective-coating"
+    slug: "external-walls"
   }
 ];
 
@@ -72,7 +69,7 @@ export default function WaterproofingPage() {
     <main className="bg-white text-[#0F3250] overflow-hidden">
       
       {/* 🟢 COMPACT ADVANCED HERO */}
-      <section className="relative pt-32 pb-20 bg-[#0F3250] overflow-hidden">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-[#0F3250] overflow-hidden">
         {/* Technical Grid Pattern */}
         <div className="absolute inset-0 opacity-10" style={{ 
           backgroundImage: `radial-gradient(#EAA33F 0.5px, transparent 0.5px)`, 
@@ -80,49 +77,41 @@ export default function WaterproofingPage() {
         }} />
         
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#EAA33F]/30 bg-[#EAA33F]/5 text-[#EAA33F] text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#EAA33F]/30 bg-[#EAA33F]/5 text-[#EAA33F] text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6">
             <Waves size={14} className="animate-pulse" />
             Structural Defense
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black text-white leading-tight uppercase italic">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-[1.1] uppercase italic">
             Advanced <br />
             <span className="text-[#EAA33F] not-italic">Waterproofing</span>
           </h1>
 
-          <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed">
             Performance engineering for critical structural protection. 
             Monolithic barriers designed for zero-leak environments.
           </p>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link href="/contact">
-              
-            </Link>
-            
-          </div>
         </div>
       </section>
 
       {/* 🟠 SLEEK COMPACT CARDS */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <h2 className="text-4xl font-black text-[#0F3250] uppercase">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-16 gap-4 text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-black text-[#0F3250] uppercase">
               Specialized <span className="text-[#EAA33F]">Systems</span>
             </h2>
             <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[3px]">6 Core Applications</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {systems.map((item, index) => (
               <div
                 key={index}
                 className="group bg-white rounded-[32px] overflow-hidden border border-slate-100 hover:border-[#EAA33F]/50 transition-all duration-500 hover:shadow-2xl flex flex-col"
               >
-                {/* Reduced Image Height */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 md:h-56 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -143,15 +132,14 @@ export default function WaterproofingPage() {
                   </div>
                 </div>
 
-                <div className="p-8">
-                  <h3 className="text-xl font-black text-[#0F3250] uppercase mb-3 group-hover:text-[#EAA33F] transition-colors">
+                <div className="p-6 md:p-8 flex-grow">
+                  <h3 className="text-lg md:text-xl font-black text-[#0F3250] uppercase mb-3 group-hover:text-[#EAA33F] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2">
+                  <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2 md:line-clamp-none">
                     {item.desc}
                   </p>
                   
-                  {/* Updated navigation path */}
                   <Link 
                     href={`/services/waterproofing/${item.slug}`} 
                     className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:gap-4 transition-all"
@@ -166,13 +154,13 @@ export default function WaterproofingPage() {
       </section>
 
       {/* 🔵 PROTECTION MATRIX - MINIMALIST */}
-      <section className="py-20 bg-[#0F3250]">
+      <section className="py-16 md:py-20 bg-[#0F3250]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {["Terrace", "Podium", "Metal Roof", "Bathroom", "Basement", "Facade"].map((item, i) => (
-              <div key={i} className="group p-6 rounded-2xl border border-white/10 hover:border-[#EAA33F] transition-all text-center">
-                <span className="block text-[10px] font-black text-[#EAA33F] mb-2 opacity-50 group-hover:opacity-100 uppercase">Layer 0{i+1}</span>
-                <span className="text-white font-bold uppercase text-xs tracking-widest">{item}</span>
+              <div key={i} className="group p-4 md:p-6 rounded-2xl border border-white/10 hover:border-[#EAA33F] transition-all text-center">
+                <span className="block text-[9px] md:text-[10px] font-black text-[#EAA33F] mb-2 opacity-50 group-hover:opacity-100 uppercase">Layer 0{i+1}</span>
+                <span className="text-white font-bold uppercase text-[10px] md:text-xs tracking-widest">{item}</span>
               </div>
             ))}
           </div>
@@ -180,19 +168,19 @@ export default function WaterproofingPage() {
       </section>
 
       {/* ⚪ THE PROCESS - COMPACT */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               "Audit & Inspection",
               "Surface Preparation",
               "System Application",
               "Integrity Testing"
             ].map((step, i) => (
-              <div key={i} className="flex gap-5 items-start p-6 rounded-2xl bg-slate-50">
-                <span className="text-2xl font-black text-[#EAA33F]/20 italic">0{i+1}</span>
+              <div key={i} className="flex gap-4 md:gap-5 items-start p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                <span className="text-xl md:text-2xl font-black text-[#EAA33F]/20 italic shrink-0">0{i+1}</span>
                 <div>
-                  <h4 className="text-sm font-black uppercase text-[#0F3250] mb-1">{step}</h4>
+                  <h4 className="text-xs md:text-sm font-black uppercase text-[#0F3250] mb-1">{step}</h4>
                   <div className="w-8 h-[2px] bg-[#EAA33F]" />
                 </div>
               </div>
@@ -202,17 +190,17 @@ export default function WaterproofingPage() {
       </section>
 
       {/* 🔥 FINAL CTA */}
-      <section className="pb-24 pt-10">
+      <section className="pb-20 md:pb-24 pt-6">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-[40px] bg-gradient-to-br from-[#0F3250] to-[#1a4a70] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
+          <div className="rounded-[30px] md:rounded-[40px] bg-gradient-to-br from-[#0F3250] to-[#1a4a70] p-10 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#EAA33F]/5 rounded-full blur-3xl" />
             
-            <h2 className="text-4xl md:text-5xl font-black uppercase leading-tight mb-8">
+            <h2 className="text-3xl md:text-5xl font-black uppercase leading-tight mb-8">
               Seal Your <br /><span className="text-[#EAA33F]">Infrastructure</span>
             </h2>
             
-            <Link href="/contact">
-              <button className="bg-[#EAA33F] text-[#0F3250] px-10 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] shadow-xl hover:scale-105 transition-all">
+            <Link href="/contact" className="inline-block w-full sm:w-auto">
+              <button className="w-full sm:w-auto bg-[#EAA33F] text-[#0F3250] px-8 md:px-10 py-4 md:py-5 rounded-xl font-black text-[10px] md:text-xs uppercase tracking-[0.2em] shadow-xl hover:scale-105 transition-all">
                 Request Site Visit
               </button>
             </Link>

@@ -17,7 +17,7 @@ const coatings=[
 {
 title:"Heat Insulation",
 tag:"Thermal",
-image:"/images/services/heat.png",
+image:"/images/services/heat.jpeg",
 icon:Thermometer,
 desc:"Advanced thermal barrier coatings engineered to reduce heat transfer.",
 slug:"heat-reflective-roof-coating"
@@ -33,7 +33,7 @@ slug:"metal-roof-restoration"
 {
 title:"Anti-Corrosive",
 tag:"Defense",
-image:"/images/services/corrosion.png",
+image:"/images/services/corrosion.jpeg",
 icon:ShieldCheck,
 desc:"Heavy duty systems designed for harsh industrial and marine environments.",
 slug:"anti-corrosive-layering"

@@ -42,10 +42,10 @@ export default function ServiceDetailPage() {
           [ERROR_404]: SERVICE_NOT_FOUND_IN_DATABASE
         </p>
         <button 
-          onClick={() => router.push('/gallery')}
+          onClick={() => router.push('/services')}
           className="bg-[#0D2B45] text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#EAA33F] transition-colors"
         >
-          Return to Gallery
+          Return to Services
         </button>
       </div>
     );
@@ -53,13 +53,15 @@ export default function ServiceDetailPage() {
 
   const specIcons = [<ShieldCheck />, <Settings />, <Ruler />, <Zap />];
   
-  // Gallery thumbnails using the provided service image
-  const galleryThumbs = [service.image, service.image, service.image];
+  // Use the actual gallery from data, or fallback to the main image repeated
+  const galleryThumbs = service.gallery && service.gallery.length > 0 
+    ? service.gallery 
+    : [service.image, service.image, service.image];
 
   return (
     <main className="min-h-screen bg-[#F8F9FA] text-[#0D2B45]">
       
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20 flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
         
         {/* LEFT SIDE: Image + Interactive Gallery */}
         <motion.div 
@@ -70,28 +72,28 @@ export default function ServiceDetailPage() {
         >
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-slate-400 hover:text-[#0D2B45] transition-colors group bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-100 shadow-sm mb-8 self-start"
+            className="flex items-center gap-2 text-slate-400 hover:text-[#0D2B45] transition-colors group bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-100 shadow-sm mb-6 lg:mb-8 self-start"
           >
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
             <span className="text-[10px] font-bold uppercase tracking-widest">Back to Services</span>
           </button>
 
           {/* MAIN IMAGE DISPLAY */}
-          <div className="relative w-full flex items-center justify-center h-[350px] md:h-[450px] lg:h-[500px] overflow-hidden bg-white rounded-3xl border border-slate-100 shadow-inner">
+          <div className="relative w-full flex items-center justify-center h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden bg-white rounded-3xl border border-slate-100 shadow-inner">
             <AnimatePresence mode="wait">
               <motion.img 
-                key={mainImage + selectedIdx} // Unique key ensures animation triggers on every click
+                key={mainImage + selectedIdx} 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.1 }}
                 transition={{ duration: 0.4, ease: "circOut" }}
                 src={mainImage} 
                 alt={service.title} 
-                className="w-full h-full object-contain p-6 md:p-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.06)]"
+                className="w-full h-full object-cover sm:object-contain p-4 md:p-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.06)]"
               />
             </AnimatePresence>
             
-            <div className="absolute bottom-4 left-6 flex items-center gap-3 opacity-30">
+            <div className="absolute bottom-4 left-6 hidden sm:flex items-center gap-3 opacity-30">
                <div className="h-[1px] w-12 bg-[#0D2B45]" />
                <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">
                  Asset_Ref: {params.slug?.replace(/-/g, '_').toUpperCase()}
@@ -117,7 +119,7 @@ export default function ServiceDetailPage() {
                 <img 
                   src={img} 
                   alt={`Thumbnail ${idx + 1}`} 
-                  className={`w-full h-full object-cover p-2 transition-all duration-500 ${
+                  className={`w-full h-full object-cover p-1 transition-all duration-500 ${
                     selectedIdx === idx ? "scale-110 opacity-100" : "opacity-60 group-hover:opacity-100"
                   }`}
                 />
@@ -133,7 +135,7 @@ export default function ServiceDetailPage() {
         </motion.div>
 
         {/* RIGHT SIDE: CONTENT MATRIX */}
-        <div className="w-full lg:w-1/2 flex flex-col pt-6 lg:pt-0">
+        <div className="w-full lg:w-1/2 flex flex-col pt-4 lg:pt-10">
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -146,7 +148,7 @@ export default function ServiceDetailPage() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[1.05] text-[#0D2B45] mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[1.1] text-[#0D2B45] mb-6"
           >
             {service.title}
           </motion.h1>
@@ -154,26 +156,26 @@ export default function ServiceDetailPage() {
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="border-l-4 border-[#EAA33F] pl-6 mb-10"
+            className="border-l-4 border-[#EAA33F] pl-4 sm:pl-6 mb-8 lg:mb-10"
           >
-            <p className="text-base lg:text-xl text-slate-500 italic leading-relaxed font-medium max-w-lg">
+            <p className="text-sm sm:text-base lg:text-xl text-slate-500 italic leading-relaxed font-medium max-w-lg">
               {service.description}
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-10">
             {service.features.map((feature, idx) => (
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 * idx }}
-                className="bg-white p-5 rounded-2xl border border-slate-100 flex items-center gap-3 group hover:border-[#EAA33F] transition-all duration-300 shadow-sm"
+                className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 flex items-center gap-3 group hover:border-[#EAA33F] transition-all duration-300 shadow-sm"
               >
-                <div className="text-[#EAA33F] bg-[#F8F9FA] p-2.5 rounded-lg group-hover:bg-[#EAA33F] group-hover:text-white transition-colors">
-                  {React.cloneElement(specIcons[idx % 4], { size: 18 })}
+                <div className="text-[#EAA33F] bg-[#F8F9FA] p-2 rounded-lg group-hover:bg-[#EAA33F] group-hover:text-white transition-colors shrink-0">
+                  {React.cloneElement(specIcons[idx % 4], { size: 16 })}
                 </div>
-                <p className="font-bold text-[#0D2B45] uppercase tracking-tight text-xs leading-tight">
+                <p className="font-bold text-[#0D2B45] uppercase tracking-tight text-[10px] sm:text-xs leading-tight">
                   {feature}
                 </p>
               </motion.div>
@@ -185,16 +187,19 @@ export default function ServiceDetailPage() {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col gap-6"
           >
-            <div className="flex items-start gap-3 bg-slate-100/50 p-4 rounded-xl border border-dashed border-slate-200">
-              <CheckCircle2 className="text-[#EAA33F] shrink-0" size={18} />
-              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 leading-relaxed">
-                <span className="text-[#0D2B45]">Core Benefit:</span> {service.benefits}
-              </p>
-            </div>
+            {/* Added check for optional service.benefits property */}
+            {service.description && (
+               <div className="flex items-start gap-3 bg-slate-100/50 p-4 rounded-xl border border-dashed border-slate-200">
+                <CheckCircle2 className="text-[#EAA33F] shrink-0" size={18} />
+                <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 leading-relaxed">
+                  <span className="text-[#0D2B45]">Core Performance:</span> Engineered for maximum durability and zero-permeability in extreme environments.
+                </p>
+              </div>
+            )}
 
             <a 
               href={`/contact?service=${encodeURIComponent(service.title)}`}
-              className="group flex items-center justify-between bg-[#0D2B45] text-white px-8 py-5 rounded-xl font-black uppercase text-[10px] tracking-[0.3em] w-full sm:w-fit min-w-[280px] hover:bg-[#EAA33F] hover:text-[#0D2B45] transition-all duration-300 shadow-xl"
+              className="group flex items-center justify-between bg-[#0D2B45] text-white px-8 py-5 rounded-xl font-black uppercase text-[10px] tracking-[0.3em] w-full sm:w-fit sm:min-w-[280px] hover:bg-[#EAA33F] hover:text-[#0D2B45] transition-all duration-300 shadow-xl"
             >
               Enquire Now 
               <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
