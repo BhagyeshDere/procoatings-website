@@ -6,28 +6,28 @@ import { motion } from "framer-motion";
 const coatLayers = [
   {
     id: "01",
-    title: "Surface Prep",
-    desc: "Aggressive grinding to eliminate contaminants and create proper profile for maximum adhesion.",
+    title: "Surface Preparation",
+    desc: "Mechanical grinding or shot blasting to remove dust, laitance and contaminants for proper adhesion.",
   },
   {
     id: "02",
-    title: "Moisture & Crack Control",
-    desc: "Addressing structural flaws and vapor barriers before any resin is applied.",
+    title: "Primer Coat",
+    desc: "Application of high quality epoxy/PU primer to penetrate the surface and create a strong bonding layer.",
   },
   {
     id: "03",
-    title: "Primer & Base Layers",
-    desc: "Industrial-grade bonding layers engineered for deep adhesion and color stability.",
+    title: "Base Coat (Self-Leveling)",
+    desc: "A thick base layer to provide surface leveling, strength and uniformity.",
   },
   {
     id: "04",
-    title: "Metallic Artistry Layer",
-    desc: "Hand-blended pigments that create depth, movement, and the signature light shift.",
+    title: "Intermediate Coat",
+    desc: "Enhances coating thickness, improves durability and adds resistance to mechanical and chemical stress.",
   },
   {
     id: "05",
-    title: "Premium Top Coat",
-    desc: "Commercial-grade, scratch-resistant, and UV-stable finish for permanent protection.",
+    title: "Top Coat (Finish Layer)",
+    desc: "Final protective layer providing a smooth, glossy/matte finish with high resistance to abrasion, chemicals and stains.",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function AboutSection() {
           >
             <img 
               src="/images/about/5-coat-diagram.png" 
-              alt="5-Coat Process Diagram" 
+              alt="A-5 Coat Flooring System Diagram" 
               className="w-full h-auto drop-shadow-2xl"
             />
             {/* Subtle glow behind image */}
@@ -96,7 +96,7 @@ export default function AboutSection() {
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <span className="text-[#D98F07] font-black text-sm tracking-widest uppercase">
-                      Phase {layer.id}
+                      Step {layer.id}
                     </span>
                     <div className="h-[1px] flex-grow bg-gray-200" />
                   </div>

@@ -52,11 +52,7 @@ export default function AdvancedIndustrySlider() {
               INDUSTRIAL <br /> <span className="text-[#D98F07] italic">ECOSYSTEM</span>
             </h2>
           </div>
-          <p className="text-[#002B49]/60 font-mono text-[10px] uppercase tracking-widest max-w-[200px] hidden md:block">
-            Status: Synchronized <br /> 
-            Protocol: High-Resistance <br />
-            Node: Active_Matrix
-          </p>
+          
         </div>
       </div>
 
@@ -112,18 +108,7 @@ export default function AdvancedIndustrySlider() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 mt-16 flex flex-wrap justify-center md:justify-between gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-        <div className="flex items-center gap-3">
-          <ShieldCheck size={20} className="text-[#D98F07]" />
-          <span className="text-[10px] font-black text-[#002B49] uppercase tracking-[0.2em]">High Impact Resistance</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <Cpu size={20} className="text-[#D98F07]" />
-          <span className="text-[10px] font-black text-[#002B49] uppercase tracking-[0.2em]">Advanced Polymer Core</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <Zap size={20} className="text-[#D98F07]" />
-          <span className="text-[10px] font-black text-[#002B49] uppercase tracking-[0.2em]">Rapid Deployment Protocol</span>
-        </div>
+        
       </div>
     </section>
   );

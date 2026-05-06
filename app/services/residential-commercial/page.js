@@ -147,81 +147,8 @@ export default function ResidentialCommercialPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-[#0F3250]">
-        <div className="max-w-7xl mx-auto px-6 text-white text-center">
-          <h2 className="text-3xl font-black uppercase tracking-widest mb-12">
-            Solution
-            <span className="text-[#EAA33F]"> Matrix</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              ["Traffic Systems", "Car Deck Protection"],
-              ["Safety Floors", "Anti-Skid Texture"],
-              ["Premium Finish", "PU Textured Decor"]
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="group p-10 rounded-[32px] border border-white/10 bg-white/5 hover:border-[#EAA33F] transition-all"
-              >
-                <span className="text-4xl font-black text-[#EAA33F] italic block mb-4 opacity-30">
-                  0{i + 1}
-                </span>
-                <h4 className="text-white font-black uppercase text-lg tracking-widest mb-2">
-                  {item[0]}
-                </h4>
-                <p className="text-slate-400 text-xs uppercase font-bold tracking-widest">
-                  {item[1]}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              "Surface Preparation",
-              "Base Priming",
-              "System Casting",
-              "Technical Inspection"
-            ].map((step, i) => (
-              <div key={i} className="flex flex-col gap-4">
-                <div className="flex items-center gap-4">
-                  <span className="text-3xl font-black text-[#EAA33F] italic">
-                    0{i + 1}
-                  </span>
-                  <div className="h-[1px] flex-grow bg-slate-100" />
-                </div>
-                <h4 className="text-[10px] md:text-sm font-black uppercase tracking-wider">
-                  {step}
-                </h4>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-24 pt-10">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-[40px] bg-gradient-to-br from-[#0F3250] to-[#1a4a70] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#EAA33F]/5 rounded-full blur-3xl" />
-            <h2 className="text-3xl md:text-5xl font-black uppercase leading-tight mb-8">
-              Transform Your
-              <br />
-              <span className="text-[#EAA33F]">
-                Facility Surfaces
-              </span>
-            </h2>
-            <Link href="/contact">
-              <button className="bg-[#EAA33F] text-[#0F3250] px-10 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] shadow-xl hover:scale-105 transition-all">
-                Request Site Visit
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
+     
+     
     </main>
   );
 }

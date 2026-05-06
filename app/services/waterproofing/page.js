@@ -153,60 +153,8 @@ export default function WaterproofingPage() {
         </div>
       </section>
 
-      {/* 🔵 PROTECTION MATRIX - MINIMALIST */}
-      <section className="py-16 md:py-20 bg-[#0F3250]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {["Terrace", "Podium", "Metal Roof", "Bathroom", "Basement", "Facade"].map((item, i) => (
-              <div key={i} className="group p-4 md:p-6 rounded-2xl border border-white/10 hover:border-[#EAA33F] transition-all text-center">
-                <span className="block text-[9px] md:text-[10px] font-black text-[#EAA33F] mb-2 opacity-50 group-hover:opacity-100 uppercase">Layer 0{i+1}</span>
-                <span className="text-white font-bold uppercase text-[10px] md:text-xs tracking-widest">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
-      {/* ⚪ THE PROCESS - COMPACT */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {[
-              "Audit & Inspection",
-              "Surface Preparation",
-              "System Application",
-              "Integrity Testing"
-            ].map((step, i) => (
-              <div key={i} className="flex gap-4 md:gap-5 items-start p-6 rounded-2xl bg-slate-50 border border-slate-100">
-                <span className="text-xl md:text-2xl font-black text-[#EAA33F]/20 italic shrink-0">0{i+1}</span>
-                <div>
-                  <h4 className="text-xs md:text-sm font-black uppercase text-[#0F3250] mb-1">{step}</h4>
-                  <div className="w-8 h-[2px] bg-[#EAA33F]" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 🔥 FINAL CTA */}
-      <section className="pb-20 md:pb-24 pt-6">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-[30px] md:rounded-[40px] bg-gradient-to-br from-[#0F3250] to-[#1a4a70] p-10 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#EAA33F]/5 rounded-full blur-3xl" />
-            
-            <h2 className="text-3xl md:text-5xl font-black uppercase leading-tight mb-8">
-              Seal Your <br /><span className="text-[#EAA33F]">Infrastructure</span>
-            </h2>
-            
-            <Link href="/contact" className="inline-block w-full sm:w-auto">
-              <button className="w-full sm:w-auto bg-[#EAA33F] text-[#0F3250] px-8 md:px-10 py-4 md:py-5 rounded-xl font-black text-[10px] md:text-xs uppercase tracking-[0.2em] shadow-xl hover:scale-105 transition-all">
-                Request Site Visit
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
 
     </main>
   );

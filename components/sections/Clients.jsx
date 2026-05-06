@@ -4,10 +4,18 @@ import { motion } from "framer-motion";
 
 const clients = [
   { name: "Capgemini", img: "/images/clients/capgemini.png" },
-  { name: "Dynalec Controls", img: "/images/clients/dynalec.jpg" },
-  { name: "Pennant Engineering", img: "/images/clients/pennant.png" },
-  { name: "ABSource Biologics", img: "/images/clients/absource.png" },
+  { name: "Dynalec Controls Pvt. Ltd.", img: "/images/clients/dynalec.jpg" },
+  { name: "Pennant Engineering Pvt. Ltd.", img: "/images/clients/pennant.png" },
+  { name: "ABsource Biologics Pvt. Ltd.", img: "/images/clients/absource.png" },
   { name: "Kaka Halwai Sweets", img: "/images/clients/kakahalwai.jpg" },
+  //{ name: "Devatha Agro Farms LLP", img: "/images/clients/devatha.jpg" },
+  { name: "ANCI Fitouts India PVT.LTD", img: "/images/clients/anci.png" },
+ // { name: "Benfield Fodder", img: "/images/clients/benfield.jpg" },
+  { name: "Fluidos Technologies LLP", img: "/images/clients/fludos.png" },
+  { name: "Emuge Franken Technologies LLP", img: "/images/clients/EF.png" },
+  { name: "GPIPL", img: "/images/clients/gpipl.png" },
+  { name: "Concord Ecobuild", img: "/images/clients/concord.png" },
+  //{ name: "Tecinpet Solutions PVT.LTD", img: "/images/clients/tecinpet.jpg" },
   { name: "K Krushnaa Infra", img: "/images/clients/kkrushna.jpg" },
   { name: "Uniteq", img: "/images/clients/uniteq.jpg" },
   { name: "Web Werk", img: "/images/clients/webwerk.png" },
@@ -61,17 +69,17 @@ export default function Clients() {
           <div className="flex overflow-hidden group">
             <motion.div 
               className="flex flex-nowrap gap-4 md:gap-8"
-              animate={{ x: [0, -1920] }} 
+              animate={{ x: [0, -3840] }} 
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 35,
+                  duration: 50,
                   ease: "linear",
                 },
               }}
             >
-              {[...clients, ...clients, ...clients].map((client, i) => (
+              {[...clients, ...clients].map((client, i) => (
                 <div
                   key={i}
                   className="relative min-w-[180px] md:min-w-[280px] h-24 md:h-32 bg-white border border-slate-200/60 flex flex-col items-center justify-center p-4 transition-all duration-500 hover:border-[#F5A623]/40 group/card overflow-hidden"
@@ -80,12 +88,13 @@ export default function Clients() {
                   <div className="absolute top-2 left-2 w-1.5 h-1.5 border-t border-l border-slate-300 group-hover/card:border-[#F5A623]" />
                   <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-slate-300 group-hover/card:border-[#F5A623]" />
 
-                  {/* 🖼️ ORIGINAL COLOR LOGOS - NO SHADOWS OR GRAYSCALE */}
+                  {/* 🖼️ ORIGINAL COLOR LOGOS */}
                   <div className="relative w-full h-full flex items-center justify-center transition-all duration-500 group-hover/card:scale-105">
                       <img 
                         src={client.img} 
                         alt={client.name}
-                        className="max-w-[85%] max-h-[80%] object-contain transition-all duration-500"
+                        // Optimized scaling for uniform visual weight across various logo aspect ratios
+                        className="max-w-[90%] max-h-[75%] object-contain transition-all duration-500"
                       />
                   </div>
 
