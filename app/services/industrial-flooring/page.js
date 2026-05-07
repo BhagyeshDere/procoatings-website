@@ -27,7 +27,7 @@ const systems = [
     slug: "heavy-duty-pu-floor",
     tag: "Thermal Shock",
     icon: ThermometerSnowflake,
-    image: "/images/services/pu.png",
+    image: "/images/services/pu1.png",
     desc: "Polyurethane systems built for thermal resistance and hygienic environments."
   },
   {
@@ -43,7 +43,7 @@ const systems = [
     slug: "anti-static-esd-flooring",
     tag: "Static Control",
     icon: Cpu,
-    image: "/images/services/esd.png",
+    image: "/images/services/esd1.png",
     desc: "ESD control flooring engineered for electronics and cleanroom apps."
   },
   {
@@ -51,7 +51,7 @@ const systems = [
     slug: "formula-one-grade-finish",
     tag: "Premium",
     icon: Trophy,
-    image: "/images/services/formula.png",
+    image: "/images/services/elite1.png",
     desc: "Elite-tier aesthetic and functional finishing for high-end automotive facilities."
   }
 ];
@@ -60,97 +60,86 @@ export default function IndustrialFlooringPage() {
   return (
     <main className="bg-white text-[#0F3250] overflow-hidden">
 
-      {/* 🟢 LIGHT THEME HERO SECTION */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 bg-white overflow-hidden border-b border-slate-100">
-        <div
-          className="absolute inset-0 opacity-[0.4]"
-          style={{
-            backgroundImage: `radial-gradient(#0F3250 0.5px, transparent 0.5px)`,
-            backgroundSize: "30px 30px"
-          }}
-        />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-[#EAA33F]/5 to-transparent pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 text-center flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F3250]/10 bg-slate-50 text-[#0F3250] text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-6 shadow-sm">
-            <Activity size={12} className="text-[#EAA33F] animate-pulse" />
+      {/* 🟢 HERO SECTION - Consistent Dark Theme Layout */}
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-[#0F3250] overflow-hidden">
+        {/* Technical Grid Pattern */}
+        <div className="absolute inset-0 opacity-10" style={{ 
+          backgroundImage: `radial-gradient(#EAA33F 0.5px, transparent 0.5px)`, 
+          backgroundSize: '24px 24px' 
+        }} />
+        
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#EAA33F]/30 bg-[#EAA33F]/5 text-[#EAA33F] text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 shadow-sm">
+            <Activity size={14} className="animate-pulse" />
             Precision Surface Engineering
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-[#0F3250] leading-[1.1] uppercase italic">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-[1.1] uppercase">
             Industrial <br />
-            <span className="text-[#EAA33F] not-italic">
-              Floor Coatings
-            </span>
+            <span className="text-[#EAA33F]">Floor Coatings</span>
           </h1>
 
-          <p className="mt-6 text-base md:text-lg text-slate-500 max-w-2xl leading-relaxed font-medium">
-            Engineered resin flooring for manufacturing,
-            pharma and high traffic industrial environments.
-            Built for <span className="text-[#0F3250] font-bold">zero-failure performance.</span>
+          <p className="mt-6 text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed font-bold">
+            Engineered resin flooring for manufacturing, pharma and high traffic 
+            industrial environments. Built for zero-failure performance.
           </p>
         </div>
       </section>
 
-      {/* 🟠 SYSTEMS GRID */}
+      {/* 🟠 SYSTEMS GRID - Consistent Card Style */}
       <section className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-16 gap-6 text-center md:text-left">
-            <div className="max-w-xl">
-              <h2 className="text-3xl md:text-4xl font-black uppercase">
-                Coating
-                <span className="text-[#EAA33F]"> Systems</span>
-              </h2>
-            </div>
-            <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[3px]">
-              High-Performance Grade
-            </p>
+          
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-16 gap-4 text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-black text-[#0F3250] uppercase">
+              Coating <span className="text-[#EAA33F]">Systems</span>
+            </h2>
+            <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[3px]">High-Performance Grade</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {systems.map((item, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-[32px] md:rounded-[40px] overflow-hidden border border-slate-200 hover:border-[#EAA33F]/50 transition-all duration-500 hover:shadow-2xl flex flex-col"
+                className="group bg-white rounded-[32px] overflow-hidden border border-slate-100 hover:border-[#EAA33F]/50 transition-all duration-500 hover:shadow-2xl flex flex-col h-full"
               >
-                <div className="relative h-48 md:h-56 overflow-hidden">
+                {/* Image container - No Gradients or Grayscale */}
+                <div className="relative h-48 md:h-56 overflow-hidden bg-slate-200">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-110 transition duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F3250]/90 via-[#0F3250]/20 to-transparent" />
                   
-                  <div className="absolute top-4 md:top-6 left-4 md:left-6">
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/95 backdrop-blur-md rounded-xl md:rounded-2xl flex items-center justify-center text-[#0F3250] shadow-xl group-hover:bg-[#EAA33F] group-hover:text-white transition-all duration-300">
+                  {/* Floating Icon Badge */}
+                  <div className="absolute top-4 left-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center text-[#0F3250] border border-slate-200 shadow-md group-hover:bg-[#EAA33F] group-hover:text-white transition-all duration-300">
                       <item.icon size={20} />
                     </div>
                   </div>
+                </div>
 
-                  <div className="absolute bottom-4 md:bottom-6 left-6 md:left-8 right-6 md:right-8">
-                    <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#EAA33F] block mb-1">
+                {/* Content Area */}
+                <div className="p-6 md:p-8 flex flex-col flex-grow">
+                  <div className="mb-3">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#EAA33F]">
                       {item.tag}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">
+                    <h3 className="text-lg md:text-xl font-black text-[#0F3250] uppercase group-hover:text-[#EAA33F] transition-colors mt-1">
                       {item.title}
                     </h3>
                   </div>
-                </div>
 
-                <div className="p-6 md:p-8 flex flex-col justify-between flex-grow">
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6 md:mb-8 line-clamp-3">
+                  <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3 font-bold">
                     {item.desc}
                   </p>
                   
-                  <div className="flex items-center justify-between">
-                    <Link
-                      href={`/services/industrial-flooring/${item.slug}`}
-                      className="group/link inline-flex items-center gap-3 text-[10px] md:text-[11px] font-black uppercase tracking-widest text-[#0F3250] transition-all"
+                  <div className="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
+                    <Link 
+                      href={`/services/industrial-flooring/${item.slug}`} 
+                      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:text-[#EAA33F] hover:gap-4 transition-all"
                     >
-                      <span className="bg-slate-100 group-hover/link:bg-[#0F3250] group-hover/link:text-white p-2 rounded-lg transition-colors">
-                        <ChevronRight size={16} />
-                      </span>
-                      View Details
+                      View Details <ChevronRight size={14} className="text-[#EAA33F]" />
                     </Link>
                     <Layers3 size={20} className="text-slate-100 hidden sm:block" />
                   </div>

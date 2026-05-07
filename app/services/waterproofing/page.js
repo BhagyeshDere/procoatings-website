@@ -17,7 +17,7 @@ const systems = [
   {
     title: "Terrace & Roof",
     tag: "Roof Protection",
-    image: "/images/services/terraceroof.png",
+    image: "/images/services/terraceroof-2.jpeg",
     icon: Building2,
     desc: "Advanced membrane systems protecting rooftops from weather degradation.",
     slug: "terrace-roof-solution"
@@ -25,7 +25,7 @@ const systems = [
   {
     title: "Podium Systems",
     tag: "Deck Systems",
-    image: "/images/services/podium.png",
+    image: "/images/services/podium1.png",
     icon: Layers3,
     desc: "Heavy-duty solutions for landscaped decks and traffic exposed surfaces.",
     slug: "podium-waterproofing"
@@ -33,7 +33,7 @@ const systems = [
   {
     title: "Metal Roofing",
     tag: "Industrial",
-    image: "/images/services/metalroof.png",
+    image: "/images/services/roof1.png",
     icon: ShieldCheck,
     desc: "Corrosion and leak prevention systems for specialized industrial roofs.",
     slug: "metal-roof-restoration" 
@@ -41,7 +41,7 @@ const systems = [
   {
     title: "Bathrooms",
     tag: "Interior",
-    image: "/images/services/bathroom.png",
+    image: "/images/services/bathroom1.png",
     icon: Home,
     desc: "Internal wet-area protection preventing structural moisture damage.",
     slug: "bathroom-sealing-grouting"
@@ -49,7 +49,7 @@ const systems = [
   {
     title: "Basements",
     tag: "Below Grade",
-    image: "/images/services/basement.png",
+    image: "/images/services/basement1.png",
     icon: Warehouse,
     desc: "High-pressure underground solutions for foundations and structures.",
     slug: "basement-waterproofing"
@@ -77,17 +77,17 @@ export default function WaterproofingPage() {
         }} />
         
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#EAA33F]/30 bg-[#EAA33F]/5 text-[#EAA33F] text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#EAA33F]/30 bg-[#EAA33F]/5 text-[#EAA33F] text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 shadow-sm">
             <Waves size={14} className="animate-pulse" />
             Structural Defense
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-[1.1] uppercase italic">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-[1.1] uppercase">
             Advanced <br />
-            <span className="text-[#EAA33F] not-italic">Waterproofing</span>
+            <span className="text-[#EAA33F]">Waterproofing</span>
           </h1>
 
-          <p className="mt-6 text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-6 text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed font-bold">
             Performance engineering for critical structural protection. 
             Monolithic barriers designed for zero-leak environments.
           </p>
@@ -109,52 +109,53 @@ export default function WaterproofingPage() {
             {systems.map((item, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-[32px] overflow-hidden border border-slate-100 hover:border-[#EAA33F]/50 transition-all duration-500 hover:shadow-2xl flex flex-col"
+                className="group bg-white rounded-[32px] overflow-hidden border border-slate-100 hover:border-[#EAA33F]/50 transition-all duration-500 hover:shadow-2xl flex flex-col h-full"
               >
-                <div className="relative h-48 md:h-56 overflow-hidden">
+                {/* Image container - Removed Gradients */}
+                <div className="relative h-48 md:h-56 overflow-hidden bg-slate-200">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F3250]/80 to-transparent" />
                   
+                  {/* Floating Icon Badge - Styled for clear contrast without overlay */}
                   <div className="absolute top-4 left-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 group-hover:bg-[#EAA33F] group-hover:text-[#0F3250] transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center text-[#0F3250] border border-slate-200 shadow-md group-hover:bg-[#EAA33F] group-hover:text-white transition-all duration-300">
                       <item.icon size={20} />
                     </div>
                   </div>
+                </div>
 
-                  <div className="absolute bottom-4 left-6">
+                {/* Content Area */}
+                <div className="p-6 md:p-8 flex flex-col flex-grow">
+                  <div className="mb-3">
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#EAA33F]">
                       {item.tag}
                     </span>
+                    <h3 className="text-lg md:text-xl font-black text-[#0F3250] uppercase group-hover:text-[#EAA33F] transition-colors mt-1">
+                      {item.title}
+                    </h3>
                   </div>
-                </div>
 
-                <div className="p-6 md:p-8 flex-grow">
-                  <h3 className="text-lg md:text-xl font-black text-[#0F3250] uppercase mb-3 group-hover:text-[#EAA33F] transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2 md:line-clamp-none">
+                  <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-2 md:line-clamp-none font-bold">
                     {item.desc}
                   </p>
                   
-                  <Link 
-                    href={`/services/waterproofing/${item.slug}`} 
-                    className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:gap-4 transition-all"
-                  >
-                    View Details <ArrowRight size={14} className="text-[#EAA33F]" />
-                  </Link>
+                  <div className="mt-auto pt-4">
+                    <Link 
+                      href={`/services/waterproofing/${item.slug}`} 
+                      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#0F3250] hover:text-[#EAA33F] hover:gap-4 transition-all"
+                    >
+                      View Details <ArrowRight size={14} className="text-[#EAA33F]" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-     
-
 
     </main>
   );
