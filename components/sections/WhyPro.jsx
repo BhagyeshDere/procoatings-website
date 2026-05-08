@@ -2,7 +2,7 @@
 
 import { Layers, ShieldCheck, Sparkles, Droplets } from "lucide-react";
 import { motion } from "framer-motion";
-import Link from "next/link"; // Added for routing
+import Link from "next/link";
 
 const benefits = [
   {
@@ -25,7 +25,7 @@ const benefits = [
 
 export default function WhyPro() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-20 bg-white">
+    <section className="relative overflow-hidden py-16 md:py-24 bg-white">
       
       {/* Background Marble / Texture */}
       <div
@@ -37,51 +37,51 @@ export default function WhyPro() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6">
         
-        {/* HEADER SECTION - Wider layout to match image */}
+        {/* HEADER SECTION */}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-16"
         >
-          {/* Title updated with Brand Navy Blue */}
-          <h2 className="text-4xl md:text-[68px] font-[1000] leading-[0.9] text-[#0D2B45] uppercase tracking-tighter">
+          <h2 className="text-4xl md:text-[72px] font-[1000] leading-[0.9] text-[#0D2B45] uppercase tracking-tighter">
             AVERAGE COATINGS FAIL. <br />
             <span className="text-[#F5A623]">PRO COATINGS PERFORM.</span>
           </h2>
-          <p className="mt-6 text-lg font-medium text-gray-700 max-w-lg">
+          <p className="mt-6 text-lg md:text-xl font-medium text-gray-700 max-w-2xl">
             We don’t use shortcut coating systems. Our solutions are engineered for long-term industrial protection.
           </p>
           
-          {/* Button updated to Link for navigation */}
-          <Link href="/contact" className="inline-block mt-6">
-            <button className="bg-[#F5A623] text-[#0D2B45] px-8 py-3.5 rounded-full font-black text-sm hover:scale-105 transition shadow-lg uppercase tracking-wider">
+          <Link href="/contact" className="inline-block mt-8">
+            <button className="bg-[#F5A623] text-[#0D2B45] px-10 py-4 rounded-full font-black text-sm hover:scale-105 transition shadow-xl uppercase tracking-wider">
               Get a Free Quote
             </button>
           </Link>
         </motion.div>
 
-        {/* CONTENT GRID: Image and Cards side-by-side */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-end gap-10 lg:gap-16">
+        {/* CONTENT GRID: Larger Image and Cards */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
-          {/* PRODUCT IMAGE - LEFT */}
+          {/* PRODUCT IMAGE - LEFT (Size Improved) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="w-full lg:w-1/3 flex justify-center lg:justify-start"
+            className="w-full lg:w-[45%] flex justify-center lg:justify-start"
           >
-            <img
-              src="/images/whypro/product.png"
-              alt="Pro Coatings Products"
-              className="w-full max-w-[420px] drop-shadow-2xl"
-            />
+            <div className="relative w-full max-w-[550px] lg:max-w-none">
+                <img
+                src="/images/whypro/product1.png"
+                alt="Pro Coatings Products"
+                className="w-full h-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] hover:scale-105 transition-transform duration-700"
+                />
+            </div>
           </motion.div>
 
-          {/* BENEFIT CARDS - RIGHT (Long and Slim) */}
-          <div className="w-full lg:w-2/3 flex flex-col gap-4">
+          {/* BENEFIT CARDS - RIGHT */}
+          <div className="w-full lg:w-[55%] flex flex-col gap-5">
             {benefits.map((item, i) => (
               <motion.div
                 key={i}
@@ -92,20 +92,20 @@ export default function WhyPro() {
                 className="
                   bg-white 
                   rounded-full 
-                  shadow-[0_4px_25px_rgba(13,43,69,0.08)] 
-                  border border-gray-100
-                  px-8 py-4 md:py-5
+                  shadow-[0_10px_30px_rgba(13,43,69,0.06)] 
+                  border border-gray-100/50
+                  px-8 py-5 md:py-6
                   flex items-center gap-6
-                  w-full lg:max-w-[850px]
+                  w-full
+                  hover:shadow-[0_15px_40px_rgba(13,43,69,0.12)]
+                  transition-shadow duration-300
                 "
               >
-                {/* Icon Container updated with Brand Navy */}
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#0D2B45] text-white flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#0D2B45] text-white flex items-center justify-center shrink-0 shadow-inner">
                   {item.icon}
                 </div>
 
-                {/* Title updated with Brand Navy */}
-                <h3 className="text-base md:text-[20px] font-bold text-[#0D2B45] tracking-tight">
+                <h3 className="text-base md:text-[22px] font-bold text-[#0D2B45] tracking-tight leading-snug">
                   {item.title}
                 </h3>
               </motion.div>

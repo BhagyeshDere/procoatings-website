@@ -47,7 +47,7 @@ const systems = [
     desc: "ESD control flooring engineered for electronics and cleanroom apps."
   },
   {
-    title: "Elite Finish",
+    title: "Floor Densification",
     slug: "formula-one-grade-finish",
     tag: "Premium",
     icon: Trophy,

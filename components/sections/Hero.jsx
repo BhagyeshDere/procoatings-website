@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Send, ArrowRight } from "lucide-react";
-import Link from "next/link"; // Assuming you are using Next.js for routing
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -20,7 +19,7 @@ export default function Hero() {
           <source src="/video/hero.mp4" type="video/mp4" />
         </video>
         
-        {/* ⚡ UPDATED: Reduced Overlay - Using a radial vignette instead of heavy linear gradients */}
+        {/* ⚡ RADIAL VIGNETTE OVERLAY */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 z-10" />
         <div className="absolute inset-0 bg-black/20 z-10" />
       </div>
@@ -43,52 +42,26 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Clean, Massive Heading with slight shadow for legibility */}
+        {/* Clean, Massive Heading with Blue "PRO" */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="text-5xl md:text-8xl font-black text-white leading-tight tracking-tighter uppercase drop-shadow-2xl"
         >
-          PRO <span className="text-[#EAA33F]">COATINGS</span>
+          <span className="text-[#0F3250]">PRO</span> <span className="text-[#EAA33F]">COATINGS</span>
         </motion.h1>
 
-        {/* Minimalist Subtext - Increased weight slightly for better visibility */}
+        {/* Minimalist Subtext */}
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           className="mt-6 text-white text-base md:text-xl max-w-2xl mx-auto font-semibold leading-relaxed drop-shadow-md"
         >
-          Engineered for resilience. Designed for longevity. 
-          <span className="block md:inline"> The gold standard in high-performance industrial protection.</span>
+          STRENGTH YOU SEE, TRUST YOU FEEL.
+          
         </motion.p>
-
-        {/* 🛠️ UPDATED ACTION CENTER */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6 }}
-          className="mt-10 flex flex-col md:flex-row items-center justify-center gap-5"
-        >
-          {/* Primary Action: Request Quote (Links to Contact Page) */}
-          <Link href="/contact" className="w-full md:w-auto">
-            <button 
-              className="group w-full px-10 py-4 bg-[#EAA33F] text-[#0F3250] font-black text-xs tracking-[0.2em] uppercase transition-all hover:scale-105 rounded-full flex items-center justify-center gap-3 shadow-xl"
-            >
-              Request Quote <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </button>
-          </Link>
-
-          {/* Secondary Action: About Us (Links to About Page) */}
-          <Link href="/about" className="w-full md:w-auto">
-            <button 
-              className="group w-full px-10 py-4 border border-white/40 bg-black/20 backdrop-blur-md text-white font-black text-xs tracking-[0.2em] uppercase transition-all hover:bg-white hover:text-[#0F3250] rounded-full flex items-center justify-center gap-3"
-            >
-              About Us <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </Link>
-        </motion.div>
 
       </div>
 

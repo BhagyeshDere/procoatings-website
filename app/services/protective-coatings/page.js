@@ -49,7 +49,7 @@ const coatings = [
   {
     title: "Fire Resistant",
     tag: "Passive Fire",
-    image: "/images/services/fire.png",
+    image: "/images/services/fire1.png",
     icon: Flame,
     desc: "High-performance protection for structural and industrial safety.",
     slug: "fire-retardant-coating"

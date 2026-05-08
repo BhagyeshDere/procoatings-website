@@ -20,6 +20,24 @@ const serviceHighlights = [
     desc: "Extreme environment protective layering.",
     video: "/video/p2.mp4",
     id: "SRV-03"
+  },
+  {
+    title: "Industrial Floor Densification",
+    desc: "Advanced lithium-based hardening.",
+    video: "/video/p1.mp4", // Replace with your 4th video path
+    id: "SRV-04"
+  },
+  {
+    title: "Fire Retardant Systems",
+    desc: "Certified thermal protection layering.",
+    video: "/video/p3.mp4", // Replace with your 5th video path
+    id: "SRV-05"
+  },
+  {
+    title: "Roof Restoration",
+    desc: "Cool-roof heat reflective solutions.",
+    video: "/video/p2.mp4", // Replace with your 6th video path
+    id: "SRV-06"
   }
 ];
 
@@ -66,8 +84,8 @@ export default function VideoServices() {
           <div className="mt-6 w-20 h-1 bg-[#0F3250]/10 rounded-full" />
         </div>
 
-        {/* 🔥 SYMMETRIC SERVICE VIDEO CARDS */}
-        <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
+        {/* 🔥 SYMMETRIC SERVICE VIDEO CARDS - Updated to 6 items */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {serviceHighlights.map((item, i) => (
             <motion.div
               key={i}
@@ -75,8 +93,16 @@ export default function VideoServices() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1, duration: 0.8 }}
               viewport={{ once: true }}
-              className="group relative h-[500px] md:h-[650px] overflow-hidden bg-slate-900 rounded-sm shadow-2xl"
+              className="group relative h-[450px] md:h-[550px] lg:h-[600px] overflow-hidden bg-slate-900 rounded-sm shadow-2xl"
             >
+              {/* Overlay Content (Optional: Title on Hover) */}
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 z-10" />
+              
+              <div className="absolute bottom-8 left-8 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="text-[#EAA33F] text-[10px] font-black tracking-widest mb-2">{item.id}</p>
+                <h3 className="text-white text-2xl font-black uppercase tracking-tighter">{item.title}</h3>
+              </div>
+
               <video
                 autoPlay
                 muted
@@ -96,13 +122,10 @@ export default function VideoServices() {
         {/* 🛠️ SERVICE STATUS FOOTER */}
         <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap justify-between items-center gap-8 opacity-60">
             <div className="flex gap-12">
-              <div className="flex flex-col">
-                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Standard</span>
-                <span className="text-sm font-bold">ASME / ASTM Compliant</span>
-              </div>
+              
               <div className="flex flex-col">
                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Response</span>
-                <span className="text-sm font-bold">24/7 Field Tech Support</span>
+                <span className="text-sm font-bold">24 / 7 Field Tech Support</span>
               </div>
             </div>
             

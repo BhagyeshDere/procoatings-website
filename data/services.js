@@ -130,7 +130,7 @@ export const servicesData = {
       },
       {
         slug: "formula-one-grade-finish",
-        title: "Formula One Grade Finish",
+        title: "Floor Densification",
         image: "/images/services/elite1.png",
         gallery: [
           "/images/services/elite1.png",
@@ -176,9 +176,9 @@ export const servicesData = {
       {
         slug: "fire-retardant-coating",
         title: "Fire Retardant Coating",
-        image: "/images/services/fire.png",
+        image: "/images/services/fire1.png",
         gallery: [
-          "/images/services/fire.png",
+          "/images/services/fire1.png",
           "/images/services/fire2.png",
           "/images/services/fire3.png"
         ],

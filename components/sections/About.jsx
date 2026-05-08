@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import Link from "next/link";
 
 const serviceImages = [
   "/images/services/dielectric.jpeg",
@@ -59,36 +60,38 @@ export default function ProAboutSection() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
           
           {/* 🔷 LEFT CONTENT */}
-          <div className="w-full lg:w-[45%]">
+          <div className="w-full lg:w-[50%]">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <div className="inline-block bg-[#EAA33F] px-4 py-1 mb-6">
-                <span className="text-[#0F3250] text-[10px] font-black uppercase tracking-[0.2em]">Industry Standards</span>
+              <div className="inline-block bg-[#0F3250] px-4 py-1 mb-6">
+                <span className="text-white text-[10px] font-black uppercase tracking-[0.2em]">Industry Standards</span>
               </div>
 
-              <h2 className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter uppercase mb-6">
-                STRENGTH YOU <span className="text-[#EAA33F]">SEE</span>,<br />
-                TRUST YOU FEEL.
+              {/* Corrected Heading Formatting */}
+              <h2 className="text-4xl md:text-6xl xl:text-7xl font-black leading-[1.1] tracking-tighter uppercase mb-8">
+                The Gold Standard in <br className="hidden md:block" />
+                <span className="text-[#EAA33F]">High-Performance</span> <br className="hidden md:block" />
+                Industrial Protection.
               </h2>
 
-              <div className="space-y-5 max-w-lg mb-8">
-                <p className="text-lg font-bold leading-tight text-slate-800">
-                  Pro Coatings delivers specialized waterproofing, epoxy, and industrial protective coatings across diverse nationwide sectors.
+              <div className="space-y-6 max-w-xl mb-8">
+                <p className="text-lg md:text-xl font-bold leading-tight text-slate-800">
+                  <span className="text-[#0F3250]">PRO</span> <span className="text-[#EAA33F]">COATINGS</span> delivers specialized waterproofing, epoxy, and industrial protective systems engineered for resilience.
                 </p>
-                <p className="text-sm leading-relaxed text-slate-500 font-medium">
-                  Backed by highly qualified professionals, we combine advanced technology to ensure environment-friendly, long-lasting, and energy-efficient solutions.
+                <p className="text-sm md:text-base leading-relaxed text-slate-500 font-medium italic">
+                  "Backed by highly qualified professionals, we combine advanced technology to ensure environment-friendly, long-lasting, and energy-efficient solutions across nationwide sectors."
                 </p>
               </div>
             </motion.div>
           </div>
 
           {/* 🔷 RIGHT VISUAL */}
-          <div className="w-full lg:w-[50%] h-[450px] md:h-[600px] relative flex items-center justify-center lg:justify-end lg:pr-24">
-            <div className="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px] translate-x-10 translate-y-16 mt-12 md:mt-24">
+          <div className="w-full lg:w-[45%] h-[450px] md:h-[600px] relative flex items-center justify-center lg:justify-end lg:pr-12">
+            <div className="relative w-[220px] h-[220px] md:w-[320px] md:h-[320px] translate-x-10 translate-y-8 md:translate-y-16">
               {serviceImages.map((img, index) => (
                 <motion.div
                   key={index}
@@ -97,13 +100,15 @@ export default function ProAboutSection() {
                     y: transforms[index].y,
                     zIndex: index + 10,
                   }}
-                  className="absolute inset-0 aspect-square shadow-[15px_25px_50px_-10px_rgba(15,50,80,0.3)] overflow-hidden rounded-sm bg-slate-100"
+                  className="absolute inset-0 aspect-square shadow-[20px_30px_60px_-15px_rgba(15,50,80,0.4)] overflow-hidden rounded-sm bg-slate-100 border border-white/20 cursor-pointer"
                 >
-                  <img
-                    src={img}
-                    alt={`Industrial Phase ${index + 1}`}
-                    className="w-full h-full object-cover aspect-square"
-                  />
+                  <Link href="/gallery" className="block w-full h-full">
+                    <img
+                      src={img}
+                      alt={`Industrial Phase ${index + 1}`}
+                      className="w-full h-full object-cover aspect-square hover:scale-110 transition-transform duration-500"
+                    />
+                  </Link>
                 </motion.div>
               ))}
             </div>

@@ -56,7 +56,7 @@ const systems = [
   },
   {
     title: "External Walls",
-    tag: "Facade",
+    tag: "External",
     image: "/images/services/external-walls.jpeg",
     icon: Droplets,
     desc: "Exterior barrier systems against vertical moisture ingress.",

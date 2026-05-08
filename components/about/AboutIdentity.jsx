@@ -76,7 +76,7 @@ export default function AboutIdentity() {
               </div>
               <div className="h-[280px] md:h-[350px] rounded-[2.5rem] overflow-hidden shadow-xl bg-slate-200">
                 <img 
-                  src="/images/about/floor.png" 
+                  src="/images/about/external-walls.jpeg" 
                   className="w-full h-full object-cover" 
                   alt="Waterproofing Application" 
                 />

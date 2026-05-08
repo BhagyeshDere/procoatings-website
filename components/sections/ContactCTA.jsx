@@ -62,10 +62,8 @@ export default function ContactCTA() {
           transition={{ delay: 0.4 }}
           className="mt-12 flex items-center justify-center gap-2"
         >
-          <ShieldCheck size={16} className="text-[#EAA33F]" />
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-            ISO 9001:2015 Certified
-          </span>
+          
+          
         </motion.div>
 
       </div>

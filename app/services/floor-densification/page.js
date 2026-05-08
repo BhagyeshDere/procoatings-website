@@ -37,14 +37,6 @@ const densifiers = [
     image: "/images/services/ashford.jpeg",
     desc: "Permanent penetrating hardening technology engineered for heavy industrial traffic.",
   },
-  {
-    title: "Ashford Formula",
-    slug: "ashford-formula-system",
-    tag: "Molecular",
-    icon: FlaskConical,
-    image: "/images/services/ashford.png",
-    desc: "Chemically reactive system for long lifecycle concrete performance and hardening.",
-  }
 ];
 
 export default function FloorDensificationPage() {
@@ -77,7 +69,7 @@ export default function FloorDensificationPage() {
         </div>
       </section>
 
-      {/* 🟠 SYSTEMS GRID - Consistent Layout */}
+      {/* 🟠 SYSTEMS GRID - Updated for 3 columns on desktop */}
       <section className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
@@ -88,7 +80,8 @@ export default function FloorDensificationPage() {
             <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[3px]">Performance Matrix</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+          {/* Grid updated: 1 col on mobile, 2 on tablet, 3 on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {densifiers.map((item, index) => (
               <div
                 key={index}

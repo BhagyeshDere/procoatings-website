@@ -7,7 +7,7 @@ const clients = [
   { name: "Dynalec Controls Pvt. Ltd.", img: "/images/clients/dynalec.jpg" },
   { name: "Pennant Engineering Pvt. Ltd.", img: "/images/clients/pennant.png" },
   { name: "ABsource Biologics Pvt. Ltd.", img: "/images/clients/absource.png" },
-  { name: "Kaka Halwai Sweets", img: "/images/clients/kakahalwai.jpg" },
+  { name: "Kaka Halwai Sweets", img: "/images/clients/kaka.png" },
   //{ name: "Devatha Agro Farms LLP", img: "/images/clients/devatha.jpg" },
   { name: "ANCI Fitouts India PVT.LTD", img: "/images/clients/anci.png" },
  // { name: "Benfield Fodder", img: "/images/clients/benfield.jpg" },
