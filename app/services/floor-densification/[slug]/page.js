@@ -7,11 +7,11 @@ import {
   ArrowLeft, 
   ArrowRight,
   ShieldCheck,
-  Settings,
-  Ruler,
+  Award,
   Zap,
   Activity,
-  CheckCircle2
+  CheckCircle2,
+  ChevronRight
 } from "lucide-react";
 import { servicesData } from "@/data/services";
 
@@ -42,12 +42,8 @@ export default function ServiceDetailPage() {
     );
   }
 
-  const specIcons = [<ShieldCheck />, <Settings />, <Ruler />, <Zap />];
+  const advantageIcons = [<ShieldCheck />, <Award />, <Zap />, <CheckCircle2 />];
 
-  /** * Updated logic: 
-   * Pulls the gallery array from data/services.js.
-   * Fallback to primary image if gallery is missing or empty.
-   */
   const galleryImages = service.gallery && service.gallery.length > 0 
     ? service.gallery 
     : [service.image, service.image, service.image];
@@ -73,8 +69,8 @@ export default function ServiceDetailPage() {
             <span className="text-[10px] font-bold uppercase tracking-widest">Back to Services</span>
           </button>
 
-          {/* MAIN PRODUCT DISPLAY */}
-          <div className="relative w-full flex items-center justify-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] overflow-hidden bg-white/50 rounded-3xl p-4">
+          {/* MAIN DISPLAY */}
+          <div className="relative w-full flex items-center justify-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] overflow-hidden bg-white/50 rounded-3xl p-4 shadow-inner border border-white">
             <AnimatePresence mode="wait">
               <motion.img 
                 key={selectedIdx}
@@ -88,7 +84,6 @@ export default function ServiceDetailPage() {
               />
             </AnimatePresence>
             
-            {/* Technical Reference Tag */}
             <div className="absolute bottom-4 left-6 flex items-center gap-3 opacity-30 hidden sm:flex">
                <div className="h-[1px] w-12 bg-[#0D2B45]" />
                <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">
@@ -97,8 +92,8 @@ export default function ServiceDetailPage() {
             </div>
           </div>
 
-          {/* THUMBNAIL GALLERY: Dynamically rendered from servicesData */}
-          <div className="grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 mt-6">
+          {/* THUMBNAILS - Added ml-8 on lg screens to move slightly right */}
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 mt-6 ml-0 lg:ml-8 transition-all duration-500">
             {galleryImages.map((img, idx) => (
               <button
                 key={idx}
@@ -130,7 +125,7 @@ export default function ServiceDetailPage() {
             className="flex items-center w-fit gap-2 bg-[#0D2B45] text-white px-4 py-1.5 rounded-full mb-6 shadow-md"
           >
             <Activity size={12} className="text-[#EAA33F]" />
-            <span className="text-[9px] font-black uppercase tracking-widest">Structural Integrity Verified</span>
+            <span className="text-[9px] font-black uppercase tracking-widest">High-Performance Grade</span>
           </motion.div>
 
           <motion.h1 
@@ -144,49 +139,50 @@ export default function ServiceDetailPage() {
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="border-l-4 border-[#EAA33F] pl-5 md:pl-6 mb-8 md:mb-10"
+            className="bg-white rounded-2xl p-6 md:p-8 border border-slate-100 shadow-sm mb-10"
           >
-            <p className="text-sm md:text-base lg:text-lg text-slate-500 italic leading-relaxed font-medium max-w-lg">
+            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#EAA33F] mb-3">Service Overview</h3>
+            <p className="text-sm md:text-base text-slate-500 leading-relaxed font-bold">
               {service.description}
             </p>
           </motion.div>
 
-          {/* FEATURES GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-8 md:mb-10">
-            {service.features.map((feature, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05 * idx }}
-                className="bg-white p-3 md:p-4 rounded-xl md:rounded-2xl border border-slate-100 flex items-center gap-3 group hover:border-[#EAA33F] transition-all duration-300 shadow-sm"
-              >
-                <div className="text-[#EAA33F] bg-[#F8F9FA] p-2 md:p-2.5 rounded-lg group-hover:bg-[#EAA33F] group-hover:text-white transition-colors shrink-0">
-                  {React.cloneElement(specIcons[idx % 4], { size: 18 })}
-                </div>
-                <p className="font-bold text-[#0D2B45] uppercase tracking-tight text-[10px] md:text-xs leading-tight">
-                  {feature}
-                </p>
-              </motion.div>
-            ))}
+          {/* ADVANTAGES GRID */}
+          <div className="mb-10">
+            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0D2B45] mb-6 flex items-center gap-2">
+              <ChevronRight size={14} className="text-[#EAA33F]" />
+              Core Advantages
+            </h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {service.advantages.map((advantage, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * idx }}
+                  className="group flex items-center gap-4 bg-white p-4 rounded-2xl border border-slate-100 hover:border-[#EAA33F]/50 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 text-[#EAA33F] group-hover:bg-[#EAA33F] group-hover:text-white transition-all duration-300 shrink-0">
+                    {React.cloneElement(advantageIcons[idx % 4], { size: 18 })}
+                  </div>
+                  <p className="text-[11px] md:text-xs font-black uppercase tracking-tight text-[#0D2B45]">
+                    {advantage}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
-          {/* CTA & BENEFIT TAG */}
+          {/* CTA SECTION */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col sm:flex-row items-center gap-6 pt-6 border-t border-slate-100"
           >
-            <div className="flex items-start gap-3 bg-slate-100/50 p-4 rounded-xl border border-dashed border-slate-200">
-              <CheckCircle2 className="text-[#EAA33F] shrink-0 mt-0.5" size={18} />
-              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 leading-relaxed">
-                <span className="text-[#0D2B45]">Core Benefit:</span> {service.benefits}
-              </p>
-            </div>
-
             <a 
               href={`/contact?service=${encodeURIComponent(service.title)}`}
-              className="group flex items-center justify-between bg-[#0D2B45] text-white px-8 py-4 rounded-xl font-black uppercase text-[10px] tracking-[0.3em] w-full sm:w-fit min-w-[240px] hover:bg-[#EAA33F] hover:text-[#0D2B45] transition-all duration-300 shadow-lg text-center"
+              className="group flex items-center justify-between bg-[#0D2B45] text-white px-10 py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] w-full sm:w-fit min-w-[260px] hover:bg-[#EAA33F] hover:text-[#0D2B45] transition-all duration-300 shadow-xl"
             >
               Enquire Now 
               <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />

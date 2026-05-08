@@ -14,9 +14,8 @@ export const servicesData = {
           "/images/services/basement2.png",
           "/images/services/basement3.png"
         ],
-        description: "Specialized pressure-resistant membranes for below-ground structures.",
-        features: ["Hydrostatic Pressure Resistance", "Positive & Negative Side Treatment", "Seamless Barrier", "Anti-Efflorescence Properties"],
-        benefits: "Ensures dry, usable below-grade spaces and prevents structural decay."
+        description: "Specialized pressure-resistant membrane systems engineered for below-ground concrete structures.",
+        advantages: ["Hydrostatic Pressure Resistance", "Positive & Negative Side Treatment", "Seamless Moisture Barrier", "Prevents Structural Decay"]
       },
       {
         slug: "terrace-roof-solution",
@@ -27,9 +26,8 @@ export const servicesData = {
           "/images/services/terraceroof-2.jpeg",
           "/images/services/terraceroof-3.jpeg"
         ],
-        description: "High-durability weatherproofing for exposed roof surfaces and terraces.",
-        features: ["UV Stability", "Thermal Insulation Properties", "Elastomeric Flexibility", "Crack-Bridging Ability"],
-        benefits: "Protects against extreme weather and reduces indoor temperature fluctuations."
+        description: "High-durability weatherproofing and elastomeric coatings for exposed roof surfaces and terraces.",
+        advantages: ["Superior UV Stability", "Thermal Insulation Support", "Excellent Crack-Bridging", "Weather Resistance"]
       },
       {
         slug: "podium-waterproofing",
@@ -40,9 +38,8 @@ export const servicesData = {
           "/images/services/podium2.png",
           "/images/services/podium3.png"
         ],
-        description: "Heavy-duty waterproofing designed for landscaped podiums and parking decks.",
-        features: ["Root Penetration Resistance", "High Traffic Loading", "Multi-layer Defense", "Puncture Resistance"],
-        benefits: "Long-term protection for complex multi-use structural slabs."
+        description: "Heavy-duty waterproofing designed to withstand soil load and traffic on landscaped podiums.",
+        advantages: ["Root Penetration Resistance", "Heavy Traffic Load Bearing", "Multi-layer Defense", "Puncture Resistant"]
       },
       {
         slug: "structural-anti-carbonation",
@@ -53,9 +50,8 @@ export const servicesData = {
           "/images/services/carbonation2.png",
           "/images/services/carbonation3.png"
         ],
-        description: "Protective coatings that prevent CO2 ingress and reinforce concrete longevity.",
-        features: ["CO2 Diffusion Resistance", "Breathable Coating", "Chloride Ion Barrier", "Weather Shield"],
-        benefits: "Extends the service life of reinforced concrete structures."
+        description: "Advanced protective coatings that prevent CO2 ingress and preserve reinforced concrete longevity.",
+        advantages: ["CO2 Diffusion Resistance", "Breathable Material", "Chloride Ion Barrier", "Extended Structure Life"]
       },
       {
         slug: "external-walls",
@@ -66,13 +62,13 @@ export const servicesData = {
           "/images/services/external-walls-2.jpeg",
           "/images/services/external-walls-3.jpeg"
         ],
-        description: "Exterior barrier systems against vertical moisture ingress.",
-        features: ["Crack-Bridging Elastomers", "Weatherproof Sealing", "UV Resistant Finish", "Vertical Drainage Efficiency"],
-        benefits: "Maintains facade aesthetics while preventing internal dampness."
+        description: "Exterior barrier systems designed to shield facades against vertical moisture and rain ingress.",
+        advantages: ["Elastomeric Crack-Bridging", "Weatherproof Sealing", "Anti-Fungal Protection", "Maintains Facade Aesthetics"]
       }
     ]
   },
-  "industrial-floor-coatings": {
+  // Corrected key to match your folder 'industrial-flooring'
+  "industrial-flooring": {
     title: "Industrial Floor Coatings",
     description: "High-performance surfacing solutions for warehouses, factories, and cleanroom environments.",
     subServices: [
@@ -85,9 +81,8 @@ export const servicesData = {
           "/images/services/epoxy-2.jpeg",
           "/images/services/epoxy-3.jpeg"
         ],
-        description: "Industrial-grade epoxy resins for superior chemical and mechanical resistance.",
-        features: ["High Gloss Finish", "Oil & Chemical Resistant", "Easy to Sanitize", "Impact & Abrasion Guard"],
-        benefits: "Creates a seamless, hygienic, and highly durable work environment."
+        description: "Industrial-grade epoxy resins providing superior chemical resistance and mechanical durability.",
+        advantages: ["Oil & Chemical Resistant", "Impact & Abrasion Guard", "Easy to Sanitize", "Seamless Hygienic Finish"]
       },
       {
         slug: "heavy-duty-pu-floor",
@@ -98,9 +93,8 @@ export const servicesData = {
           "/images/services/pu2.png",
           "/images/services/pu3.png"
         ],
-        description: "Polyurethane flooring designed for extreme impact and thermal shock resistance.",
-        features: ["Antimicrobial Properties", "Slip Resistance", "Thermal Stability", "Non-Porous Surface"],
-        benefits: "Ideal for food processing and heavy manufacturing zones."
+        description: "Impact-resistant polyurethane systems built for thermal shock and extreme manufacturing conditions.",
+        advantages: ["Thermal Shock Resistance", "Antimicrobial Properties", "Slip-Resistant Surface", "High Flexibility"]
       },
       {
         slug: "anti-static-esd-flooring",
@@ -111,9 +105,8 @@ export const servicesData = {
           "/images/services/esd2.png",
           "/images/services/esd3.png"
         ],
-        description: "Conductive flooring systems to protect sensitive electronic components.",
-        features: ["Controlled Resistance", "Spark Prevention", "Consistent Earthing", "Wear-Resistant Finish"],
-        benefits: "Protects personnel and equipment from electrostatic discharge."
+        description: "Specialized conductive flooring engineered to safely dissipate static electricity in electronics zones.",
+        advantages: ["Controlled Conductivity", "Static Damage Prevention", "Consistent Earthing", "Dust-Free Environment"]
       },
       {
         slug: "dielectric-safety-coating",
@@ -124,9 +117,8 @@ export const servicesData = {
           "/images/services/dielectric-2.jpeg",
           "/images/services/dielectric-3.jpeg"
         ],
-        description: "Insulating floor systems designed for high-voltage electrical environments.",
-        features: ["High Breakdown Voltage", "Electrical Shock Guard", "Ergonomic Surface", "Flame Retardant"],
-        benefits: "Critical safety layer for substations and server rooms."
+        description: "Non-conductive insulating systems designed for high-voltage electrical rooms and substations.",
+        advantages: ["High Breakdown Voltage", "Electrical Shock Protection", "Flame Retardant Properties", "Safety Standard Compliance"]
       },
       {
         slug: "formula-one-grade-finish",
@@ -137,9 +129,8 @@ export const servicesData = {
           "/images/services/elite2.png",
           "/images/services/elite3.png"
         ],
-        description: "Elite-tier aesthetic and functional finishing for high-end automotive facilities.",
-        features: ["Ultra-High Gloss", "Tire Mark Resistance", "Seamless Perfection", "Chemical Shield"],
-        benefits: "Combines world-class aesthetics with extreme chemical resilience."
+        description: "Elite-tier aesthetic and molecular hardening finish for high-end industrial and automotive facilities.",
+        advantages: ["Ultra-High Gloss Lustre", "Tire Mark Resistance", "Extreme Chemical Shield", "Molecular Surface Strength"]
       },
       {
         slug: "anti-skid-surface-treatment",
@@ -150,9 +141,8 @@ export const servicesData = {
           "/images/services/antiskid-2.png",
           "/images/services/antiskid-3.png"
         ],
-        description: "Safety-first surfacing with varying textures to prevent workplace accidents.",
-        features: ["Custom Grit Sizes", "Wet Grip Enhancement", "Heavy Duty Wear", "Easy Cleaning"],
-        benefits: "Significantly reduces slip-and-fall hazards in high-risk areas."
+        description: "Safety-focused high-traction surfacing to prevent slips and accidents in industrial workplaces.",
+        advantages: ["Enhanced Wet Grip", "Customizable Textures", "Heavy-Duty Wear Life", "Accident Risk Reduction"]
       }
     ]
   },
@@ -169,9 +159,8 @@ export const servicesData = {
           "/images/services/corrosion-2.jpeg",
           "/images/services/corrosion-3.jpeg"
         ],
-        description: "High-build coatings to prevent metal oxidation in aggressive environments.",
-        features: ["Salt Spray Resistance", "Zinc-Rich Primers", "C5 Category Protection", "Weatherproof Shield"],
-        benefits: "Prevents rust and structural failure in corrosive industrial zones."
+        description: "High-build protective coatings designed to prevent metal oxidation in aggressive environments.",
+        advantages: ["Salt Spray Resistance", "Zinc-Rich Protection", "Rust Growth Inhibition", "Aggressive Environment Guard"]
       },
       {
         slug: "fire-retardant-coating",
@@ -182,9 +171,8 @@ export const servicesData = {
           "/images/services/fire2.png",
           "/images/services/fire3.png"
         ],
-        description: "Intumescent coatings that provide critical time during fire emergencies.",
-        features: ["Passive Fire Protection", "Structural Integrity Guard", "Low Smoke Emission", "Certified Rating"],
-        benefits: "Slows heat transfer to steel structures, allowing safer evacuation."
+        description: "Intumescent coatings that provide critical passive fire protection for structural integrity.",
+        advantages: ["Slows Heat Transfer", "Structural Integrity Guard", "Low Smoke Emission", "Certified Safety Rating"]
       },
       {
         slug: "heat-reflective-roof-coating",
@@ -195,9 +183,8 @@ export const servicesData = {
           "/images/services/heat-2.jpeg",
           "/images/services/heat-3.jpeg"
         ],
-        description: "High-albedo coatings that reflect solar radiation to reduce building heat.",
-        features: ["High SRI Value", "Reduced Cooling Costs", "UV Blocking", "Anti-Algae Formula"],
-        benefits: "Significantly lowers energy consumption and HVAC load."
+        description: "High-albedo solar-reflective coatings that reduce heat absorption and building energy costs.",
+        advantages: ["Significant Temperature Drop", "Reduced HVAC Load", "UV Radiation Blocking", "Sustainable Energy Saving"]
       },
       {
         slug: "metal-roof-restoration",
@@ -208,9 +195,8 @@ export const servicesData = {
           "/images/services/roof2.png",
           "/images/services/roof3.png"
         ],
-        description: "Complete repair and coating system for aging industrial metal roofs.",
-        features: ["Leak Prevention", "Rust Conversion", "Thermal Expansion Ready", "Sustainable Choice"],
-        benefits: "Extends roof life without the cost of complete replacement."
+        description: "Comprehensive restoration systems for industrial metal roofs to prevent leaks and rust.",
+        advantages: ["Leak Prevention", "Rust Conversion", "Thermal Expansion Ready", "Cost-Effective Restoration"]
       },
       {
         slug: "electrical-insulation",
@@ -221,12 +207,11 @@ export const servicesData = {
           "/images/services/insulation2.png",
           "/images/services/insulation3.png"
         ],
-        description: "Specialized insulating coatings for electrical safety and equipment protection.",
-        features: ["Dielectric Strength", "Arc Resistance", "Moisture Barrier", "Thermal Stability"],
-        benefits: "Enhances equipment safety and prevents electrical leakage."
+        description: "Insulating coatings designed to safeguard electrical equipment from moisture and arc hazards.",
+        advantages: ["High Dielectric Strength", "Arc Resistance", "Moisture Barrier", "Prevents Current Leakage"]
       },
       {
-      slug: "customized-systems", // MUST MATCH THE LINK SLUG
+        slug: "customized-systems",
         title: "Customized Systems",
         image: "/images/services/carbonation2.png",
         gallery: [
@@ -234,13 +219,14 @@ export const servicesData = {
           "/images/services/insulation2.png",
           "/images/services/heat-2.jpeg"
         ],
-        description: "Custom engineered protective solutions built for specialized needs.",
-        features: ["Bespoke Formulation", "Site-Specific Analysis", "Hybrid Technologies", "Expert Consultation"],
-        benefits: "Tailor-made protection for unique industrial challenges."
+        description: "Bespoke engineered solutions tailored for unique site-specific industrial challenges.",
+        advantages: ["Site-Specific Formulation", "Hybrid Technology Integration", "Expert Consultation", "Targeted Problem Solving"]
       }
     ]
   },
-  "residential-commercial": {
+  // Matches your folder name 'residential-commercial-flooring'
+  // CHANGE THIS KEY to match the NEW folder name
+  "residential-commercial": { 
     title: "Residential & Commercial",
     description: "Architectural flooring systems that bridge the gap between decorative aesthetics and industrial-grade durability.",
     subServices: [
@@ -253,9 +239,8 @@ export const servicesData = {
           "/images/services/car2.png",
           "/images/services/car3.png"
         ],
-        description: "Heavy duty car park protection designed for high-traffic abrasion and waterproofing.",
-        features: ["Traffic Deck Grade", "Abrasion Resistance", "Waterproof Barrier", "High Durability"],
-        benefits: "Protects structural slabs from vehicle-induced wear and chloride ingress."
+        description: "Heavy-duty car park protection designed for high-traffic abrasion and waterproofing.",
+        advantages: ["Vehicle Abrasion Resistance", "Anti-Skid Safety", "Oil & Stain Proof", "Structural Slab Protection"]
       },
       {
         slug: "anti-skid-flooring",
@@ -267,8 +252,7 @@ export const servicesData = {
           "/images/services/antiskid3.png"
         ],
         description: "Slip resistant performance flooring solutions engineered for safety-critical zones.",
-        features: ["Slip Resistant Surface", "Impact Durable", "Heavy Traffic Ready", "Safety Enhancement"],
-        benefits: "Ensures safety in public thoroughfares and commercial ramps."
+        advantages: ["High Surface Traction", "Durable Commercial Grade", "Slip Prevention", "Easy Maintenance"]
       },
       {
         slug: "textured-pu-floor",
@@ -280,8 +264,7 @@ export const servicesData = {
           "/images/services/textured3.png"
         ],
         description: "Decorative polyurethane flooring with resilient finishes for premium commercial spaces.",
-        features: ["Decorative Finish", "Chemical Resistance", "Premium Texture", "Durable PU Surface"],
-        benefits: "Provides an upscale aesthetic with industrial longevity."
+        advantages: ["Upscale Aesthetic Finish", "Soft-Step Ergonomics", "Superior Stain Resistance", "Architectural Durability"]
       },
       {
         slug: "bathroom-sealing-grouting",
@@ -292,9 +275,8 @@ export const servicesData = {
           "/images/services/bathroom2.png",
           "/images/services/bathroom3.png"
         ],
-        description: "Water-tight sealing for wet areas to prevent seepage into adjoining rooms.",
-        features: ["Anti-Fungal Grout", "Epoxy Sealing", "Deep Penetration", "Stain Resistance"],
-        benefits: "Eliminates capillary seepage and prevents mold growth."
+        description: "Water-tight epoxy sealing systems to prevent dampness and seepage in residential wet areas.",
+        advantages: ["Anti-Fungal Protection", "Deep Penetrating Seal", "Zero Capillary Seepage", "Stain-Resistant Joints"]
       }
     ]
   },
@@ -311,9 +293,8 @@ export const servicesData = {
           "/images/services/lithium-2.jpeg",
           "/images/services/lithium-3.jpeg"
         ],
-        description: "Nano-lithium technology that penetrates concrete to create a permanent seal.",
-        features: ["No Surface Peeling", "Enhanced Hardness", "Breathable Material", "Nano-Penetration Tech"],
-        benefits: "Stops concrete dusting and creates a high-performance, easy-to-clean floor."
+        description: "Advanced nano-lithium technology that penetrates concrete to eliminate dusting permanently.",
+        advantages: ["Nano-Molecular Penetration", "Eliminates Concrete Dusting", "No Surface Peeling", "Enhanced Hardness"]
       },
       {
         slug: "sodium-based-hardener",
@@ -324,9 +305,8 @@ export const servicesData = {
           "/images/services/sodium-2.jpeg",
           "/images/services/sodium-3.jpeg"
         ],
-        description: "Traditional deep-penetrating hardener for maximum concrete solidification.",
-        features: ["Deep Sealing", "Dust-Proofing", "Cost-Effective", "Abrasion Guard"],
-        benefits: "Provides a cost-effective solution for hardening industrial floor slabs."
+        description: "Deep-penetrating concrete hardener for traditional industrial solidification and dust-proofing.",
+        advantages: ["Deep Surface Solidification", "Cost-Effective Hardening", "Abrasion Resistance", "Improved Service Life"]
       },
       {
         slug: "ashford-formula-system",
@@ -337,9 +317,8 @@ export const servicesData = {
           "/images/services/ashford-2.jpeg",
           "/images/services/ashford-3.jpeg"
         ],
-        description: "The world-standard catalytic densification system for concrete floors.",
-        features: ["Life-long Warranty", "Abrasion Resistance", "Marble-like Lustre", "Permanent Dust-Proofing"],
-        benefits: "The ultimate permanent flooring solution for large-scale warehouses."
+        description: "Catalytic densification treatment creating a marble-like lustre and permanent dust-free concrete.",
+        advantages: ["Life-long Performance", "Marble-like Lustre", "Permanent Dust-Proofing", "Increased Load Bearing"]
       }
     ]
   }

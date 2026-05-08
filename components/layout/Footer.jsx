@@ -18,7 +18,7 @@ export default function Footer() {
     { name: "Waterproofing", href: "/services/waterproofing" },
     { name: "Industrial Floor Coatings", href: "/services/industrial-floor-coatings" },
     { name: "Protective Coatings", href: "/services/protective-coatings" },
-    { name: "Residential & Commercial Flooring", href: "/services/residential-commercial-flooring" },
+    { name: "Residential & Commercial Flooring", href: "/services/residential-commercial" },
     { name: "Floor Densification", href: "/services/floor-densification" },
   ];
 

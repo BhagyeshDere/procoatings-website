@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, 
   ArrowRight,
   ShieldCheck,
-  Settings,
-  Ruler,
+  Award,
   Zap,
   Activity,
-  CheckCircle2
+  CheckCircle2,
+  ChevronRight
 } from "lucide-react";
 import { servicesData } from "@/data/services";
 
@@ -19,18 +19,13 @@ export default function ServiceDetailPage() {
   const params = useParams();
   const router = useRouter();
   
-  const [activeImage, setActiveImage] = useState(0);
-  const [mounted, setMounted] = useState(false);
-  
+  const [selectedIdx, setSelectedIdx] = useState(0);
+
   const service = Object.values(servicesData)
     .flatMap(category => category.subServices)
     .find((s) => s.slug === params.slug);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!service && mounted) {
+  if (!service) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 text-[#0D2B45] font-mono p-6 text-center">
         <h1 className="text-6xl font-black mb-4">404</h1>
@@ -47,161 +42,153 @@ export default function ServiceDetailPage() {
     );
   }
 
-  const specIcons = [<ShieldCheck />, <Settings />, <Ruler />, <Zap />];
-  
-  // Logic to pull gallery from your updated services.js or fallback to main image
-  const galleryImages = service?.gallery && service.gallery.length > 0 
+  const advantageIcons = [<ShieldCheck />, <Award />, <Zap />, <CheckCircle2 />];
+
+  const galleryImages = service.gallery && service.gallery.length > 0 
     ? service.gallery 
-    : service ? [service.image, service.image, service.image] : [];
+    : [service.image, service.image, service.image];
 
   return (
     <main className="min-h-screen bg-[#F8F9FA] text-[#0D2B45]">
-      <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-12 py-8 md:py-12 lg:py-20">
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 md:py-12 lg:py-20 flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
         
-        {/* BACK BUTTON */}
-        <button
-          onClick={() => router.back()}
-          className="flex items-center gap-2 text-slate-400 hover:text-[#0D2B45] transition-colors group bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-100 shadow-sm mb-8 md:mb-12 self-start"
+        {/* LEFT SIDE: Image + Interactive Gallery */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-full lg:w-1/2 flex flex-col"
         >
-          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-          <span className="text-[10px] font-bold uppercase tracking-widest">Back to Services</span>
-        </button>
+          {/* BACK BUTTON */}
+          <button
+            onClick={() => router.back()}
+            className="flex items-center gap-2 text-slate-400 hover:text-[#0D2B45] transition-colors group bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-100 shadow-sm mb-6 self-start"
+          >
+            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+            <span className="text-[10px] font-bold uppercase tracking-widest">Back to Services</span>
+          </button>
 
-        {mounted ? (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-start">
+          {/* MAIN DISPLAY */}
+          <div className="relative w-full flex items-center justify-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] overflow-hidden bg-white/50 rounded-3xl p-4 shadow-inner border border-white">
+            <AnimatePresence mode="wait">
+              <motion.img 
+                key={selectedIdx}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                src={galleryImages[selectedIdx]} 
+                alt={service.title} 
+                className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
+              />
+            </AnimatePresence>
             
-            {/* LEFT SIDE: Image + Gallery Matrix */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-full flex flex-col"
-            >
-              {/* MAIN PRODUCT DISPLAY */}
-              <div className="relative w-full aspect-square sm:aspect-video lg:aspect-square flex items-center justify-center overflow-hidden bg-white rounded-2xl md:rounded-[2.5rem] border border-slate-100 shadow-sm">
-                <AnimatePresence mode="wait">
-                  <motion.img 
-                    key={activeImage}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 0.4 }}
-                    src={galleryImages[activeImage]} 
-                    alt={service.title} 
-                    className="w-full h-full object-contain p-4 md:p-8 lg:p-12 drop-shadow-[0_20px_40px_rgba(0,0,0,0.06)]"
-                  />
-                </AnimatePresence>
-                
-                <div className="absolute bottom-6 left-6 hidden sm:flex items-center gap-3 opacity-30">
-                   <div className="h-[1px] w-12 bg-[#0D2B45]" />
-                   <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">
-                     Asset_Ref: {params.slug?.replace(/-/g, '_').toUpperCase()}
-                   </span>
-                </div>
-              </div>
-
-              {/* THUMBNAIL GALLERY */}
-              <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-3 md:gap-4 mt-6 md:mt-8">
-                {galleryImages.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveImage(idx)}
-                    className={`relative aspect-square rounded-xl md:rounded-2xl overflow-hidden border-2 transition-all duration-300 bg-white shadow-sm ${
-                      activeImage === idx 
-                        ? "border-[#EAA33F] ring-4 ring-[#EAA33F]/10" 
-                        : "border-transparent hover:border-slate-200"
-                    }`}
-                  >
-                    <img 
-                      src={img} 
-                      alt={`View ${idx + 1}`} 
-                      className={`w-full h-full object-contain p-2 transition-all duration-500 ${
-                        activeImage === idx ? 'opacity-100 scale-105' : 'opacity-40 grayscale hover:grayscale-0 hover:opacity-100'
-                      }`} 
-                    />
-                  </button>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* RIGHT SIDE: CONTENT MATRIX */}
-            <div className="w-full flex flex-col pt-2 lg:pt-6">
-              
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="flex items-center w-fit gap-2 bg-[#0D2B45] text-white px-4 py-1.5 rounded-full mb-6 shadow-md"
-              >
-                <Activity size={12} className="text-[#EAA33F]" />
-                <span className="text-[9px] font-black uppercase tracking-widest">Structural Integrity Verified</span>
-              </motion.div>
-
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-3xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[1] text-[#0D2B45] mb-6 md:mb-8"
-              >
-                {service.title}
-              </motion.h1>
-
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="border-l-4 border-[#EAA33F] pl-5 md:pl-6 mb-8 md:mb-12"
-              >
-                <p className="text-sm md:text-lg lg:text-xl text-slate-500 italic leading-relaxed font-medium max-w-lg">
-                  {service.description}
-                </p>
-              </motion.div>
-
-              {/* FEATURES GRID */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-10 md:mb-12">
-                {service.features.map((feature, idx) => (
-                  <motion.div 
-                    key={idx}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.05 * idx }}
-                    className="bg-white p-4 md:p-5 rounded-xl md:rounded-2xl border border-slate-100 flex items-center gap-3 group hover:border-[#EAA33F] transition-all duration-300 shadow-sm"
-                  >
-                    <div className="text-[#EAA33F] bg-[#F8F9FA] p-2 md:p-2.5 rounded-lg group-hover:bg-[#EAA33F] group-hover:text-white transition-colors shrink-0">
-                      {React.cloneElement(specIcons[idx % 4], { size: 18 })}
-                    </div>
-                    <p className="font-bold text-[#0D2B45] uppercase tracking-tight text-[10px] md:text-xs leading-tight">
-                      {feature}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* CTA & BENEFIT TAG */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex flex-col gap-6"
-              >
-                <div className="flex items-start gap-3 bg-slate-100/50 p-4 rounded-xl border border-dashed border-slate-200">
-                  <CheckCircle2 className="text-[#EAA33F] shrink-0 mt-0.5" size={18} />
-                  <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-slate-500 leading-relaxed">
-                    <span className="text-[#0D2B45]">Core Benefit:</span> {service.benefits || "Optimized Durability & Protection"}
-                  </p>
-                </div>
-
-                <a 
-                  href={`/contact?service=${encodeURIComponent(service.title)}`}
-                  className="group flex items-center justify-between bg-[#0D2B45] text-white px-6 md:px-8 py-4 md:py-5 rounded-xl font-black uppercase text-[10px] tracking-[0.3em] w-full sm:w-fit min-w-[260px] md:min-w-[280px] hover:bg-[#EAA33F] hover:text-[#0D2B45] transition-all duration-300 shadow-xl"
-                >
-                  Enquire Now 
-                  <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-                </a>
-              </motion.div>
+            <div className="absolute bottom-4 left-6 flex items-center gap-3 opacity-30 hidden sm:flex">
+               <div className="h-[1px] w-12 bg-[#0D2B45]" />
+               <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">
+                 Asset_Ref: {params.slug?.replace(/-/g, '_').toUpperCase()}
+               </span>
             </div>
           </div>
-        ) : (
-          <div className="min-h-[60vh] flex items-center justify-center">
-             <div className="w-8 h-8 border-4 border-[#0D2B45] border-t-[#EAA33F] rounded-full animate-spin" />
+
+          {/* THUMBNAILS - Added ml-8 on lg screens to move slightly right */}
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 mt-6 ml-0 lg:ml-8 transition-all duration-500">
+            {galleryImages.map((img, idx) => (
+              <button
+                key={idx}
+                onClick={() => setSelectedIdx(idx)}
+                className={`relative aspect-square rounded-xl md:rounded-2xl overflow-hidden border-2 transition-all duration-300 bg-white p-1.5 ${
+                  selectedIdx === idx 
+                    ? "border-[#EAA33F] shadow-md ring-2 ring-[#EAA33F]/20" 
+                    : "border-slate-100 hover:border-slate-300"
+                }`}
+              >
+                <img 
+                  src={img} 
+                  alt={`${service.title} view ${idx + 1}`} 
+                  className={`w-full h-full object-cover rounded-lg transition-opacity duration-300 ${
+                    selectedIdx === idx ? "opacity-100" : "opacity-50 hover:opacity-100"
+                  }`}
+                />
+              </button>
+            ))}
           </div>
-        )}
+        </motion.div>
+
+        {/* RIGHT SIDE: CONTENT MATRIX */}
+        <div className="w-full lg:w-1/2 flex flex-col pt-4 lg:pt-12">
+          
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center w-fit gap-2 bg-[#0D2B45] text-white px-4 py-1.5 rounded-full mb-6 shadow-md"
+          >
+            <Activity size={12} className="text-[#EAA33F]" />
+            <span className="text-[9px] font-black uppercase tracking-widest">High-Performance Grade</span>
+          </motion.div>
+
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1] text-[#0D2B45] mb-6"
+          >
+            {service.title}
+          </motion.h1>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="bg-white rounded-2xl p-6 md:p-8 border border-slate-100 shadow-sm mb-10"
+          >
+            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#EAA33F] mb-3">Service Overview</h3>
+            <p className="text-sm md:text-base text-slate-500 leading-relaxed font-bold">
+              {service.description}
+            </p>
+          </motion.div>
+
+          {/* ADVANTAGES GRID */}
+          <div className="mb-10">
+            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0D2B45] mb-6 flex items-center gap-2">
+              <ChevronRight size={14} className="text-[#EAA33F]" />
+              Core Advantages
+            </h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {service.advantages.map((advantage, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * idx }}
+                  className="group flex items-center gap-4 bg-white p-4 rounded-2xl border border-slate-100 hover:border-[#EAA33F]/50 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 text-[#EAA33F] group-hover:bg-[#EAA33F] group-hover:text-white transition-all duration-300 shrink-0">
+                    {React.cloneElement(advantageIcons[idx % 4], { size: 18 })}
+                  </div>
+                  <p className="text-[11px] md:text-xs font-black uppercase tracking-tight text-[#0D2B45]">
+                    {advantage}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA SECTION */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-col sm:flex-row items-center gap-6 pt-6 border-t border-slate-100"
+          >
+            <a 
+              href={`/contact?service=${encodeURIComponent(service.title)}`}
+              className="group flex items-center justify-between bg-[#0D2B45] text-white px-10 py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] w-full sm:w-fit min-w-[260px] hover:bg-[#EAA33F] hover:text-[#0D2B45] transition-all duration-300 shadow-xl"
+            >
+              Enquire Now 
+              <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+            </a>
+          </motion.div>
+        </div>
       </div>
     </main>
   );

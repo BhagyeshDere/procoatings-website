@@ -10,7 +10,8 @@ import {
   ThermometerSnowflake,
   Zap,
   Cpu,
-  Trophy
+  Trophy,
+  Car
 } from "lucide-react";
 
 const systems = [
@@ -52,7 +53,15 @@ const systems = [
     tag: "Premium",
     icon: Trophy,
     image: "/images/services/elite1.png",
-    desc: "Elite-tier aesthetic and functional finishing for high-end automotive facilities."
+    desc: "Molecular hardening that penetrates concrete to eliminate dusting and create a permanent, high-performance lustre."
+  },
+  {
+    title: "Car Parking",
+    slug: "car-deck-systems",
+    tag: "Traffic Grade",
+    icon: Car,
+    image: "/images/services/car.png",
+    desc: "Durable, anti-skid surface systems designed to withstand heavy vehicle load and oil spills."
   }
 ];
 
@@ -60,9 +69,8 @@ export default function IndustrialFlooringPage() {
   return (
     <main className="bg-white text-[#0F3250] overflow-hidden">
 
-      {/* 🟢 HERO SECTION - Consistent Dark Theme Layout */}
+      {/* 🟢 HERO SECTION */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-[#0F3250] overflow-hidden">
-        {/* Technical Grid Pattern */}
         <div className="absolute inset-0 opacity-10" style={{ 
           backgroundImage: `radial-gradient(#EAA33F 0.5px, transparent 0.5px)`, 
           backgroundSize: '24px 24px' 
@@ -86,7 +94,7 @@ export default function IndustrialFlooringPage() {
         </div>
       </section>
 
-      {/* 🟠 SYSTEMS GRID - Consistent Card Style */}
+      {/* 🟠 SYSTEMS GRID */}
       <section className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
@@ -103,7 +111,6 @@ export default function IndustrialFlooringPage() {
                 key={index}
                 className="group bg-white rounded-[32px] overflow-hidden border border-slate-100 hover:border-[#EAA33F]/50 transition-all duration-500 hover:shadow-2xl flex flex-col h-full"
               >
-                {/* Image container - No Gradients or Grayscale */}
                 <div className="relative h-48 md:h-56 overflow-hidden bg-slate-200">
                   <img
                     src={item.image}
@@ -111,7 +118,6 @@ export default function IndustrialFlooringPage() {
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                   />
                   
-                  {/* Floating Icon Badge */}
                   <div className="absolute top-4 left-4">
                     <div className="w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center text-[#0F3250] border border-slate-200 shadow-md group-hover:bg-[#EAA33F] group-hover:text-white transition-all duration-300">
                       <item.icon size={20} />
@@ -119,7 +125,6 @@ export default function IndustrialFlooringPage() {
                   </div>
                 </div>
 
-                {/* Content Area */}
                 <div className="p-6 md:p-8 flex flex-col flex-grow">
                   <div className="mb-3">
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#EAA33F]">
