@@ -3,12 +3,27 @@
 import { motion } from "framer-motion";
 
 const serviceHighlights = [
-  { video: "/video/wall1.mp4" },         // 1st Video: Ensure this file exists!
-  { video: "/video/p1.mp4" },           // 2nd
-  { video: "/video/p3.mp4" },           // 3rd
-  { video: "/video/tarace1.mp4" },       // 4th Video: Spelled "tarace" per your explorer
-  { video: "/video/densificaion.mp4" }, // 5th Video: Spelled "densificaion" (no 't')
-  { video: "/video/floor.mp4" },        // 6th
+  {
+    // Fix: Add the '1' to match your GitHub push
+    video: "/video/VID_20191001_153307.mp4", 
+  },
+  {
+    video: "/video/p1.mp4",
+  },
+  {
+    video: "/video/p3.mp4",
+  },
+  {
+    // Fix: Add the '1' and use 'tarace' (your spelling)
+    video: "/video/VID_20191117_094025.mp4", 
+  },
+  {
+    // Ensure this matches your explorer: "densificaion.mp4"
+    video: "/video/densificaion.mp4", 
+  },
+  {
+    video: "/video/floor.mp4",
+  }
 ];
 
 export default function VideoServices() {
