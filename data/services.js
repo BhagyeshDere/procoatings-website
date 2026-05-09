@@ -120,18 +120,23 @@ export const servicesData = {
         description: "Non-conductive insulating systems designed for high-voltage electrical rooms and substations.",
         advantages: ["High Breakdown Voltage", "Electrical Shock Protection", "Flame Retardant Properties", "Safety Standard Compliance"]
       },
-      {
-        slug: "formula-one-grade-finish",
-        title: "Floor Densification",
-        image: "/images/services/elite1.png",
-        gallery: [
-          "/images/services/elite1.png",
-          "/images/services/elite2.png",
-          "/images/services/elite3.png"
-        ],
-        description: "Elite-tier aesthetic and molecular hardening finish for high-end industrial and automotive facilities.",
-        advantages: ["Ultra-High Gloss Lustre", "Tire Mark Resistance", "Extreme Chemical Shield", "Molecular Surface Strength"]
-      },
+     {
+  slug: "formula-one-grade-finish",
+  title: "Floor Densification",
+  image: "/images/services/elite1.png",
+  gallery: [
+    "/images/services/elite1.png",
+    "/images/services/elite2.png",
+    "/images/services/elite3.png"
+  ],
+  description: "A high-performance chemical treatment that penetrates deep into the concrete silica to increase density, eliminate dusting, and create a diamond-hard, liquid-repellent surface.",
+  advantages: [
+    "Permanent Dust-Proofing",
+    "Abrasion & Impact Resistance",
+    "Superior Ambient Light Reflectivity",
+    "Low-Maintenance Polished Finish"
+  ]
+},
       {
         slug: "anti-skid-surface-treatment",
         title: "Anti-Skid Surface Treatment",
