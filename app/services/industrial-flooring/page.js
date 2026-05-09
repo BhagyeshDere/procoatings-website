@@ -52,15 +52,15 @@ const systems = [
     slug: "formula-one-grade-finish",
     tag: "Premium",
     icon: Trophy,
-    image: "/images/services/elite1.png",
+    image: "/images/services/densifi1.png",
     desc: "Molecular hardening that penetrates concrete to eliminate dusting and create a permanent, high-performance lustre."
   },
   {
     title: "Car Parking",
-    slug: "car-deck-systems",
+    slug: "industrial-car-parking",
     tag: "Traffic Grade",
     icon: Car,
-    image: "/images/services/car.png",
+    image: "/images/services/car3.png",
     desc: "Durable, anti-skid surface systems designed to withstand heavy vehicle load and oil spills."
   }
 ];

@@ -53,7 +53,7 @@ export default function WhyChoose() {
         <div 
           className="absolute inset-0 opacity-55 grayscale-[10%] contrast-[1.1] mix-blend-multiply"
           style={{ 
-            backgroundImage: "url('/images/whypro/whychoose.png')", 
+            backgroundImage: "url('/images/whypro/whychoose1.png')", 
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             // Mask ensures the image is visible but doesn't clash with the big headline
@@ -174,7 +174,7 @@ export default function WhyChoose() {
                 </div>
 
                 <div className="absolute -bottom-3 left-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-[7px] font-black uppercase text-[#D98F07] tracking-[0.4em]">Protocol_Active</span>
+                  
                 </div>
               </motion.div>
             ))}
